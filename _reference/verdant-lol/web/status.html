@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Status - Verdant External</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <canvas id="particles"></canvas>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="./index.html"><span class="dot"></span>Verdant External</a>
+        <div class="links">
+          <a href="./index.html">Home</a>
+          <a href="./products.html">Products</a>
+          <a class="active" href="./status.html">Status</a>
+          <a href="./dashboard.html">Dashboard</a>
+          <a href="./autologin.html">Autologin</a>
+          <a href="./contact.html">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <h2>System Status</h2>
+        <p>Real-time status of all products and services.</p>
+        <div class="panel status-preview">
+          <div class="status-top">
+            <strong>All Systems Operational</strong>
+            <span class="badge">Updated a few seconds ago</span>
+          </div>
+          <div class="metric-grid">
+            <div class="metric"><div class="value">4</div><div>Products</div></div>
+            <div class="metric"><div class="value">4</div><div>Operational</div></div>
+            <div class="metric"><div class="value">98.57%</div><div>Avg Uptime</div></div>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Supported in</th>
+                <th>Status</th>
+                <th>90-day uptime</th>
+              </tr>
+            </thead>
+            <tbody data-status-table></tbody>
+          </table>
+        </div>
+
+        <div class="table-wrap" style="margin-top: 18px">
+          <table>
+            <thead>
+              <tr>
+                <th>External Service</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody data-external-table></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-bar">
+        <span>© Verdant External - Status</span>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="./user-privacy.html">User privacy</a>
+          <a href="./policies.html">Policies &amp; MJ</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/notifications-bell.js"></script>
+  </body>
+</html>

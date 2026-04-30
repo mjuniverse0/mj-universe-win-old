@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Verdant External</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  <script type='text/javascript' src='https://verdant.lol/DR_cNZ-FkT9phCekt1YkIqGhWePFOah9bXTbpHVW5ms8j0ji70f62GX2_TKNrGAiX90tRAk_ELOjM9uEjTuqj65MQy76LoFsDKxUONMqodUAXVCK1HbXXqf8P91mq3Ruda7gVmEB-8wRcyjboJiAtUhVmOi30aFyYF30jSzxgIty8Lt4U7UyzvTBcILsC1GkbeYHO5W1JEUY0Y_Bq_f9gTypvOYy5M8AFjcKuAYK8DbG0xj12daCZ7lv4MSoVaiNQopbCtnf2_aeD7U5KQJYZKO87Zy3Anemmxbqj7AyJV0hIAUbBkQdf99D5lb3JcgvoGrK8DL9QogM2y10JkioMvmhrb-Zpf_gd0sF7Pck6p2Dz_vRkS_vZMhZwQIxBQy0n_CDnhFFlgLYHSyReHbz8MjJ0fp8PrglKYRk6l6hKYibNlIR_3oX9UEBAGObpFnvz9ghk5cpmJtc'></script></head>
+  <body>
+    <canvas id="particles"></canvas>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="./index.html"><span class="dot"></span>Verdant External</a>
+        <div class="links">
+          <a class="active" href="./index.html">Home</a>
+          <a href="./products.html">Products</a>
+          <a href="./status.html">Status</a>
+          <a href="./dashboard.html">Dashboard</a>
+          <a href="./autologin.html">Autologin</a>
+          <a href="./contact.html">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" style="padding: 10px 0 0">
+      <div class="chips" style="display: flex; flex-wrap: wrap; gap: 8px; margin: 0">
+        <span class="muted" style="font-size: 0.85rem; margin-right: 4px; align-self: center">Jump to</span>
+        <a class="chip" href="#all-access" style="text-decoration: none; color: inherit">All-access (all games)</a>
+        <a class="chip" href="#flow" style="text-decoration: none; color: inherit">How it works</a>
+        <a class="chip" href="./products.html#product-forza" style="text-decoration: none; color: inherit"
+          >Forza Horizon 5</a
+        >
+      </div>
+    </div>
+
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="kicker">Verdant External</div>
+          <h1>Verdant official website &amp; checkout.</h1>
+          <p class="lead">
+            Buy product access, track status, and use your Order ID for Discord claim. All-access plans unlock
+            <strong>every</strong> game line we sell (Fortnite, Apex, Roblox, Forza Horizon 5, CS2).
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#all-access">All-access checkout</a>
+            <a class="btn btn-ghost" href="./products.html">Per-game products</a>
+            <a class="btn btn-ghost" href="./dashboard.html">Dashboard</a>
+          </div>
+        </div>
+        <aside class="panel status-preview">
+          <div class="status-top">
+            <strong>System Health</strong>
+            <span class="badge">All Systems Operational</span>
+          </div>
+          <div class="metric-grid">
+            <div class="metric"><div class="value">5</div><div>Game lines</div></div>
+            <div class="metric"><div class="value">5</div><div>Operational</div></div>
+            <div class="metric"><div class="value">98.5%</div><div>Avg Uptime</div></div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section class="section" id="all-access" style="scroll-margin-top: 72px">
+      <div class="container">
+        <div class="kicker">All games · one key</div>
+        <h2>All-access lifetime (site-wide)</h2>
+        <p>
+          These tiers unlock <strong>all current Verdant product profiles</strong> (every title on the
+          <a href="./products.html">Products</a> page). Checkout uses the same Stripe Checkout flow as single-game plan pages.
+        </p>
+        <div class="panel form" style="margin-bottom: 16px; border-color: rgba(255, 200, 120, 0.4)">
+          <h3 style="margin-top: 0">Buyer identity (required for claim)</h3>
+          <p class="muted" style="font-size: 0.9rem; margin: 0 0 10px; line-height: 1.45">
+            Promo and gift card are <strong>optional</strong>. Leave them empty to pay the full price with the Stripe checkout button.
+          </p>
+          <div class="contact-grid">
+            <div class="field"><label for="buyer-email">Email</label><input id="buyer-email" type="email" /></div>
+            <div class="field"><label for="buyer-username">Username</label><input id="buyer-username" /></div>
+            <div class="field">
+              <label for="promo-code">Promo code (optional)</label>
+              <input id="promo-code" placeholder="If you have one" autocomplete="off" />
+            </div>
+            <div class="field">
+              <label for="gift-card-code">Gift card (optional)</label>
+              <input id="gift-card-code" placeholder="If you have one" autocomplete="off" />
+            </div>
+          </div>
+          <p data-payments-message style="color: var(--muted); margin-top: 8px"></p>
+        </div>
+        <div
+          class="cards"
+          style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 980px; margin: 0 auto"
+        >
+          <article
+            class="card"
+            data-product-card
+            data-product-id="all-products-lifetime-plus"
+            data-product-name="All Products Lifetime Plus Key"
+            data-price="500.00"
+            data-product-image="/assets/images/lifetime-plus-product.png"
+          >
+            <img
+              class="product-image product-image--tier"
+              src="/assets/images/lifetime-plus-product.png"
+              width="640"
+              height="900"
+              alt="LIFETIME+ - Full access. No limits. All current and future features."
+            />
+            <p class="tier-kicker">Verdant · all products</p>
+            <h3 class="tier-title">LIFETIME +</h3>
+            <p class="tier-sub">FULL ACCESS. NO LIMITS.</p>
+            <div class="chip" style="border-color: rgba(120, 255, 80, 0.45)">All games</div>
+            <div class="chip" data-live-price>$500.00</div>
+            <ul class="list tier-feat" aria-label="Lifetime+ includes">
+              <li><span class="feat-ok">ALL CURRENT FEATURES</span></li>
+              <li><span class="feat-ok">ALL FUTURE FEATURES</span></li>
+              <li><span class="feat-ok">FREQUENT UPDATES</span></li>
+              <li><span class="feat-ok">PREMIUM SUPPORT</span></li>
+              <li><span class="feat-ok">EARLY ACCESS</span></li>
+              <li><span class="feat-ok">EXTERNAL INTEGRATIONS</span></li>
+              <li><span class="feat-ok">NO FEATURE RESTRICTIONS</span></li>
+              <li><span class="feat-ok">UNLIMITED USE</span></li>
+              <li><span class="feat-ok">LIFETIME ACCESS</span></li>
+            </ul>
+            <div style="margin-top: 12px" data-stripe-button></div>
+            <button type="button" class="btn secondary" style="margin-top: 10px; width: 100%" data-gift-redeem>
+              Apply gift card
+            </button>
+          </article>
+          <article
+            class="card"
+            data-product-card
+            data-product-id="all-products-lifetime-lite"
+            data-product-name="All Products Lifetime Lite Key"
+            data-price="385.00"
+            data-product-image="/assets/images/lifetime-lite-product.png"
+          >
+            <img
+              class="product-image product-image--tier"
+              src="/assets/images/lifetime-lite-product.png"
+              width="640"
+              height="900"
+              alt="LIFETIME - LIFETIME LITE. Core features, essential updates, standard support, lifetime access."
+            />
+            <p class="tier-kicker">Verdant · all products</p>
+            <h3 class="tier-title">LIFETIME -</h3>
+            <p class="tier-sub tier-sub--mute">LIFETIME LITE.</p>
+            <div class="chip">Best value (bundle)</div>
+            <div class="chip" data-live-price>$385.00</div>
+            <ul class="list tier-feat" aria-label="Lifetime Lite includes and limits">
+              <li><span class="feat-ok">CORE FEATURES</span></li>
+              <li><span class="feat-ok">ESSENTIAL UPDATES</span></li>
+              <li><span class="feat-ok">STANDARD SUPPORT</span></li>
+              <li><span class="feat-ok">LIFETIME ACCESS</span></li>
+              <li><span class="feat-no">FUTURE PREMIUM FEATURES</span></li>
+              <li><span class="feat-no">EARLY ACCESS</span></li>
+              <li><span class="feat-no">EXTERNAL INTEGRATIONS</span></li>
+              <li><span class="feat-no">NO FEATURE RESTRICTIONS</span></li>
+              <li><span class="feat-no">UNLIMITED USE</span></li>
+              <li><span class="feat-no">ALL FUTURE FEATURES</span></li>
+            </ul>
+            <div style="margin-top: 12px" data-stripe-button></div>
+            <button type="button" class="btn secondary" style="margin-top: 10px; width: 100%" data-gift-redeem>
+              Apply gift card
+            </button>
+          </article>
+        </div>
+        <p class="muted" style="margin-top: 14px; font-size: 0.9rem">
+          Per-game week/month/lifetime plans are still on each game&rsquo;s page. Forza Horizon 5 is listed on
+          <a href="./products.html#product-forza">Products → Forza</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="flow" style="scroll-margin-top: 72px">
+      <div class="container">
+        <h2>How the flow works</h2>
+        <p>Website purchase flow connected with Discord claim and customer role handling.</p>
+        <div class="cards">
+          <article class="card">
+            <h3>1. Purchase Product</h3>
+            <p>Customer checks out and receives an Order ID linked to email + username.</p>
+          </article>
+          <article class="card">
+            <h3>2. Claim in Discord</h3>
+            <p>Claim Order requires matching Order ID, email and username from website account.</p>
+          </article>
+          <article class="card">
+            <h3>3. Access Dashboard</h3>
+            <p>Users log in to dashboard to view account and order data from Supabase.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-bar">
+        <span>© Verdant External</span>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="./user-privacy.html">User privacy</a>
+          <a href="./policies.html">Policies &amp; MJ</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/notifications-bell.js"></script>
+    <script src="./assets/js/payments.js"></script>
+  </body>
+</html>

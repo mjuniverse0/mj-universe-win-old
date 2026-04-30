@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\build-win\_deps\nlohmann_json-subbuild\CMakeFiles\cce6f90718f81f7c082751dfec4b0c0e\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{7220DAEC-4E29-3671-8C89-75AB68E4133C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

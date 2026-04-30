@@ -1,0 +1,36 @@
+{
+  "name": "verdant-lol",
+  "version": "1.0.0",
+  "description": "Verdant External Discord bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:bot": "node index.js",
+    "start:web": "node server.js",
+    "start:launcher": "electron client/launcher/main.js",
+    "start:client-runtime": "node client/runtime/mock-client.js",
+    "build:client-cpp": "cmake -S client/cpp-client -B client/cpp-client/build; cmake --build client/cpp-client/build --config Release",
+    "fetch:vigem-dll": "node scripts/download-vigem-dll.js",
+    "upload:product-images": "node scripts/upload-product-images-to-storage.js",
+    "deploy:web": "powershell -ExecutionPolicy Bypass -File ./scripts/deploy-web.ps1",
+    "stripe:sync-catalog": "node scripts/stripe-sync-catalog.js",
+    "stripe:recover": "node scripts/recover-stripe-fulfillment.js",
+    "build:obfuscate-web": "node scripts/obfuscate-public-js.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.104.1",
+    "discord.js": "^14.26.3",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "koffi": "^2.16.1",
+    "stripe": "^17.7.0"
+  },
+  "devDependencies": {
+    "electron": "^37.2.0",
+    "javascript-obfuscator": "^4.1.1"
+  }
+}

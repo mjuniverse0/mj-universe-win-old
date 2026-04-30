@@ -1,0 +1,66 @@
+MJ Universe — Supabase single source of truth (web + iOS/macOS)
+===============================================================
+
+Goal
+----
+Use ONE Supabase project for:
+- web (mj-universe.net / satellites)
+- iOS/macOS app (mj-universe-mac)
+
+Canonical values (source of truth)
+----------------------------------
+Set these once and reuse everywhere:
+- SUPABASE_PROJECT_REF = yefatcprqfybbqxiarcz
+- SUPABASE_URL = https://yefatcprqfybbqxiarcz.supabase.co
+- SUPABASE_ANON_KEY = (same anon/publishable key used by web)
+- AUTH_REDIRECT_WEB = https://mj-universe.net/account/
+
+Important:
+- service_role key is backend-only (never in frontend/app code shipped to users)
+- anon/publishable key is allowed in client apps
+
+Where to configure
+------------------
+1) Web repo (this repo)
+   - js/supabase-config.js:
+     - window.MJ_SUPABASE_URL
+     - window.MJ_SUPABASE_ANON_KEY
+     - window.MJ_AUTH_EMAIL_REDIRECT
+
+2) App repo (mjuniverse0/mj-universe-mac)
+   - MJUniverse/AppConfig.swift:
+     - supabaseURL
+     - supabaseAnonKey
+     - authCallbackURL (if app uses web callback bridge)
+
+3) Supabase Dashboard (same project ref)
+   - Authentication -> URL Configuration:
+     - Site URL: https://mj-universe.net
+     - Additional Redirect URLs:
+       - https://mj-universe.net/**
+       - https://mj-universe.net/account/**
+       - https://mj-universe.social/account/**
+
+4) API/backend (if any)
+   - keep service_role only in server env/secrets
+
+Release checklist (must pass)
+-----------------------------
+- Web login works: /account/#register + /account/#login
+- App login works against same users (same email/password should work)
+- App autologin works after app restart
+- New signup from app appears in public.profiles in the SAME project
+- New signup from web is visible from app (and vice versa)
+
+Quick mismatch symptoms
+-----------------------
+- Web login works, app login fails with valid credentials -> likely different Supabase URL/project
+- App autologin works but profile missing on web -> different project or different schema migration level
+- Confirm email links go to wrong host -> Supabase Site URL / Redirect URLs misconfigured
+
+Recommended workflow
+--------------------
+1) Treat this file as canonical values.
+2) Update web config and app config in the same change window.
+3) Verify with checklist before release.
+4) Never rotate one client key/location without updating the other repo.

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Payment successful - Verdant External</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <canvas id="particles"></canvas>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="./index.html"><span class="dot"></span>Verdant External</a>
+        <div class="links">
+          <a href="./index.html">Home</a>
+          <a href="./products.html">Products</a>
+          <a href="./status.html">Status</a>
+          <a href="./dashboard.html">Dashboard</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <div class="kicker">Thank you</div>
+        <h2>Payment successful</h2>
+        <p class="hint" data-success-intro style="color: var(--muted)">
+          Your order is saved. Use your license key in the client and your Order ID for Discord claim if needed.
+        </p>
+        <div class="panel form" data-success-details style="margin-top: 16px; display: none">
+          <h3>Order details</h3>
+          <div class="list-details" data-success-rows style="color: #ddd; line-height: 1.6"></div>
+          <div class="chips" style="margin-top: 14px">
+            <a class="btn btn-primary" href="./dashboard.html">Open Dashboard</a>
+            <a class="btn" href="./products.html">Back to products</a>
+          </div>
+        </div>
+        <p data-success-fallback style="color: #f6a0a0; display: none">
+          This page is missing order information. If you just paid, check your email or the dashboard. Do not pay again
+          if you are unsure.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-bar">
+        <span>© Verdant External</span>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="./user-privacy.html">User privacy</a>
+          <a href="./policies.html">Policies &amp; MJ</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/notifications-bell.js"></script>
+    <script src="./assets/js/payment-success.js"></script>
+  </body>
+</html>

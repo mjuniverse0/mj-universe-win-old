@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>VIP &amp; community — poll, giveaways, timeline | MJ Universe | mj-universe.vip</title>
+    <meta
+      name="description"
+      content="MJ Universe VIP: Snapchat story-info, avstemning, giveaways og tidslinje — Mariell Berntzen og Jhonatan Wik. Hovedhub: mj-universe.net."
+    />
+    <link rel="canonical" href="https://mj-universe.vip/" />
+    <meta name="theme-color" content="#0c0a12" />
+    <link rel="icon" type="image/png" href="https://mj-universe.net/images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://mj-universe.net/css/style.css" />
+    <link rel="stylesheet" href="css/seo.css" />
+  </head>
+  <body>
+    <canvas id="vip-particles" class="vip-particles" aria-hidden="true"></canvas>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="site-header">
+      <a href="https://mj-universe.net/" class="logo" aria-label="MJ Universe, hovedhub">
+        <span class="logo-badge">
+          <img
+            class="logo-img"
+            src="https://mj-universe.net/images/logo.png"
+            alt=""
+            width="160"
+            height="64"
+            decoding="async"
+          />
+        </span>
+      </a>
+      <nav class="nav" aria-label="Hoved">
+        <a href="https://mj-universe.net/"><i class="fa-solid fa-house" aria-hidden="true"></i> Hub</a>
+        <a href="index.html" aria-current="page"><i class="fa-solid fa-crown" aria-hidden="true"></i> VIP</a>
+        <a href="fitness/"><i class="fa-solid fa-dumbbell" aria-hidden="true"></i> Fitness</a>
+        <a href="https://mj-universe.social/"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> Social</a>
+        <a href="https://mj-universe.social/snapchat/"><i class="fa-brands fa-snapchat" aria-hidden="true"></i> Snapchat</a>
+        <a
+          href="https://mj-universe.net/live/live.html"
+          class="nav-live-link"
+          id="nav-live"
+          data-live="0"
+          ><i class="fa-brands fa-tiktok" aria-hidden="true"></i> Live</a
+        >
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="section section--about" style="padding-bottom: 2rem">
+        <div class="section-inner">
+          <header class="section-head reveal vip-scroll-reveal">
+            <span class="section-label"><i class="fa-solid fa-crown" aria-hidden="true"></i> mj-universe.vip</span>
+            <h1 style="font-family: var(--font-display); font-size: clamp(1.75rem, 4vw, 2.35rem); margin: 0.5rem 0 0">
+              Velkommen til VIP
+            </h1>
+          </header>
+          <div class="about-card reveal vip-scroll-reveal" data-reveal-delay="1">
+            <p class="lead">
+              Eksklusive oppdateringer, tidlig tilgang og støtte til det vi lager — <strong>Mariell Berntzen</strong>
+              og <strong>Jhonatan Wik</strong>. Betaling skjer trygt via Stripe.
+            </p>
+            <p>
+              <a class="btn btn--primary btn--touch-submit" href="#vip-priser"
+                ><i class="fa-solid fa-bolt" aria-hidden="true"></i> Bli VIP</a
+              >
+            </p>
+          </div>
+          <div class="about-card reveal vip-checkout vip-scroll-reveal" data-reveal-delay="2" id="vip-priser">
+            <h2 class="vip-checkout__title">Velg VIP-plan</h2>
+            <p class="vip-checkout__lead">Abonnement administreres trygt i Stripe Checkout.</p>
+            <div class="vip-plan-grid">
+              <article class="vip-plan-card">
+                <h3>Månedlig VIP</h3>
+                <p class="vip-plan-card__price">99 NOK / mnd</p>
+                <ul class="vip-plan-card__bullets">
+                  <li>Eksklusive videoer og VIP-oppdateringer</li>
+                  <li>Sjanse på merch ved utvalgte drops (f.eks. klistremerker) — <strong>aldri garanti</strong></li>
+                </ul>
+                <a class="btn btn--primary btn--touch-submit" href="https://buy.stripe.com/8x25kD8Xw95828Bdoo2cg0j" target="_blank" rel="noopener noreferrer">Kjøp månedlig</a>
+              </article>
+              <article class="vip-plan-card vip-plan-card--accent">
+                <h3>Kvartal VIP</h3>
+                <p class="vip-plan-card__price">299 NOK / 3 mnd</p>
+                <ul class="vip-plan-card__bullets">
+                  <li>Alt som i månedlig + flere tidlige klipp</li>
+                  <li><strong>Høyere</strong> sjanse ved merch-kampanjer (caps, t-skjorter, stickers)</li>
+                </ul>
+                <a class="btn btn--primary btn--touch-submit" href="https://buy.stripe.com/dRm6oH2z8epsdRj4RS2cg0k" target="_blank" rel="noopener noreferrer">Kjøp kvartal</a>
+              </article>
+              <article class="vip-plan-card">
+                <h3>Årlig VIP</h3>
+                <p class="vip-plan-card__price">999 NOK / år</p>
+                <ul class="vip-plan-card__bullets">
+                  <li>Størst verdi om du vil være med lenge</li>
+                  <li><strong>Størst</strong> sjanse ved begrensede merch-kampanjer — fortsatt <strong>ikke lov om klær</strong></li>
+                </ul>
+                <a class="btn btn--primary btn--touch-submit" href="https://buy.stripe.com/5kQaEXb5Ea9cfZracc2cg0i" target="_blank" rel="noopener noreferrer">Kjøp årlig</a>
+              </article>
+            </div>
+            <p class="vip-plan-disclaimer">
+              Produktet dere kjøper er <strong>digital VIP-tilgang og fellesskap</strong>. Fysiske ting er bonus og er
+              ikke en garantert del av kjøpet — jo høyere plan, desto større sjanse når vi kjører sporadiske drops.
+            </p>
+            <div class="vip-checkout__links">
+              <h3>Retur-URL-er (sett i Stripe Payment Links)</h3>
+              <p>
+                <strong>Hovedhub</strong>: suksess
+                <a href="https://mj-universe.net/betaling/takk/">https://mj-universe.net/betaling/takk/</a> · avbrudd
+                <a href="https://mj-universe.net/betaling/avbrutt/">https://mj-universe.net/betaling/avbrutt/</a>
+              </p>
+              <p>
+                <strong>VIP-domene</strong>: suksess
+                <a href="https://mj-universe.vip/betaling/takk/">https://mj-universe.vip/betaling/takk/</a> · avbrudd
+                <a href="https://mj-universe.vip/betaling/avbrutt/">https://mj-universe.vip/betaling/avbrutt/</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="community-band" id="community">
+        <div class="community-band__glow" aria-hidden="true"></div>
+        <div class="section-inner community-intro reveal vip-scroll-reveal">
+          <span class="section-label community-intro__label"
+            ><i class="fa-solid fa-comments" aria-hidden="true"></i> Community</span
+          >
+          <h2 class="community-intro__title">Bli med</h2>
+          <p class="community-intro__lead">
+            Avstemning, giveaways (ofte med lenke fra Snapchat) og milepæler — samme data som før, nå samlet på VIP-domenet.
+          </p>
+        </div>
+
+        <section id="poll" class="section section--community-block" aria-labelledby="poll-heading">
+          <div class="section-inner">
+            <div class="community-card community-card--interactive vip-scroll-reveal">
+              <header class="community-card__head">
+                <div class="community-card__icon" aria-hidden="true">
+                  <i class="fa-solid fa-chart-simple"></i>
+                </div>
+                <div>
+                  <span class="section-label community-card__eyebrow">Poll</span>
+                  <h2 id="poll-heading" class="community-card__title">Have your say</h2>
+                </div>
+              </header>
+              <div class="community-card__body">
+                <div id="poll-placeholder" class="empty-state">
+                  <div class="empty-state__icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></div>
+                  <p class="empty-state__title">No poll live yet</p>
+                  <p class="empty-state__text">When we activate one in admin, it will show up here.</p>
+                </div>
+                <div id="section-poll" class="poll-shell" hidden>
+                  <h3 class="js-poll-question interactive-title"></h3>
+                  <form class="js-poll-form poll-form"></form>
+                  <p class="form-error js-poll-error" role="alert"></p>
+                  <div class="js-poll-results poll-results"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="events" class="section section--community-block" aria-labelledby="events-heading">
+          <div class="section-inner">
+            <div class="community-card community-card--interactive vip-scroll-reveal">
+              <header class="community-card__head">
+                <div class="community-card__icon community-card__icon--gift" aria-hidden="true">
+                  <i class="fa-solid fa-gift"></i>
+                </div>
+                <div>
+                  <span class="section-label community-card__eyebrow">Events</span>
+                  <h2 id="events-heading" class="community-card__title">Giveaways &amp; updates</h2>
+                </div>
+              </header>
+              <div class="community-card__body">
+                <div id="events-giveaway-cta-wrap" class="events-giveaway-cta-wrap" hidden></div>
+                <div id="events-list" class="events-grid"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="milestones" class="section section--community-block" aria-labelledby="milestones-heading">
+          <div class="section-inner">
+            <div class="community-card community-card--interactive vip-scroll-reveal">
+              <header class="community-card__head">
+                <div class="community-card__icon community-card__icon--time" aria-hidden="true">
+                  <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <div>
+                  <span class="section-label community-card__eyebrow">Milestones</span>
+                  <h2 id="milestones-heading" class="community-card__title">Our timeline</h2>
+                </div>
+              </header>
+              <div class="community-card__body">
+                <ul id="milestones-list" class="timeline-list timeline-list--boxed"></ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <a
+        class="footer-snap"
+        href="https://www.snapchat.com/add/mj_universe?share_id=5JV2bdenR46VRWEZGr03FQ&amp;locale=nb_NO"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-snapchat" aria-hidden="true"></i>
+        <span>Add <strong>@mj_universe</strong> on Snapchat</span>
+      </a>
+      <p class="network-brand-line">
+        <strong>MJ Universe</strong> er et innholdsprosjekt av <strong>Mariell Berntzen</strong> og
+        <strong>Jhonatan Wik</strong>. Hovedhub:
+        <a href="https://mj-universe.net/">mj-universe.net</a>
+      </p>
+      <div class="network-footer">
+        <span class="network-footer__title">MJ Universe Network</span>
+        <nav class="network-footer__links" aria-label="Alle MJ Universe-domener">
+          <a href="https://mj-universe.net/">mj-universe.net</a>
+          <a href="https://mj-universe.media/">mj-universe.media</a>
+          <a href="https://mj-universe.date/">mj-universe.date</a>
+          <a href="https://mj-universe.watch/">mj-universe.watch</a>
+          <a href="https://mj-universe.social/">mj-universe.social</a>
+          <a href="https://mj-universe.lol/">mj-universe.lol</a>
+          <a href="https://mj-universe.live/">mj-universe.live</a>
+          <a href="https://mj-universe.vip/#vip-priser">mj-universe.vip</a>
+          <a href="https://mj-universe.store/">mj-universe.store</a>
+          <a href="https://mjuniverse.store/">mjuniverse.store</a>
+        </nav>
+      </div>
+      <p class="site-footer__tagline"><i class="fa-solid fa-infinity" aria-hidden="true"></i> MJ-Universe</p>
+    </footer>
+
+    <aside class="vip-cookie-banner" id="vip-cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie-info">
+      <p>
+        Vi bruker enkle cookies for bedre flyt på siden (f.eks. huske preferanser).
+      </p>
+      <button type="button" class="btn btn--primary vip-cookie-banner__ok" id="vip-cookie-ok">
+        Skjønner
+      </button>
+    </aside>
+
+    <script>
+      window.MJ_PUBLIC_BASE_URL = "https://mj-universe.net";
+    </script>
+    <script>
+      (function () {
+        var KEY = "mj_vip_cookie_ack_v1";
+        var banner = document.getElementById("vip-cookie-banner");
+        var ok = document.getElementById("vip-cookie-ok");
+        if (!banner || !ok) return;
+        try {
+          if (localStorage.getItem(KEY) === "1") {
+            banner.hidden = true;
+            return;
+          }
+        } catch (e) {}
+        requestAnimationFrame(function () {
+          banner.classList.add("is-visible");
+        });
+        ok.addEventListener("click", function () {
+          banner.classList.remove("is-visible");
+          banner.classList.add("is-leaving");
+          try {
+            localStorage.setItem(KEY, "1");
+          } catch (e) {}
+          window.setTimeout(function () {
+            banner.hidden = true;
+          }, 360);
+        });
+      })();
+    </script>
+    <script>
+      (function () {
+        var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        var revealEls = Array.prototype.slice.call(document.querySelectorAll(".vip-scroll-reveal"));
+        if (revealEls.length) {
+          if (reduced || !("IntersectionObserver" in window)) {
+            revealEls.forEach(function (el) {
+              el.classList.add("is-visible");
+            });
+          } else {
+            var io = new IntersectionObserver(
+              function (entries) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    io.unobserve(entry.target);
+                  }
+                });
+              },
+              { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+            );
+            revealEls.forEach(function (el) {
+              io.observe(el);
+            });
+          }
+        }
+
+        var canvas = document.getElementById("vip-particles");
+        if (!canvas || reduced) return;
+        var ctx = canvas.getContext("2d");
+        if (!ctx) return;
+
+        var dpr = Math.min(window.devicePixelRatio || 1, 1.8);
+        var particles = [];
+        var width = 0;
+        var height = 0;
+        var raf = 0;
+        var count = 48;
+
+        function resize() {
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = Math.floor(width * dpr);
+          canvas.height = Math.floor(height * dpr);
+          canvas.style.width = width + "px";
+          canvas.style.height = height + "px";
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          particles = [];
+          for (var i = 0; i < count; i++) {
+            particles.push({
+              x: Math.random() * width,
+              y: Math.random() * height,
+              r: Math.random() * 1.8 + 0.5,
+              vx: (Math.random() - 0.5) * 0.22,
+              vy: (Math.random() - 0.5) * 0.22,
+              a: Math.random() * 0.45 + 0.12
+            });
+          }
+        }
+
+        function tick() {
+          ctx.clearRect(0, 0, width, height);
+          for (var i = 0; i < particles.length; i++) {
+            var p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < -8) p.x = width + 8;
+            if (p.x > width + 8) p.x = -8;
+            if (p.y < -8) p.y = height + 8;
+            if (p.y > height + 8) p.y = -8;
+            ctx.beginPath();
+            ctx.fillStyle = "rgba(125, 211, 252," + p.a.toFixed(3) + ")";
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          raf = window.requestAnimationFrame(tick);
+        }
+
+        function onVisibility() {
+          if (document.hidden) {
+            if (raf) {
+              window.cancelAnimationFrame(raf);
+              raf = 0;
+            }
+            return;
+          }
+          if (!raf) raf = window.requestAnimationFrame(tick);
+        }
+
+        resize();
+        window.addEventListener("resize", resize, { passive: true });
+        document.addEventListener("visibilitychange", onVisibility);
+        raf = window.requestAnimationFrame(tick);
+      })();
+    </script>
+    <script src="https://mj-universe.net/js/supabase-config.js"></script>
+    <script src="https://mj-universe.net/js/main.js"></script>
+    <script src="https://mj-universe.net/js/site-features.js"></script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CS2 Plans - Verdant External</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <canvas id="particles"></canvas>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="./index.html"><span class="dot"></span>Verdant External</a>
+        <div class="links">
+          <a href="./index.html">Home</a>
+          <a class="active" href="./products.html">Products</a>
+          <a href="./status.html">Status</a>
+          <a href="./dashboard.html">Dashboard</a>
+          <a href="./contact.html">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <h2>Choose Your Plan</h2>
+        <p>Simple, transparent pricing. Get instant access and start dominating today.</p>
+        <div class="panel form" style="margin-bottom:16px;border-color:rgba(255,190,120,.45)">
+          <h3 style="margin-top:0">⚠ Important</h3>
+          <p style="margin-bottom:0;color:var(--muted)">
+            External hardware is NOT required. Verdant works on its own, and is also compatible with external hardware.
+          </p>
+        </div>
+        <div class="panel form" style="margin-bottom:16px">
+          <h3>Buyer Identity (required for claim)</h3>
+          <p class="muted" style="font-size:0.9rem;margin:0 0 10px;line-height:1.45">
+            Promo and gift card are <strong>optional</strong>. Leave them empty to pay the full price with the Stripe checkout button.
+          </p>
+          <div class="contact-grid">
+            <div class="field"><label for="buyer-email">Email</label><input id="buyer-email" type="email" /></div>
+            <div class="field"><label for="buyer-username">Username</label><input id="buyer-username" /></div>
+            <div class="field">
+              <label for="promo-code">Promo code (optional)</label>
+              <input id="promo-code" placeholder="If you have one" autocomplete="off" />
+            </div>
+            <div class="field">
+              <label for="gift-card-code">Gift card (optional)</label>
+              <input id="gift-card-code" placeholder="If you have one" autocomplete="off" />
+            </div>
+          </div>
+          <p data-payments-message style="color:var(--muted);margin-top:8px"></p>
+        </div>
+        <div class="cards">
+          <article
+            class="card"
+            data-product-card
+            data-product-image="/assets/images/cs2-product.png"
+            data-product-id="cs2-7d"
+            data-product-name="CS2 7 Days Key"
+            data-price="16.00"
+          >
+            <img class="product-image" src="/assets/images/cs2-product.png" alt="CS2 product" />
+            <h3>1 Week</h3>
+            <div class="chip" data-live-price>$16.00</div>
+            <ul class="list"><li>Full Feature Access</li><li>24/7 Support</li><li>Regular Updates</li></ul>
+            <div style="margin-top:12px" data-stripe-button></div>
+            <button type="button" class="btn secondary" style="margin-top:10px;width:100%" data-gift-redeem>Apply Gift Card (Discount)</button>
+          </article>
+          <article
+            class="card"
+            data-product-card
+            data-product-image="/assets/images/cs2-product.png"
+            data-product-id="cs2-30d"
+            data-product-name="CS2 Monthly Key"
+            data-price="17.00"
+          >
+            <img class="product-image" src="/assets/images/cs2-product.png" alt="CS2 product" />
+            <h3>1 Month</h3>
+            <div class="chip">Best Value</div>
+            <div class="chip" data-live-price>$17.00</div>
+            <ul class="list"><li>Full Feature Access</li><li>24/7 Support</li><li>Regular Updates</li></ul>
+            <div style="margin-top:12px" data-stripe-button></div>
+            <button type="button" class="btn secondary" style="margin-top:10px;width:100%" data-gift-redeem>Apply Gift Card (Discount)</button>
+          </article>
+          <article
+            class="card"
+            data-product-card
+            data-product-image="/assets/images/cs2-product.png"
+            data-product-id="cs2-life"
+            data-product-name="CS2 Lifetime Key"
+            data-price="140.00"
+          >
+            <img class="product-image" src="/assets/images/cs2-product.png" alt="CS2 product" />
+            <h3>Lifetime</h3>
+            <div class="chip" data-live-price>$140.00</div>
+            <ul class="list"><li>Full Feature Access</li><li>Priority Support</li><li>All Future Updates</li><li>One-Time Payment</li></ul>
+            <div style="margin-top:12px" data-stripe-button></div>
+            <button type="button" class="btn secondary" style="margin-top:10px;width:100%" data-gift-redeem>Apply Gift Card (Discount)</button>
+          </article>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container footer-bar">
+        <span>© Verdant External - CS2</span>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="./user-privacy.html">User privacy</a>
+          <a href="./policies.html">Policies &amp; MJ</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/notifications-bell.js"></script>
+    <script src="./assets/js/payments.js"></script>
+  </body>
+</html>

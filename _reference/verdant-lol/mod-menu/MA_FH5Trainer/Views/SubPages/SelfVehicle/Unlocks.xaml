@@ -1,0 +1,182 @@
+﻿<Page x:Class="MA_FH5Trainer.Views.SubPages.SelfVehicle.Unlocks"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:local="clr-namespace:MA_FH5Trainer.Views.SubPages.SelfVehicle"
+      xmlns:controls="clr-namespace:MA_FH5Trainer.Controls.StatusComboboxItem"
+      mc:Ignorable="d"
+      d:DataContext="{d:DesignInstance local:Unlocks, IsDesignTimeCreatable=true}"
+      Title="Unlocks" 
+      d:DesignHeight="Auto" 
+      d:DesignWidth="800">
+    
+    <StackPanel>
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <Grid Margin="5 0">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label VerticalAlignment="Center" Content="Currency: "></Label>
+
+                <ComboBox Grid.Column="1"
+                          x:Name="InstantAddBox"
+                          VerticalAlignment="Center"
+                          SelectedIndex="0"
+                          mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                          Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                          BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}">
+                    
+                    <ComboBoxItem Content="Credits"/>
+                    <ComboBoxItem Content="XP" />
+                    <ComboBoxItem Content="Forzathon Points" />
+                    
+                </ComboBox>
+                
+                <Label Grid.Column="2" VerticalAlignment="Center" Content="Value:"></Label>
+                <mah:NumericUpDown Grid.Column="3"
+                                   x:Name="InstantAddValue"
+                                   TextAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin=" 0 0 5 0"
+                                   Value="50000"
+                                   ParsingNumberStyle="Integer"
+                                   Minimum="1"
+                                   Maximum="999999999"
+                                   HideUpDownButtons="True"
+                                   mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                                   Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                                   BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}"/>
+                
+                <Button Content="Add"
+                        BorderThickness="0"
+                        VerticalAlignment="Center"
+                        Grid.Column="4"
+                        mah:ControlsHelper.FocusBorderThickness="0"
+                        mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                        Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                        BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}"
+                        Command="{Binding ViewModel.InstantAddCommand}">
+                    <Button.CommandParameter>
+                        <MultiBinding Converter="{StaticResource TupleConv}">
+                            <Binding ElementName="InstantAddValue" Path="Value" />
+                            <Binding ElementName="InstantAddBox" Path="SelectedIndex" />
+                        </MultiBinding>
+                    </Button.CommandParameter>
+                </Button>
+                
+            </Grid>
+        </Border>
+
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <Grid Margin="5 0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label VerticalAlignment="Center" Content="Currency: "></Label>
+
+                <ComboBox x:Name="UnlockBox" 
+                          Grid.Column="1"
+                          VerticalAlignment="Center"
+                          SelectedIndex="0"
+                          SelectionChanged="UnlockBox_OnSelectionChanged"
+                          IsEnabled="{Binding ViewModel.AreUiElementsEnabled}"
+                          mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                          Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                          BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}">
+
+                    <controls:StatusComboboxItem Content="{DynamicResource SkillPoints}"
+                                                 IsOn="{Binding ViewModel.IsSkillPointsEnabled}"/>
+
+                    <controls:StatusComboboxItem Content="{DynamicResource Accolades}"
+                                                 IsOn="{Binding ViewModel.IsAccoladesEnabled}"
+                                                 />
+
+                    <controls:StatusComboboxItem Content="{DynamicResource Kudos}"
+                                                 IsOn="{Binding ViewModel.IsKudosEnabled}"
+                                                 />
+
+                    <controls:StatusComboboxItem Content="{DynamicResource SeriesPoints}"
+                                                 IsOn="{Binding ViewModel.IsSeriesEnabled}"
+                                                 />
+
+                    <controls:StatusComboboxItem Content="{DynamicResource SeasonalPoints}"
+                                                 IsOn="{Binding ViewModel.IsSeasonalEnabled}"
+                                                 />
+
+                </ComboBox>
+
+                <Label Grid.Column="2" VerticalAlignment="Center" Content="Value:"></Label>
+                <mah:NumericUpDown x:Name="ValueBox" 
+                                   Grid.Column="3"
+                                   IsEnabled="{Binding ViewModel.AreUiElementsEnabled}"
+                                   TextAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin=" 0 0 5 0"
+                                   Value="0"
+                                   ParsingNumberStyle="Integer"
+                                   Minimum="0"
+                                   Maximum="2147483647"
+                                   ValueChanged="ValueBox_OnValueChanged"
+                                   HideUpDownButtons="True"
+                                   mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                                   Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                                   BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}"/>
+
+                <mah:ToggleSwitch x:Name="UnlockSwitch" 
+                                  Grid.Column="4"
+                                  IsEnabled="{Binding ViewModel.AreUiElementsEnabled}"
+                                  VerticalAlignment="Center"
+                                  MinWidth="0"
+                                  FontSize="12"
+                                  Toggled="ToggleSwitch_OnToggled"/>
+
+            </Grid>
+        </Border>
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <StackPanel Orientation="Vertical" Margin="10 6">
+                <mah:ToggleSwitch Content="{DynamicResource FreeClothing}"
+                                  Toggled="FreeClothingSwitch_OnToggled"
+                                  HorizontalAlignment="Left"
+                                  MinWidth="0"
+                                  FontSize="12" />
+            </StackPanel>
+        </Border>
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <StackPanel Orientation="Vertical" Margin="10 8">
+                <TextBlock Text="Legg inn alle biler i spillet"
+                           FontSize="12"
+                           Foreground="White"
+                           FontWeight="SemiBold"
+                           Margin="0 0 0 6" />
+                <TextBlock
+                    Text="Autoshow: alle biler. Garasje: én kopi per bil i profilen. Inne i spillet. Vanskelig å angre – ta backup av lagring ved tvil. (Kun Autoshow: egen bryter under Autoshow-menyen.)"
+                    TextWrapping="Wrap"
+                    Foreground="#a9a9a9"
+                    FontSize="11"
+                    Margin="0 0 0 10" />
+                <Button Content="Kjør: Autoshow + fyll garasje"
+                        Click="AddAllCarsToGame_Click"
+                        x:Name="AddAllCarsToGameButton"
+                        Padding="12 6"
+                        HorizontalAlignment="Left"
+                        Foreground="White"
+                        BorderThickness="0"
+                        mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                        Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                        BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}" />
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</Page>

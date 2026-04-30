@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard - Verdant External</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <canvas id="particles"></canvas>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="./index.html"><span class="dot"></span>Verdant External</a>
+        <div class="nav-cluster">
+          <div class="links">
+            <a href="./index.html">Home</a>
+            <a href="./products.html">Products</a>
+            <a href="./status.html">Status</a>
+            <a class="active" href="./dashboard.html">Account</a>
+            <a href="./autologin.html">Autologin</a>
+            <a href="./client-area.html">Client Area</a>
+            <a href="./contact.html">Contact</a>
+          </div>
+          <div id="admin-notify-wrap" class="notify-bell-wrap">
+            <button type="button" id="admin-notify-btn" class="btn btn-ghost notify-bell" aria-label="Payment alerts">
+              <span aria-hidden="true">🔔</span>
+              <span id="admin-notify-badge" class="notify-badge">0</span>
+            </button>
+            <div id="admin-notify-panel" class="notify-panel" hidden></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <h2>Account Dashboard</h2>
+        <details class="shop-admin-tools">
+          <summary>Shop alerts - dismiss &amp; restore (admin)</summary>
+          <p class="muted small-copy">
+            Everyone sees the bell in the nav. Paste the server secret <code>DASHBOARD_ADMIN_SECRET</code> here only if you need
+            <strong> Restore order </strong> or server-side dismiss. Stored in this tab (sessionStorage).
+          </p>
+          <div class="admin-secret-row">
+            <input
+              id="admin-secret-input"
+              type="password"
+              placeholder="Admin API secret"
+              autocomplete="off"
+              class="admin-secret-input"
+            />
+            <button type="button" class="btn btn-ghost" id="admin-secret-save">Save</button>
+            <button type="button" class="btn btn-ghost" id="admin-secret-clear">Disconnect</button>
+          </div>
+          <p id="admin-secret-status" class="muted small-copy"></p>
+        </details>
+
+        <details id="shop-grant-tools" class="shop-admin-tools" hidden>
+          <summary>Issue license keys (shop operator)</summary>
+          <p class="muted small-copy">
+            Only if your dashboard email is listed in server env <code>VERDANT_SHOP_OPERATOR_EMAILS</code>. Authorization:
+            <code>SHOP_GRANT_SECRET</code> or <code>DASHBOARD_ADMIN_SECRET</code>.
+          </p>
+          <div class="field">
+            <label for="grant-secret-input">Grant API token</label>
+            <input id="grant-secret-input" type="password" autocomplete="off" />
+          </div>
+          <div class="field">
+            <label for="grant-target-email">Customer email</label>
+            <input id="grant-target-email" type="email" />
+          </div>
+          <div class="field">
+            <label for="grant-target-username">Customer username</label>
+            <input id="grant-target-username" />
+          </div>
+          <div class="field">
+            <label for="grant-product-ids">Product IDs (comma-separated)</label>
+            <input id="grant-product-ids" type="text" placeholder="e.g. apex-life, roblox-life, fortnite-30d" />
+          </div>
+          <button type="button" class="btn btn-primary" id="grant-submit">Create keys</button>
+          <pre id="grant-result" class="muted small-copy" style="white-space: pre-wrap; margin-top: 12px"></pre>
+        </details>
+        <div class="contact-grid">
+          <div class="panel form">
+            <h3>Account</h3>
+            <form data-auth-form>
+              <div class="field">
+                <label for="dash-email">Email</label>
+                <input id="dash-email" name="email" type="email" required />
+              </div>
+              <div class="field">
+                <label for="dash-username">Username</label>
+                <input id="dash-username" name="username" required />
+              </div>
+              <div class="field">
+                <label for="dash-password">Password</label>
+                <input id="dash-password" name="password" type="password" required />
+              </div>
+              <div class="field">
+                <label style="display:flex;align-items:center;gap:8px">
+                  <input id="remember-me" name="rememberMe" type="checkbox" style="width:16px;height:16px" />
+                  Remember me (Autologin)
+                </label>
+              </div>
+              <div style="display: flex; gap: 10px">
+                <button class="btn btn-primary" type="submit" name="action" value="signup">Sign up</button>
+                <button class="btn btn-ghost" type="submit" name="action" value="login">Log in</button>
+              </div>
+            </form>
+            <p data-auth-result style="margin-top: 12px; color: var(--brand)"></p>
+            <div data-autologin-status style="margin-top:10px;color:var(--muted);min-height:42px"></div>
+          </div>
+
+          <div class="panel form">
+            <h3>Order Lookup</h3>
+            <form data-order-form>
+              <div class="field">
+                <label for="order-id">Order ID</label>
+                <input id="order-id" name="orderId" required />
+              </div>
+              <div class="field">
+                <label for="order-email">Email</label>
+                <input id="order-email" name="orderEmail" type="email" required readonly />
+              </div>
+              <div class="field">
+                <label for="order-username">Username</label>
+                <input id="order-username" name="orderUsername" required readonly />
+              </div>
+              <button class="btn btn-primary" type="submit">Check Order</button>
+            </form>
+            <p data-order-result style="margin-top: 12px; color: var(--brand)"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-bar">
+        <span>© Verdant External - Dashboard</span>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="./user-privacy.html">User privacy</a>
+          <a href="./policies.html">Policies &amp; MJ</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/notifications-bell.js"></script>
+    <script src="./assets/js/dashboard.js"></script>
+  </body>
+</html>

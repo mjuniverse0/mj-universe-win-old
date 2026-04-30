@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Products - Verdant External</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <canvas id="particles"></canvas>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="./index.html"><span class="dot"></span>Verdant External</a>
+        <div class="links">
+          <a href="./index.html">Home</a>
+          <a class="active" href="./products.html">Products</a>
+          <a href="./status.html">Status</a>
+          <a href="./dashboard.html">Dashboard</a>
+          <a href="./autologin.html">Autologin</a>
+          <a href="./contact.html">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <div class="kicker">Product Line</div>
+        <h2>Choose Your Product</h2>
+        <p>
+          Verdant External is a general input remapper: keyboard/mouse to controller and
+          controller to keyboard/mouse. It is designed for input customization only
+          (deadzone, sensitivity, response curve, bindings) and does not manipulate aim assist.
+        </p>
+
+        <div class="chips catalog-jump" style="display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 18px; align-items: center">
+          <span class="muted" style="font-size: 0.85rem">Jump to</span>
+          <a class="chip" href="#sec-remapper-catalog" style="text-decoration: none; color: inherit">Remapper Catalog</a>
+          <a class="chip" href="#sec-free" style="text-decoration: none; color: inherit">Free</a>
+          <a class="chip" href="#sec-executor" style="text-decoration: none; color: inherit">Executor</a>
+          <a class="chip" href="#sec-scripts" style="text-decoration: none; color: inherit">Scripts (free)</a>
+        </div>
+
+        <div class="chips" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; align-items: center">
+          <span class="muted" style="font-size: 0.85rem">Games</span>
+          <a class="chip" href="#product-fortnite" style="text-decoration: none; color: inherit">Fortnite</a>
+          <a class="chip" href="#product-apex" style="text-decoration: none; color: inherit">Apex</a>
+          <a class="chip" href="#product-roblox" style="text-decoration: none; color: inherit">Roblox</a>
+          <a class="chip" href="#product-forza" style="text-decoration: none; color: inherit">Forza H5</a>
+          <a class="chip" href="#product-cs2" style="text-decoration: none; color: inherit">CS2</a>
+          <a class="chip" href="./index.html#all-access" style="text-decoration: none; color: inherit">All-access</a>
+        </div>
+
+        <div class="panel form" style="margin-bottom: 16px">
+          <h3>What Verdant External Includes</h3>
+          <div class="chips">
+            <span class="chip">KBM ↔ Controller Mapping</span>
+            <span class="chip">Per-Game Profiles</span>
+            <span class="chip">Deadzone Tuning</span>
+            <span class="chip">Sensitivity &amp; Curves</span>
+            <span class="chip">Button/Trigger Remap</span>
+            <span class="chip">100% Undetected</span>
+            <a class="chip" href="#sec-executor" style="text-decoration: none; color: inherit">Executors</a>
+            <a class="chip" href="#sec-scripts" style="text-decoration: none; color: inherit">Free scripts</a>
+          </div>
+        </div>
+
+        <section id="sec-remapper-catalog" class="remapper-catalog" aria-labelledby="remapper-catalog-heading">
+          <h3 id="remapper-catalog-heading" class="product-catalog-heading">Remapper Catalog</h3>
+          <p class="muted" style="margin: -8px 0 14px; font-size: 0.95rem">
+            Paid profile packs and plans per title - open a catalog for Stripe checkout.
+          </p>
+          <div class="cards">
+            <article id="product-fortnite" class="card" style="scroll-margin-top: 72px">
+              <img class="product-image" src="/assets/images/fortnite-product.png" alt="Fortnite product" />
+              <h4 class="catalog-card-title">Fortnite</h4>
+              <p>
+                Input profile pack for Fortnite with clean movement remapping, deadzone presets, and sensitivity tuning for
+                controller/KBM workflows.
+              </p>
+              <div class="chips"><span class="chip">FN</span><span class="chip">Global</span></div>
+              <div style="margin-top: 12px"><a class="btn btn-primary" href="./fortnite.html">Open Fortnite Plans</a></div>
+            </article>
+
+            <article id="product-apex" class="card" style="scroll-margin-top: 72px">
+              <img class="product-image" src="/assets/images/apex-product.png" alt="Apex Legends product" />
+              <h4 class="catalog-card-title">Apex Legends</h4>
+              <p>
+                Controller/KBM remapper profiles for Apex: movement, look feel, and binding presets with deadzone and curve
+                tuning. Focus binding for <code>r5apex.exe</code> when using capture.
+              </p>
+              <div class="chips"><span class="chip">APX</span><span class="chip">Global</span></div>
+              <div style="margin-top: 12px"><a class="btn btn-primary" href="./apex.html">Open Apex Plans</a></div>
+            </article>
+
+            <article id="product-roblox" class="card" style="scroll-margin-top: 72px">
+              <img class="product-image" src="/assets/images/roblox-product.png" alt="Roblox product" />
+              <h4 class="catalog-card-title">Roblox</h4>
+              <p>
+                Roblox-oriented profile pack with customizable bindings, stick deadzones, response curves, and consistent
+                remapper behavior.
+              </p>
+              <div class="chips"><span class="chip">RBLX</span><span class="chip">Global</span></div>
+              <div style="margin-top: 12px"><a class="btn btn-primary" href="./roblox.html">Open Roblox Plans</a></div>
+            </article>
+
+            <article id="product-forza" class="card" style="scroll-margin-top: 72px">
+              <img class="product-image" src="/assets/images/fh5-product.png" alt="Forza Horizon 5" />
+              <h4 class="catalog-card-title">Forza Horizon 5</h4>
+              <p>
+                Controller and KBM profiles for Forza Horizon 5: stick curves, deadzones, trigger and shift assists where you
+                want cleaner control feel - not speed or credits hacks.
+              </p>
+              <div class="chips"><span class="chip">FH5</span><span class="chip">Global</span></div>
+              <div style="margin-top: 12px">
+                <a class="btn btn-primary" href="./forza-horizon-5.html">Open Forza Horizon 5 Plans</a>
+              </div>
+            </article>
+
+            <article id="product-cs2" class="card" style="scroll-margin-top: 72px">
+              <img class="product-image" src="/assets/images/cs2-product.png" alt="CS2 product" />
+              <h4 class="catalog-card-title">CS2</h4>
+              <p>
+                CS2 profile pack focused on reliable input translation and personalized control feel through remap,
+                sensitivity, and curve settings.
+              </p>
+              <div class="chips"><span class="chip">CS2</span><span class="chip">Global</span></div>
+              <div style="margin-top: 12px"><a class="btn btn-primary" href="./cs2.html">Open CS2 Plans</a></div>
+            </article>
+          </div>
+        </section>
+
+        <h3 id="sec-free" class="product-catalog-heading">Free</h3>
+        <p class="muted" style="margin: -8px 0 14px; font-size: 0.95rem">
+          Public resources - no checkout required.
+        </p>
+        <div class="cards cards--compact">
+          <article class="card">
+            <h3>Status &amp; uptime</h3>
+            <p class="muted">Live component status for Verdant services.</p>
+            <div style="margin-top: 12px"><a class="btn btn-primary" href="./status.html">Open Status</a></div>
+          </article>
+          <article class="card">
+            <h3>Documentation</h3>
+            <p class="muted">Policies, privacy, and product information.</p>
+            <div style="margin-top: 12px"><a class="btn btn-ghost" href="./policies.html">Policies &amp; MJ</a></div>
+          </article>
+        </div>
+
+        <h3 id="sec-executor" class="product-catalog-heading">Executor</h3>
+        <p class="muted" style="margin: -8px 0 14px; font-size: 0.95rem">
+          Roblox executor-style workflow (editor, scripts panel, console). Reference preview - full access with a Roblox plan.
+        </p>
+        <div class="executor-showcase panel form" style="margin-bottom: 20px">
+          <img
+            class="executor-showcase__img"
+            src="/assets/images/roblox-executor-showcase.png"
+            loading="lazy"
+            alt="Cloud Hub executor: editor and script browser with Execute and Load actions"
+          />
+          <p style="margin: 14px 0 0; color: var(--muted); font-size: 0.92rem; line-height: 1.5">
+            Executor experiences are geared toward Roblox scripting and attachment workflows; pair with a
+            <strong>Roblox key</strong> from our catalog for entitlement and updates.
+          </p>
+          <div style="margin-top: 14px">
+            <a class="btn btn-primary" href="./roblox.html">Roblox plans &amp; checkout</a>
+          </div>
+        </div>
+
+        <h3 id="sec-scripts" class="product-catalog-heading">Scripts (free)</h3>
+        <p class="muted" style="margin: -8px 0 14px; font-size: 0.95rem">
+          Free script snippets and community drops are announced on Discord - this page links the Roblox-side tools you run them in.
+        </p>
+        <div class="panel form" style="margin-bottom: 8px">
+          <h4 style="margin-top: 0">Get scripts</h4>
+          <p style="margin: 0 0 10px; color: var(--muted); line-height: 1.5">
+            Join the server for free script drops, loader notes, and compatibility threads. Paid Roblox keys unlock the matching
+            client features in your plan.
+          </p>
+          <a class="btn btn-ghost" href="./contact.html">Contact &amp; Discord</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-bar">
+        <span>© Verdant External - Products</span>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="./user-privacy.html">User privacy</a>
+          <a href="./policies.html">Policies &amp; MJ</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/notifications-bell.js"></script>
+  </body>
+</html>

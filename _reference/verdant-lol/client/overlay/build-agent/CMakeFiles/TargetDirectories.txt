@@ -1,0 +1,4 @@
+C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-agent/CMakeFiles/verdant_overlay.dir
+C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-agent/CMakeFiles/ALL_BUILD.dir
+C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-agent/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-agent/_deps/nlohmann_json-build/CMakeFiles/ALL_BUILD.dir

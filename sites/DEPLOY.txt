@@ -1,0 +1,28 @@
+Satellitt-sider ligger under sites/<domene>/ (samme CSS som mj-universe.net, logo fra https://mj-universe.net/images/logo.png).
+
+Hovedhub (mj-universe.net) pa server matcher typisk:
+  /home/mj-universe/htdocs/mj-universe.net/
+
+Deploy alt (hovedside + alle satellitter), PowerShell fra prosjektmappa:
+  .\deploy.ps1
+
+Stripe-VIP pa hovedhub (Next-eksport /vip og /betaling):
+  Filer vedlikeholdes i mj-net-vip-patch/. Etter neste Next export til server:
+  kopier ned index.html fra /vip og /betaling/*/ , kjor python tools/patch-hub-vip-stripe.py ,
+  kopier opp igjen eller kjor .\deploy.ps1 (deploy.ps1 SCP-er mj-net-vip-patch automatisk).
+
+Manuelt eksempel (erstatt sti om CloudPanel bruker annet navn under htdocs):
+  scp -i "C:\Users\Jhonatan Wik\.ssh\id_ed25519" -r sites/mj-universe.live/* root@187.124.48.60:/home/mj-universe1/htdocs/mj-universe.live/
+
+Remote mapping (fra din server):
+  mj-universe.live   -> /home/mj-universe1/htdocs/mj-universe.live
+  mj-universe.social -> /home/mj-universe-social/htdocs/mj-universe.social
+  mj-universe.lol    -> /home/mj-universe-lol/htdocs/mj-universe.lol
+  mj-universe.media  -> /home/mj-universe-media/htdocs/mj-universe.media
+  mj-universe.vip    -> /home/mj-universe-vip/htdocs/mj-universe.vip
+  mj-universe.date   -> /home/mj-universe-date/htdocs/mj-universe.date
+  mj-universe.store  -> /home/mj-universe-store/htdocs/mj-universe.store
+  mjuniverse.store   -> /home/mjuniverse-store/htdocs/mjuniverse.store
+  mj-universe.watch  -> /home/mj-universe-watch/htdocs/mj-universe.watch
+
+Hvis .date / .store / .watch har annet mappenavn i htdocs, oppdater $siteTargets i deploy.ps1.

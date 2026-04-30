@@ -1,0 +1,103 @@
+================================================================================
+MJ Universe — Snapchat API (offisiell) for kontoen @mj_universe
+================================================================================
+
+VIKTIG (sikkerhet)
+------------------
+• client_secret, refresh_token, OAuth access_token og ALLE API-tokens (inkl.
+  Conversions API / CAPI-tokens) skal ALDRI i nettleseren, aldri i Git, aldri i
+  chat/e-post. Kun backend / Supabase Secrets / miljovariabler pa server.
+• Hvis en token har vist et sted den ikke skulle (chat, skjermdump, support):
+  ROTER umiddelbart — slett gamle tokens i Snapchat Business og lag nye.
+
+CONVERSIONS API-TOKEN vs PUBLIC PROFILE API
+--------------------------------------------
+• "Conversions API" (CAPI) — token du ofte ser under Ads / Events / CAPI — er
+  til a SENDE konverterings- og hendelsesdata FOR ANNONSEMALING (server-til-
+  server). Det er IKKE det samme som a HENTE profilstatistikk (story views,
+  subscribers, osv.) fra Public Profile stats-endepunktene.
+• Public Profile stats (GET .../v1/public_profiles/{profile_id}/stats) bruker
+  normalt OAuth Bearer-token fra Snapchat-innlogging med riktig scope
+  (f.eks. snapchat-profile-api), som beskrevet i Snaps Get Started — ikke
+  nodvendigvis samme token som CAPI.
+• Har du BEGGE: lagre dem som to forskjellige hemmeligheter; ikke bland bruk.
+
+HVA SNAP TILBYR
+---------------
+• Public Profile API (Marketing API): statistikk for Public Profile, bl.a.
+  subscriber_count, og med riktig tilgang STORY_VIEWS, VIEWS, m.m.
+• Dokumentasjon (start her):
+  https://developers.snap.com/api/marketing-api/Public-Profile-API/GetStarted
+
+• Profile stats (eksempel-endepunkt, krever Bearer-token):
+  GET https://businessapi.snapchat.com/v1/public_profiles/{profile_id}/stats
+  Offentlige metrikker (begrenset) kan ogsa nas via /public/... — se dokumentasjon.
+
+• FAQ (public vs authorized data, hva som krever at creator deler data):
+  https://developers.snap.com/api/marketing-api/Public-Profile-API/FAQ
+
+TILGANG / ALLOWLIST
+-------------------
+• Public Profile API er ifolge Snap ofte "allowlist only". Etter OAuth-app er
+  opprettet: send client ID til Snap-kontakt for a fa appen allowlistet.
+• OAuth-app for Public Profile API skal opprettes via Snapchat Ads Manager /
+  Business Dashboard (ikke bare "Developer Portal" alene) — folg lenken over.
+
+APP: MJ-UNIVERSE (OAuth) — offentlig client_id i js/snap-oauth-config.js
+-----------------------------------------------------------------------
+• Client ID (offentlig / «Public OAuth 2.0 Client ID» i portal): se snap-oauth-config.js
+• "Key" i Ads Manager = client_secret — KUN i backend / Supabase Secrets,
+  aldri i Git. Roter hvis den har lekket.
+• Snap Redirect URI i dashboard ma matche callback pa deres domene EKSAKT:
+    https://mj-universe.net/snapchat/oauth-callback.html
+  (IKKE https://www.snapchat.com/@mj_universe — den kan ikke motta ?code=.)
+• Test: apne /snapchat/oauth-start.html pa produksjonsdomenet.
+
+STEG PA HOYT NIVA
+-----------------
+1) Opprett Snapchat Business-konto og organisasjon (se Snap sin guide pa
+   Get Started-siden).
+2) Opprett OAuth-app i Business Dashboard; noter client_id, client_secret,
+   redirect_uri (se avsnitt over).
+3) OAuth scope: snapchat-profile-api (og ev. snapchat-marketing-api etter behov).
+4) Bytt authorization code mot access_token + refresh_token (server-side).
+5) Finn public_profile id for @mj_universe (API: profile by username eller
+   Creator Discovery etter at dere er allowlistet).
+6) Kall stats-endepunktet med Authorization: Bearer <access_token>.
+7) Refresh token fornyes fortlopende (token utloper typisk etter ~1 time).
+
+INTEGRASJON MOT MJ-UNIVERSE.NET
+--------------------------------
+• Anbefalt: Supabase Edge Function eller liten Node/Python-tjeneste pa VPS
+  som kjorer pa cron (f.eks. hver 6. time), henter tall, og skriver til
+  databasen site_snap_stats (service role eller RPC med hemmelighet).
+• Nettsiden (snapchat/index.html) kan fortsette a vise tall fra Supabase slik
+  den gjor i dag — kilden blir da API i stedet for manuell admin.
+
+NYTTIGE SIDER HOS SNAP
+----------------------
+• API-oversikt: https://developers.snap.com/api/
+• Metrics / felt: https://developers.snap.com/api/marketing-api/Public-Profile-API/Metrics
+• Soke etter creator / profile ID: se Creator Discovery i samme dokumentasjon.
+
+SUPPORT
+-------
+• For tilgang og allowlist: kontakt Snapchat for Business / deres Snap-representant
+  hvis dere har en — ellers folg "API apply" fra Business Help.
+
+SUPABASE — CLIENT SECRET (Edge Function)
+----------------------------------------
+• Hemmeligheten lagres i Supabase: Project Settings → Edge Functions → Secrets.
+  Ikke i nettleser, ikke i Git, ikke i chat.
+• Pakrevde secrets for funksjonen snap-oauth-exchange:
+    SNAP_CLIENT_SECRET   (Key fra Snapchat OAuth App)
+    SNAP_CLIENT_ID       (samme som i snap-oauth-config.js / Ads Manager)
+    SNAP_REDIRECT_URI    (valgfri; default https://mj-universe.net/snapchat/oauth-callback.html)
+• SQL: kjør setup-snap-oauth-token-storage.sql i SQL Editor (tabell snap_integration_tokens).
+• Deploy funksjon (Supabase CLI, fra prosjektmappa):
+    supabase link --project-ref <din-ref>
+    supabase secrets set SNAP_CLIENT_SECRET="..." SNAP_CLIENT_ID="..." SNAP_REDIRECT_URI="https://mj-universe.net/snapchat/oauth-callback.html"
+    supabase functions deploy snap-oauth-exchange
+• Etter OAuth-callback lagres access/refresh token i snap_integration_tokens (kun service_role).
+
+================================================================================

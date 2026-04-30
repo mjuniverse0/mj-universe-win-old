@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"C:\\\\Users\\\\Jhonatan Wik\\\\Desktop\\\\kernel-driver-learn\\\\driver\")",
+      "Bash(mkdir -p \"C:\\\\Users\\\\Jhonatan Wik\\\\Desktop\\\\kernel-driver-learn\\\\client\")"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\Jhonatan Wik\\Desktop\\kernel-driver-learn\\driver",
+      "C:\\Users\\Jhonatan Wik\\Desktop\\kernel-driver-learn\\client"
+    ]
+  }
+}

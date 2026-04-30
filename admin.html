@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MJ Universe — Admin</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body class="admin-body">
+    <div id="screen-login" class="admin-screen">
+      <div class="admin-card">
+        <h1>Admin</h1>
+        <p class="admin-lead">
+          Log in with your <strong>username</strong>. We send
+          <code id="admin-email-preview"></code> to Supabase (username + <code>@mj-universe.site</code>).
+        </p>
+        <details class="admin-details">
+          <summary>Setup &amp; login problems</summary>
+          <ul class="admin-details__list">
+            <li>
+              In Supabase: <strong>Authentication → Users → Add user</strong> with that
+              <strong>exact</strong> email and your password.
+            </li>
+            <li>
+              Still get “Invalid login credentials”? Wrong password, user missing, or email not confirmed.
+              Under <strong>Authentication → Providers → Email</strong>, turn off
+              <strong>Confirm email</strong> for testing, or confirm the user in the dashboard.
+            </li>
+            <li>Never put your password in website files—only in Supabase.</li>
+          </ul>
+        </details>
+        <form id="form-login">
+          <label class="admin-label" for="login-username">Username</label>
+          <input
+            class="input"
+            type="text"
+            id="login-username"
+            autocomplete="username"
+            required
+            spellcheck="false"
+          />
+          <label class="admin-label" for="login-password">Password</label>
+          <input
+            class="input"
+            type="password"
+            id="login-password"
+            autocomplete="current-password"
+            required
+          />
+          <p id="login-error" class="admin-error" role="alert"></p>
+          <button type="submit" class="btn btn--primary btn--block">Sign in</button>
+        </form>
+        <p class="admin-foot"><a href="index.html">← Back to site</a></p>
+      </div>
+    </div>
+
+    <div id="screen-dash" class="admin-screen is-hidden">
+      <header class="admin-top">
+        <h1>MJ Universe — kontrollsenter</h1>
+        <button type="button" class="btn btn--ghost" id="btn-logout">Log out</button>
+      </header>
+
+      <div class="admin-shell">
+        <aside class="admin-sidebar" aria-label="Seksjoner">
+          <p class="admin-nav-group">Community</p>
+          <nav class="admin-nav admin-nav--sidebar">
+            <button type="button" data-panel="panel-polls" class="is-active">Polls</button>
+            <button type="button" data-panel="panel-questions">Questions</button>
+            <button type="button" data-panel="panel-events">Events</button>
+            <button type="button" data-panel="panel-milestones">Milestones</button>
+            <button type="button" data-panel="panel-chat">Live chat</button>
+          </nav>
+          <p class="admin-nav-group">Innhold &amp; drift</p>
+          <nav class="admin-nav admin-nav--sidebar">
+            <button type="button" data-panel="panel-live">Live status</button>
+            <button type="button" data-panel="panel-traffic">Trafikk</button>
+            <button type="button" data-panel="panel-snap">Snapchat tall</button>
+            <button type="button" data-panel="panel-fitness">Fitness</button>
+            <button type="button" data-panel="panel-watch">Watch / vlog</button>
+            <button type="button" data-panel="panel-store">Butikk</button>
+          </nav>
+        </aside>
+
+        <div class="admin-main">
+      <div id="panel-polls" class="admin-panel">
+        <h2>Polls</h2>
+        <p class="muted">Create a poll, then “Set active” so it appears on the homepage. Only one should be active.</p>
+        <form id="form-new-poll" class="admin-form">
+          <input class="input" id="new-poll-q" placeholder="Question" required />
+          <input class="input" id="new-poll-o1" placeholder="Option 1" required />
+          <input class="input" id="new-poll-o2" placeholder="Option 2" required />
+          <input class="input" id="new-poll-o3" placeholder="Option 3 (optional)" />
+          <input class="input" id="new-poll-o4" placeholder="Option 4 (optional)" />
+          <button type="submit" class="btn btn--primary">Create poll</button>
+        </form>
+        <p id="poll-create-msg" class="admin-msg"></p>
+        <h3>Existing polls</h3>
+        <div id="polls-admin-list" class="admin-stack"></div>
+        <h3>Vote log (selected poll)</h3>
+        <pre id="votes-dump" class="votes-dump"></pre>
+      </div>
+
+      <div id="panel-questions" class="admin-panel is-hidden">
+        <h2>Visitor questions</h2>
+        <div id="questions-admin-list" class="admin-stack"></div>
+      </div>
+
+      <div id="panel-events" class="admin-panel is-hidden">
+        <h2>Events &amp; giveaways</h2>
+        <form id="form-new-event" class="admin-form">
+          <input class="input" id="ev-title" placeholder="Title (giveaway name)" required />
+          <textarea
+            class="input"
+            id="ev-body"
+            rows="3"
+            placeholder="Description — for giveaways this is the prize (shown to entrants)"
+          ></textarea>
+          <label class="admin-label">Type</label>
+          <select class="input" id="ev-type">
+            <option value="giveaway">Giveaway</option>
+            <option value="other">Other</option>
+          </select>
+          <label class="admin-label">Starts (optional)</label>
+          <input class="input" type="datetime-local" id="ev-start" />
+          <label class="admin-label">Ends (optional)</label>
+          <input class="input" type="datetime-local" id="ev-end" />
+          <label class="admin-label">Number of winners (giveaway — required)</label>
+          <input
+            class="input"
+            id="ev-winner-slots"
+            type="number"
+            min="1"
+            max="50"
+            value="1"
+            placeholder="How many winners to draw (random among everyone). Use 1 for a single winner."
+          />
+          <button type="submit" class="btn btn--primary">Add event</button>
+        </form>
+        <p id="ev-create-msg" class="admin-msg"></p>
+        <div id="ev-giveaway-link-wrap" class="admin-giveaway-link-wrap" hidden>
+          <label class="admin-label">Share on Snapchat (standalone page)</label>
+          <div class="admin-inline-copy">
+            <input class="input" id="ev-giveaway-link" type="text" readonly />
+            <button type="button" class="btn btn--sm btn--primary" id="ev-copy-giveaway-link">
+              Copy link
+            </button>
+          </div>
+          <p class="muted admin-hint-small">
+            Opens <code>giveaway.html</code> with only this giveaway — works better on phones than the full site.
+            Set <code>MJ_PUBLIC_BASE_URL</code> in <code>supabase-config.js</code> if this URL is wrong while using admin from localhost.
+          </p>
+        </div>
+        <h3>Existing</h3>
+        <div id="events-admin-list" class="admin-stack"></div>
+        <h3>Giveaway entries (selected event)</h3>
+        <pre id="giveaway-entries-dump" class="votes-dump"></pre>
+      </div>
+
+      <div id="panel-milestones" class="admin-panel is-hidden">
+        <h2>Milestones</h2>
+        <form id="form-new-milestone" class="admin-form">
+          <input class="input" id="ms-title" placeholder="Title" required />
+          <textarea class="input" id="ms-body" rows="2" placeholder="Description"></textarea>
+          <label class="admin-label">Date</label>
+          <input class="input" type="date" id="ms-date" required />
+          <button type="submit" class="btn btn--primary">Add milestone</button>
+        </form>
+        <h3>Existing</h3>
+        <div id="milestones-admin-list" class="admin-stack"></div>
+      </div>
+
+      <div id="panel-traffic" class="admin-panel is-hidden">
+        <h2>Trafikk (page views)</h2>
+        <p class="muted">
+          Alle besok registreres som egne rader i <code>page_views</code> og slettes ikke. Tallene under er
+          <strong>rullende vinduer</strong> (f.eks. «7 dager» = siste 7 dogn fra na). «All time» = alt siden tabellen ble opprettet.
+        </p>
+        <p id="traffic-msg" class="admin-msg"></p>
+        <table class="admin-traffic-table" id="traffic-table" hidden>
+          <thead>
+            <tr>
+              <th>Periode</th>
+              <th>Visninger</th>
+            </tr>
+          </thead>
+          <tbody id="traffic-tbody"></tbody>
+        </table>
+        <p class="muted admin-hint-small">
+          RPC <code>views_stats()</code> og Storage <code>mj-videos</code>. Referanse-SQL: <code>setup-views-stats.sql</code>.
+        </p>
+      </div>
+
+      <div id="panel-live" class="admin-panel is-hidden">
+        <h2>Live på nettsiden</h2>
+        <p class="muted">
+          <strong>On air</strong> gir rød «LIVE»-markering og lenke til TikTok på live-siden. For innebygd spiller på siden kan du strømme til
+          <strong>YouTube</strong> (OBS) og lime inn <strong>embed-URL</strong> under.
+        </p>
+        <form id="form-live-status" class="admin-form">
+          <label class="admin-label" style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer">
+            <input type="checkbox" id="live-is-live" />
+            On air — vi sender live nå
+          </label>
+          <label class="admin-label" for="live-tiktok-user">TikTok-brukernavn 1 (uten @)</label>
+          <input class="input" id="live-tiktok-user" type="text" placeholder="f.eks. berntzenmariell" autocomplete="off" />
+          <label class="admin-label" for="live-tiktok-user-2">TikTok-brukernavn 2 (uten @)</label>
+          <input class="input" id="live-tiktok-user-2" type="text" placeholder="f.eks. mj_universe1" autocomplete="off" />
+          <label class="admin-label" for="live-embed-url">Embed-URL (valgfritt — YouTube eller Twitch)</label>
+          <input
+            class="input"
+            id="live-embed-url"
+            type="url"
+            placeholder="https://www.youtube.com/embed/… eller player.twitch.tv"
+          />
+          <button type="submit" class="btn btn--primary">Lagre live-innstillinger</button>
+        </form>
+        <p id="live-save-msg" class="admin-msg"></p>
+        <p class="muted admin-hint-small">
+          Offentlig side: <code>live/live.html</code>. SQL: <code>setup-live-status.sql</code>.
+        </p>
+      </div>
+
+      <div id="panel-snap" class="admin-panel is-hidden">
+        <h2>Snapchat — tall på nettsiden</h2>
+        <p class="muted">
+          Snapchat har <strong>ikke</strong> et offentlig API eller innebygd «analytics-widget» du kan lime inn på vanlige nettsider
+          (tallene ligger i Snapchat / Snapchat for Creators). Her kan du <strong>manuelt</strong> kopiere høydepunkter du vil vise
+          besøkende — oppdater når du vil.
+        </p>
+        <p class="muted">
+          <strong>Tomme felt ved lagring beholdes.</strong> Endring i et visningstall (7 / 30 / 90 / all time) viser
+          <strong>differanse mot forrige lagring</strong> (tall og %) under på snapchat-siden. Sist lagret dato vises nederst.
+        </p>
+        <form id="form-snap-stats" class="admin-form">
+          <label class="admin-label" for="snap-username">snapchat brukernavn (uten @)</label>
+          <input class="input" id="snap-username" type="text" placeholder="mj_universe" autocomplete="off" />
+          <label class="admin-label" for="snap-metric-views">Visninger — siste 7 dager (tekst)</label>
+          <input class="input" id="snap-metric-views" type="text" placeholder="f.eks. 12 000" />
+          <label class="admin-label" for="snap-metric-views-30">Visninger — siste 30 dager</label>
+          <input class="input" id="snap-metric-views-30" type="text" placeholder="f.eks. 45 000" />
+          <label class="admin-label" for="snap-metric-views-90">Visninger — siste 90 dager</label>
+          <input class="input" id="snap-metric-views-90" type="text" placeholder="f.eks. 120 000" />
+          <label class="admin-label" for="snap-metric-views-all">Visninger — all time (totalt)</label>
+          <input class="input" id="snap-metric-views-all" type="text" placeholder="f.eks. 2,1M" />
+          <label class="admin-label" for="snap-metric-engagement">Engasjement / annet</label>
+          <input class="input" id="snap-metric-engagement" type="text" placeholder="valgfritt" />
+          <label class="admin-label" for="snap-metric-subs">Abonnenter / følgere (ca.)</label>
+          <input class="input" id="snap-metric-subs" type="text" placeholder="valgfritt" />
+          <label class="admin-label" for="snap-insights-note">Notat (valgfritt)</label>
+          <textarea class="input" id="snap-insights-note" rows="4" placeholder="Kort kommentar til tallene på snapchat-siden"></textarea>
+          <button type="submit" class="btn btn--primary">Lagre Snapchat-innstillinger</button>
+        </form>
+        <p id="snap-save-msg" class="admin-msg"></p>
+        <p class="muted admin-hint-small">
+          Offentlig side: <code>https://mj-universe.social/snapchat/</code> · SQL-filer i prosjektrot ved behov.
+        </p>
+      </div>
+
+      <div id="panel-fitness" class="admin-panel is-hidden">
+        <h2>Fitness / treningserie</h2>
+        <p class="muted">
+          Sesonger og episoder: video fra Storage (offentlig URL), YouTube/Vimeo/TikTok embed, eller lenker til TikTok, Instagram,
+          Snapchat. Velg det som passer episoden.
+        </p>
+        <h3>Ny sesong</h3>
+        <form id="form-fitness-season" class="admin-form">
+          <input class="input" id="new-season-title" placeholder="Tittel (f.eks. Sesong 1)" required />
+          <input class="input" id="new-season-slug" placeholder="slug (tom = auto fra tittel)" />
+          <textarea class="input" id="new-season-desc" rows="2" placeholder="Beskrivelse"></textarea>
+          <label class="admin-label" for="new-season-sort">Sort order</label>
+          <input class="input" type="number" id="new-season-sort" value="0" />
+          <label class="admin-label" style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer">
+            <input type="checkbox" id="new-season-published" />
+            Published (synlig på nettsiden)
+          </label>
+          <button type="submit" class="btn btn--primary">Legg til sesong</button>
+        </form>
+        <p id="fitness-season-msg" class="admin-msg"></p>
+        <h3>Ny episode</h3>
+        <form id="form-fitness-episode" class="admin-form">
+          <label class="admin-label" for="ep-season-id">Sesong</label>
+          <select class="input" id="ep-season-id" required></select>
+          <input class="input" id="ep-title" placeholder="Episodetittel" required />
+          <label class="admin-label" for="ep-num">Episode-nummer</label>
+          <input class="input" type="number" id="ep-num" value="1" min="1" />
+          <label class="admin-label" for="ep-sort">Sort order</label>
+          <input class="input" type="number" id="ep-sort" value="0" />
+          <textarea class="input" id="ep-body" rows="3" placeholder="Beskrivelse"></textarea>
+          <label class="admin-label" for="ep-video-url">Video-URL (mp4 eller full URL)</label>
+          <input class="input" id="ep-video-url" type="url" placeholder="https://… eller /videoer/episode.mp4" />
+          <label class="admin-label" for="ep-youtube">YouTube embed-URL</label>
+          <input class="input" id="ep-youtube" placeholder="https://www.youtube.com/embed/…" />
+          <label class="admin-label" for="ep-snap">Snapchat story (lenke)</label>
+          <input class="input" id="ep-snap" placeholder="https://…" />
+          <label class="admin-label" for="ep-tiktok">TikTok (Short / video — lenke)</label>
+          <input class="input" id="ep-tiktok" type="url" placeholder="https://www.tiktok.com/@…/video/…" />
+          <label class="admin-label" for="ep-instagram">Instagram Reel / video (lenke)</label>
+          <input class="input" id="ep-instagram" type="url" placeholder="https://www.instagram.com/reel/…" />
+          <label class="admin-label" for="ep-thumb">Thumbnail-URL (valgfritt)</label>
+          <input class="input" id="ep-thumb" placeholder="https://… eller /images/…" />
+          <label class="admin-label" style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer">
+            <input type="checkbox" id="ep-published" checked />
+            Published
+          </label>
+          <button type="submit" class="btn btn--primary">Legg til episode</button>
+        </form>
+        <p id="fitness-ep-msg" class="admin-msg"></p>
+        <h3>Eksisterende sesonger</h3>
+        <div id="fitness-admin-list" class="admin-stack"></div>
+        <p class="muted admin-hint-small">
+          Offentlig side: <code>https://mj-universe.vip/fitness/</code>
+        </p>
+      </div>
+
+      <div id="panel-chat" class="admin-panel is-hidden">
+        <h2>Live chat (mj-universe.social)</h2>
+        <p class="muted">Siste meldinger — slett ved behov. Chat bruker Supabase Realtime.</p>
+        <div id="chat-admin-list" class="admin-stack"></div>
+      </div>
+
+      <div id="panel-watch" class="admin-panel is-hidden">
+        <h2>Watch / vlog</h2>
+        <p class="muted">
+          Lister på <code>mj-universe.media/vlog/</code> · avspilling <code>mj-universe.watch/?v=slug</code>. Minst én kilde under
+          (embed, mp4 fra Storage, eller lenker).
+        </p>
+        <form id="form-watch-video" class="admin-form">
+          <input class="input" id="watch-slug" placeholder="slug (kun a-z, 0-9, bindestrek)" required />
+          <input class="input" id="watch-title" placeholder="Tittel" required />
+          <textarea class="input" id="watch-desc" rows="2" placeholder="Beskrivelse"></textarea>
+          <label class="admin-label" for="watch-youtube">Innebygging (YouTube / Vimeo / TikTok embed / Twitch)</label>
+          <input class="input" id="watch-youtube" placeholder="https://www.youtube.com/embed/… eller player.vimeo.com/…" />
+          <label class="admin-label" for="watch-video-file">Direkte video-URL (Storage mp4 eller annen https-mp4)</label>
+          <input class="input" id="watch-video-file" type="url" placeholder="https://….supabase.co/storage/v1/object/public/…/fil.mp4" />
+          <label class="admin-label" for="watch-tiktok">TikTok (lenke til Short / video)</label>
+          <input class="input" id="watch-tiktok" type="url" placeholder="https://www.tiktok.com/@…/video/…" />
+          <label class="admin-label" for="watch-instagram">Instagram Reel / video</label>
+          <input class="input" id="watch-instagram" type="url" placeholder="https://www.instagram.com/reel/…" />
+          <label class="admin-label" for="watch-snap">Snapchat story</label>
+          <input class="input" id="watch-snap" type="url" placeholder="https://…" />
+          <label class="admin-label">Type</label>
+          <select class="input" id="watch-kind">
+            <option value="vlog">vlog</option>
+            <option value="clip">clip (watch)</option>
+          </select>
+          <label class="admin-label" for="watch-sort">Sort order</label>
+          <input class="input" type="number" id="watch-sort" value="0" />
+          <label class="admin-label" style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer">
+            <input type="checkbox" id="watch-published" checked />
+            Publisert
+          </label>
+          <button type="submit" class="btn btn--primary">Legg til video</button>
+        </form>
+        <p id="watch-msg" class="admin-msg"></p>
+        <h3>Eksisterende</h3>
+        <div id="watch-admin-list" class="admin-stack"></div>
+      </div>
+
+      <div id="panel-store" class="admin-panel is-hidden">
+        <h2>Butikk</h2>
+        <p class="muted">Produkter vises pa mj-universe.store / mjuniverse.store. Pris i hele kroner (lagres som ore).</p>
+        <form id="form-store-product" class="admin-form">
+          <input class="input" id="prod-slug" placeholder="slug" required />
+          <input class="input" id="prod-title" placeholder="Tittel" required />
+          <textarea class="input" id="prod-desc" rows="2" placeholder="Beskrivelse"></textarea>
+          <input class="input" id="prod-price-nok" type="number" min="0" step="1" placeholder="Pris (NOK)" required />
+          <label class="admin-label" for="prod-sort">Sort order</label>
+          <input class="input" type="number" id="prod-sort" value="0" />
+          <label class="admin-label" style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer">
+            <input type="checkbox" id="prod-active" checked />
+            Aktiv
+          </label>
+          <button type="submit" class="btn btn--primary">Legg til produkt</button>
+        </form>
+        <p id="store-prod-msg" class="admin-msg"></p>
+        <h3>Produkter</h3>
+        <div id="store-products-list" class="admin-stack"></div>
+        <h3>Siste ordre</h3>
+        <div id="store-orders-list" class="admin-stack"></div>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/supabase-config.js"></script>
+    <script>
+      (function () {
+        var u = window.MJ_ADMIN_USERNAME || "mariellogjhonatan";
+        var d = window.MJ_ADMIN_LOGIN_DOMAIN || "mj-universe.site";
+        document.getElementById("login-username").value = u;
+        var prev = document.getElementById("admin-email-preview");
+        if (prev) prev.textContent = u + "@" + d;
+      })();
+    </script>
+    <script type="module" src="js/admin.js"></script>
+  </body>
+</html>

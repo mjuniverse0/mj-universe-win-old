@@ -1,0 +1,14 @@
+# Target labels
+ nlohmann_json-populate
+# Source files and their labels
+C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-win/_deps/nlohmann_json-subbuild/CMakeFiles/nlohmann_json-populate
+C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-win/_deps/nlohmann_json-subbuild/CMakeFiles/cce6f90718f81f7c082751dfec4b0c0e/nlohmann_json-populate.rule
+C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-win/_deps/nlohmann_json-subbuild/CMakeFiles/4dbf926c80fc1459d12f07dea8d70375/nlohmann_json-populate-complete.rule
+C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-win/_deps/nlohmann_json-subbuild/CMakeFiles/16dee41a0f1dce164345feb33be95283/nlohmann_json-populate-build.rule
+C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-win/_deps/nlohmann_json-subbuild/CMakeFiles/16dee41a0f1dce164345feb33be95283/nlohmann_json-populate-configure.rule
+C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-win/_deps/nlohmann_json-subbuild/CMakeFiles/16dee41a0f1dce164345feb33be95283/nlohmann_json-populate-download.rule
+C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-win/_deps/nlohmann_json-subbuild/CMakeFiles/16dee41a0f1dce164345feb33be95283/nlohmann_json-populate-install.rule
+C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-win/_deps/nlohmann_json-subbuild/CMakeFiles/16dee41a0f1dce164345feb33be95283/nlohmann_json-populate-mkdir.rule
+C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-win/_deps/nlohmann_json-subbuild/CMakeFiles/16dee41a0f1dce164345feb33be95283/nlohmann_json-populate-patch.rule
+C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-win/_deps/nlohmann_json-subbuild/CMakeFiles/16dee41a0f1dce164345feb33be95283/nlohmann_json-populate-test.rule
+C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-win/_deps/nlohmann_json-subbuild/CMakeFiles/16dee41a0f1dce164345feb33be95283/nlohmann_json-populate-update.rule

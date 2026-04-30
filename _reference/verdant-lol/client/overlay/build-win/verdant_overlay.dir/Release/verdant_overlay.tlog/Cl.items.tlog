@@ -1,0 +1,11 @@
+C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\main.cpp;C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\build-win\verdant_overlay.dir\Release\main.obj
+C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\overlay.cpp;C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\build-win\verdant_overlay.dir\Release\overlay.obj
+C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\hud_painter.cpp;C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\build-win\verdant_overlay.dir\Release\hud_painter.obj
+C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\overlay_input_adapter.cpp;C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\build-win\verdant_overlay.dir\Release\overlay_input_adapter.obj
+C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\aim_assist.cpp;C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\build-win\verdant_overlay.dir\Release\aim_assist.obj
+C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\win32_mouse_input.cpp;C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\build-win\verdant_overlay.dir\Release\win32_mouse_input.obj
+C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\process.cpp;C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\build-win\verdant_overlay.dir\Release\process.obj
+C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\memory.cpp;C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\build-win\verdant_overlay.dir\Release\memory.obj
+C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\explorer.cpp;C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\build-win\verdant_overlay.dir\Release\explorer.obj
+C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\chat.cpp;C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\build-win\verdant_overlay.dir\Release\chat.obj
+C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\http.cpp;C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\build-win\verdant_overlay.dir\Release\http.obj

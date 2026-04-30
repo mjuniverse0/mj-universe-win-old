@@ -1,0 +1,634 @@
+/* Undersider (SEO) — i tillegg til style.css */
+.seo-wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  isolation: isolate;
+}
+
+.vip-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.seo-main {
+  flex: 1;
+  padding: 5.5rem 1.25rem 3rem;
+  max-width: 42rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.seo-main h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 600;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+.seo-main .lead {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin: 0 0 1.5rem;
+  line-height: 1.55;
+}
+
+.seo-main p {
+  margin: 0 0 1rem;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.seo-main h2 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin: 2rem 0 0.65rem;
+  font-weight: 600;
+}
+
+.seo-main ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.seo-main a {
+  color: var(--brand-cyan);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.seo-main a:hover {
+  color: var(--text);
+}
+
+.seo-nav-extra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+}
+
+.seo-nav-extra a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.seo-nav-extra a:hover {
+  color: var(--brand-cyan);
+}
+
+.seo-kw-block {
+  margin-top: 2rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.seo-kw-block strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Profil (SEO-sider) — samme foto/stil som forsiden */
+.seo-profile-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2rem;
+  align-items: flex-start;
+  margin: 0 0 1.5rem;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(232, 145, 168, 0.25);
+  background: var(--bg-elevated);
+}
+
+.seo-profile-block__visual {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.seo-profile-block__text {
+  flex: 1;
+  min-width: min(100%, 16rem);
+}
+
+.seo-profile-block__text .lead:first-child {
+  margin-top: 0;
+}
+
+.seo-profile-block--j {
+  border-color: rgba(126, 184, 218, 0.25);
+}
+
+/* Merkeblokk (vlog/blog) — logo + tekst, samme rytme som profil */
+.seo-profile-block--brand {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.seo-profile-block--brand .seo-profile-block__visual {
+  align-items: flex-start;
+}
+
+.seo-profile-block__logo {
+  display: block;
+  width: min(10rem, 100%);
+  height: auto;
+  object-fit: contain;
+}
+
+/* Snapchat metrics cards */
+.snap-metrics {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.snap-metrics--views {
+  grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+}
+
+@media (min-width: 640px) {
+  .snap-metrics--views {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .snap-metrics--views {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.snap-metric {
+  padding: 0.85rem 1rem;
+  border-radius: calc(var(--radius) - 4px);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.snap-metric__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.snap-metric__value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.snap-insights-note {
+  white-space: pre-wrap;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Fitness series */
+.fitness-season {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.fitness-season:last-child {
+  border-bottom: none;
+}
+
+.fitness-season__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  margin: 0 0 0.5rem;
+}
+
+.fitness-season__desc {
+  color: var(--text-muted);
+  margin: 0 0 1.25rem;
+  font-size: 0.98rem;
+}
+
+.fitness-ep {
+  margin-bottom: 1.75rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.fitness-ep__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.fitness-ep__num {
+  font-size: 0.8rem;
+  color: var(--brand-pink);
+  font-weight: 600;
+}
+
+.fitness-ep__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.fitness-ep__body {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0 0 0.75rem;
+  line-height: 1.55;
+}
+
+.fitness-ep__media {
+  margin-top: 0.75rem;
+  border-radius: calc(var(--radius) - 6px);
+  overflow: hidden;
+  background: #000;
+}
+
+.fitness-ep__media video,
+.fitness-ep__media iframe {
+  display: block;
+  width: 100%;
+  min-height: 200px;
+  border: 0;
+}
+
+.fitness-ep__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+}
+
+.fitness-ep__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+}
+
+.empty-fitness {
+  color: var(--text-muted);
+  padding: 1rem 0;
+}
+
+/* MJ Universe Network — felles footer på satellitt-sider */
+.site-footer .network-brand-line {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.network-brand-line {
+  margin: 0 0 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  max-width: 36rem;
+}
+
+.network-brand-line strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.network-brand-line a {
+  color: var(--brand-cyan);
+}
+
+.site-footer .network-footer {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  max-width: 36rem;
+  width: 100%;
+}
+
+.network-footer__title {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 0.65rem;
+}
+
+.network-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.65rem;
+  justify-content: center;
+  font-size: 0.78rem;
+}
+
+.network-footer__links a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.network-footer__links a:hover {
+  color: var(--brand-cyan);
+  text-decoration: underline;
+}
+
+.site-header,
+main,
+.site-footer,
+.vip-cookie-banner {
+  position: relative;
+  z-index: 1;
+}
+
+#vip-priser {
+  scroll-margin-top: 5.75rem;
+}
+
+.vip-checkout {
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--radius) + 4px);
+}
+
+.vip-checkout__title {
+  margin-top: 0;
+}
+
+.vip-checkout__lead {
+  color: var(--text-muted);
+}
+
+.vip-plan-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: 1fr;
+  margin: 1rem 0 1.25rem;
+}
+
+@media (min-width: 760px) {
+  .vip-plan-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.vip-plan-card {
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 2px);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  transform: translateY(14px);
+  opacity: 0;
+  animation: vip-slide-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.vip-scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vip-scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vip-plan-card:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.vip-plan-card:nth-child(3) {
+  animation-delay: 0.16s;
+}
+
+.vip-plan-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(45, 212, 191, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.vip-plan-card h3 {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.vip-plan-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.vip-plan-card__bullets {
+  margin: 0 0 0.75rem;
+  padding-left: 1.1rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.vip-plan-card__bullets li {
+  margin-bottom: 0.35rem;
+}
+
+.vip-plan-card--accent {
+  border-color: rgba(244, 114, 182, 0.35);
+  background: linear-gradient(165deg, rgba(244, 114, 182, 0.08), rgba(255, 255, 255, 0.03));
+}
+
+.vip-plan-disclaimer {
+  margin: 0 0 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: calc(var(--radius) - 4px);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.vip-plan-card .vip-plan-card__price {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.vip-plan-card .btn {
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.vip-plan-card .btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -120%;
+  width: 60%;
+  background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%);
+  transition: left 0.45s ease;
+}
+
+.vip-plan-card .btn:hover::after {
+  left: 130%;
+}
+
+.vip-checkout__links {
+  border-top: 1px solid var(--border);
+  padding-top: 0.95rem;
+}
+
+.vip-checkout__links h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1rem;
+}
+
+.vip-checkout__links p {
+  margin: 0 0 0.35rem;
+}
+
+.vip-checkout::before {
+  content: "";
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  right: -140px;
+  top: -160px;
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.18), transparent 70%);
+  pointer-events: none;
+  animation: vip-float 8s ease-in-out infinite;
+}
+
+.vip-cookie-banner {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  z-index: 120;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(12, 10, 18, 0.92);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transform: translateY(130%);
+  opacity: 0;
+}
+
+.vip-cookie-banner.is-visible {
+  animation: vip-slide-up 0.4s ease forwards;
+}
+
+.vip-cookie-banner.is-leaving {
+  animation: vip-slide-down 0.35s ease forwards;
+}
+
+.vip-cookie-banner p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.vip-cookie-banner__ok {
+  min-height: 2.45rem;
+}
+
+@media (min-width: 760px) {
+  .vip-cookie-banner {
+    left: auto;
+    width: min(560px, calc(100vw - 2rem));
+  }
+}
+
+@keyframes vip-slide-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes vip-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes vip-slide-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes vip-slide-down {
+  to {
+    opacity: 0;
+    transform: translateY(140%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vip-scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .vip-particles {
+    display: none;
+  }
+
+  .vip-plan-card,
+  .vip-checkout::before,
+  .vip-cookie-banner,
+  .vip-cookie-banner.is-visible,
+  .vip-cookie-banner.is-leaving {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

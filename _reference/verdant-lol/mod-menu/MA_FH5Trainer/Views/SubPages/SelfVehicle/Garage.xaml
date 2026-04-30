@@ -1,0 +1,142 @@
+﻿<Page x:Class="MA_FH5Trainer.Views.SubPages.SelfVehicle.Garage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:MA_FH5Trainer.Views.SubPages.SelfVehicle"
+      mc:Ignorable="d"
+      d:DataContext="{d:DesignInstance local:Garage, IsDesignTimeCreatable=True}"
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+      Title="Garage" 
+      d:DesignHeight="Auto" 
+      d:DesignWidth="800"
+      Background="Transparent">
+    
+    <StackPanel>
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <StackPanel Margin="5 0"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                
+                <Button Content="Clear New Tag On Cars"
+                        IsEnabled="{Binding ViewModel.UiElementsEnabled, Mode=OneWay}"
+                        BorderThickness="0"
+                        VerticalAlignment="Center"
+                        mah:ControlsHelper.FocusBorderThickness="0"
+                        mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                        Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                        BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}"
+                        Command="{Binding ViewModel.ExecuteSqlCommand}"
+                        CommandParameter="UPDATE Profile0_Career_Garage SET HasCurrentOwnerViewedCar = 1;"/>
+
+                <Rectangle Margin="4 8"
+                           Width="1"
+                           VerticalAlignment="Stretch"
+                           Fill="White"/>
+                
+                <Button Content="Fix Empty Thumbnails"
+                        IsEnabled="{Binding ViewModel.UiElementsEnabled, Mode=OneWay}"
+                        BorderThickness="0"
+                        VerticalAlignment="Center"
+                        mah:ControlsHelper.FocusBorderThickness="0"
+                        mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                        Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                        BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}"
+                        Command="{Binding ViewModel.ExecuteSqlCommand}"
+                        CommandParameter="UPDATE Profile0_Career_Garage SET Thumbnail=(SELECT Thumbnail FROM Data_Car WHERE Data_Car.Id = Profile0_Career_Garage.CarId);"/>
+
+                <Rectangle Margin="4 8"
+                           Width="1"
+                           VerticalAlignment="Stretch"
+                           Fill="White"/>
+
+                <Grid  
+                    VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Button HorizontalAlignment="Stretch"
+                            Content="Clear Garage"
+                            IsEnabled="{Binding ViewModel.UiElementsEnabled, Mode=OneWay}"
+                            BorderThickness="0"
+                            VerticalAlignment="Center"
+                            mah:ControlsHelper.FocusBorderThickness="0"
+                            mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                            Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                            BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}"
+                            Command="{Binding ViewModel.ExecuteSqlCommand}">
+                        <Button.CommandParameter>
+                            <MultiBinding Converter="{StaticResource IntParamConverter}">
+                                <Binding ElementName="ClearGarageMode" Path="SelectedIndex" />
+                                <Binding Source="DELETE FROM Profile0_Career_Garage WHERE Id > 0;" />
+                                <Binding Source="DELETE FROM Profile0_Career_Garage WHERE Id NOT IN (select min(Id) from Profile0_Career_Garage group by CarId);" />
+                                <Binding Source="DELETE FROM Profile0_Career_Garage WHERE IsFavorite IS NOT 1;" />
+                                <Binding Source="DELETE FROM Profile0_Career_Garage WHERE VersionedTuneId IS '00000000-0000-0000-0000-000000000000';" />
+                                <Binding Source="DELETE FROM Profile0_Career_Garage WHERE VersionedLiveryId IS '00000000-0000-0000-0000-000000000000';" />
+                            </MultiBinding>
+                        </Button.CommandParameter>    
+                    </Button>
+                    
+                    <Label Grid.Column="1" VerticalAlignment="Center" Content="Delete:" Margin="2 0 0 0"/>
+
+                    <ComboBox x:Name="ClearGarageMode"
+                              Margin="2 0 0 0"
+                              SelectedIndex="0"
+                              Grid.Column="2"
+                              VerticalAlignment="Center"
+                              IsEnabled="{Binding ViewModel.UiElementsEnabled, Mode=OneWay}"
+                              BorderThickness="0"
+                              mah:ControlsHelper.FocusBorderThickness="0"
+                              mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                              Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                              BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}">
+
+                        <ComboBoxItem Content="{DynamicResource RemoveAll}" />
+                        <ComboBoxItem Content="{DynamicResource RemoveDupes}" />
+                        <ComboBoxItem Content="{DynamicResource RemoveNonFavorites}" />
+                        <ComboBoxItem Content="{DynamicResource RemoveUnTuned}" />
+                        <ComboBoxItem Content="{DynamicResource RemoveNonLivery}" />
+                        
+                    </ComboBox>
+                </Grid>
+            </StackPanel>
+        </Border>
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <StackPanel Margin="5 0"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                        
+                <Button Content="Make Performance Upgrades Free"
+                        IsEnabled="{Binding ViewModel.UiElementsEnabled, Mode=OneWay}"
+                        BorderThickness="0"
+                        VerticalAlignment="Center"
+                        mah:ControlsHelper.FocusBorderThickness="0"
+                        mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                        Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                        BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}"
+                        Command="{Binding ViewModel.ExecuteSqlCommand}"
+                        CommandParameter="UPDATE List_UpgradeAntiSwayFront SET price=0;UPDATE List_UpgradeAntiSwayRear SET price=0;UPDATE List_UpgradeBrakes SET price=0;UPDATE List_UpgradeCarBodyChassisStiffness SET price=0;UPDATE List_UpgradeCarBody SET price=0;UPDATE List_UpgradeCarBodyTireWidthFront SET price=0;UPDATE List_UpgradeCarBodyTireWidthRear SET price=0;UPDATE List_UpgradeCarBodyTrackSpacingFront SET price=0;UPDATE List_UpgradeCarBodyTrackSpacingRear SET price=0;UPDATE List_UpgradeCarBodyWeight SET price=0;UPDATE List_UpgradeDrivetrain SET price=0;UPDATE List_UpgradeDrivetrainClutch SET price=0;UPDATE List_UpgradeDrivetrainDifferential  SET price=0;UPDATE List_UpgradeDrivetrainDriveline SET price=0;UPDATE List_UpgradeDrivetrainTransmission SET price=0;UPDATE List_UpgradeEngine SET price=0;UPDATE List_UpgradeEngineCamshaft SET price=0;UPDATE List_UpgradeEngineCSC SET price=0;UPDATE List_UpgradeEngineDisplacement SET price=0;UPDATE List_UpgradeEngineDSC SET price=0;UPDATE List_UpgradeEngineExhaust SET price=0;UPDATE List_UpgradeEngineFlywheel SET price=0;UPDATE List_UpgradeEngineFuelSystem SET price=0;UPDATE List_UpgradeEngineIgnition SET price=0;UPDATE List_UpgradeEngineIntake SET price=0;UPDATE List_UpgradeEngineIntercooler SET price=0;UPDATE List_UpgradeEngineManifold SET price=0;UPDATE List_UpgradeEngineOilCooling SET price=0;UPDATE List_UpgradeEnginePistonsCompression SET price=0;UPDATE List_UpgradeEngineRestrictorPlate SET price=0;UPDATE List_UpgradeEngineTurboQuad SET price=0;UPDATE List_UpgradeEngineTurboSingle SET price=0;UPDATE List_UpgradeEngineTurboTwin SET price=0;UPDATE List_UpgradeEngineValves SET price=0;UPDATE List_UpgradeMotor SET price=0;UPDATE List_UpgradeMotorParts SET price=0;UPDATE List_UpgradeSpringDamper SET price=0;UPDATE List_UpgradeTireCompound SET price=0;UPDATE List_Wheels SET price=1;"/>
+
+                <Rectangle Margin="4 8"
+                           Width="1"
+                           VerticalAlignment="Stretch"
+                           Fill="White"/>
+
+                <Button Content="Make Visual Upgrades Free"
+                        IsEnabled="{Binding ViewModel.UiElementsEnabled, Mode=OneWay}"
+                        BorderThickness="0"
+                        VerticalAlignment="Center"
+                        mah:ControlsHelper.FocusBorderThickness="0"
+                        mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                        Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                        BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}"
+                        Command="{Binding ViewModel.ExecuteSqlCommand}"
+                        CommandParameter="UPDATE List_UpgradeCarBody SET price=0;UPDATE List_UpgradeCarBodyFrontBumper SET price=0;UPDATE List_UpgradeCarBodyHood SET price=0;UPDATE List_UpgradeCarBodyRearBumper SET price=0;UPDATE List_UpgradeCarBodySideSkirt SET price=0;UPDATE List_UpgradeRearWing SET price=0;UPDATE List_Wheels SET price=1;"/>
+
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</Page>

@@ -1,0 +1,17 @@
+{
+  "runtime": {
+    "online": true,
+    "since": 1777294096074
+  },
+  "panels": {
+    "ticketRequestPanel": "1498309308671070278",
+    "applicationPanel": "1498304783692333147",
+    "runtimeControlPanel": "1498304784698966208",
+    "clientUpdateMessage": "1498304785437163643",
+    "clientStatusMessage": "1498304788092157984",
+    "claimOrderPanel": "1498306852042182847",
+    "systemStatusPanel": "1498309318406176769",
+    "systemStatusClientPanel": "1498312178376249566",
+    "ourClientFeaturesPanel": "1498312514646311023"
+  }
+}

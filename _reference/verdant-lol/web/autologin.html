@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Autologin - Verdant External</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <canvas id="particles"></canvas>
+    <section class="section" style="min-height:100vh;display:grid;place-items:center">
+      <div class="container" style="max-width:760px">
+        <div class="panel form" style="text-align:center;padding:28px">
+          <h2 style="margin-bottom:6px">Autologin</h2>
+          <p style="color:var(--muted)">Preparing your persistent session...</p>
+          <div
+            data-autologin-screen
+            style="margin-top:20px;white-space:pre-line;font-size:1.05rem;line-height:1.7;animation:fadePulse .9s ease-in-out infinite alternate"
+          ></div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container footer-bar">
+        <span>© Verdant External - Autologin</span>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="./user-privacy.html">User privacy</a>
+          <a href="./policies.html">Policies &amp; MJ</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/notifications-bell.js"></script>
+    <script src="./assets/js/autologin.js"></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+---
+description: Deploy hele MJ Universe-nettsiden til VPS etter endringer
+globs: "*.html,css/**,js/**,images/**,live/**,videoer/**,site.webmanifest,sites/**"
+alwaysApply: false
+---
+
+Etter endringer i prosjektet: last opp **hele nettstedet** (rotfiler + mapper rekursivt) og **satellitt-sider** under `sites/*`. Kjør `.\deploy.ps1` — den gjør begge deler. Ikke `.cursor`, ikke `*.sql`, ikke `bot.py` / `requirements-bot.txt`, ikke `supabase/` (Edge Functions deployes med Supabase CLI).
+
+**Assistent:** Når brukeren deployer eller spør om opplasting, **inkluder alltid hele `scp`-blokken under** (i tillegg til `.\deploy.ps1` hvis relevant).
+
+**Enklest:** fra prosjektmappa kjør `.\deploy.ps1` (se `deploy.ps1`).
+
+**Pene URL-er uten `.html`:** legg inn `try_files` (og ev. 301 fra `*.html`) fra `nginx/nginx-mj-universe.example.conf` i nginx for `mj-universe.net`, deretter `sudo nginx -t && sudo systemctl reload nginx`.
+
+```powershell
+cd "C:\Users\Jhonatan Wik\Desktop\Mariell Og Jhonatan"
+$k = "C:\Users\Jhonatan Wik\.ssh\id_ed25519"
+$h = "root@187.124.48.60"
+$d = "/home/mj-universe/htdocs/mj-universe.net"
+scp -i $k -o IdentitiesOnly=yes -o BatchMode=yes -o ConnectTimeout=60 index.html admin.html giveaway.html site.webmanifest sitemap.xml robots.txt about.html mariellberntzen.html mariell-berntzen.html jhonatanwik.html jhonatan-wik.html snapchat.html fitness-serie.html vlog.html blog.html "${h}:$d/"
+scp -i $k -o IdentitiesOnly=yes -o BatchMode=yes -o ConnectTimeout=120 -r css js images live videoer about snapchat fitness vlog blog mariellberntzen mariell-berntzen jhonatanwik jhonatan-wik "${h}:$d/"
+```
+
+`videoer/` kan ta tid. Ved feil: `ssh-add "C:\Users\Jhonatan Wik\.ssh\id_ed25519"`. SQL kjøres i Supabase, ikke via scp.

@@ -1,0 +1,10 @@
+^C:\USERS\JHONATAN WIK\DESKTOP\VERDANT-LOL\CLIENT\OVERLAY\BUILD-WIN\CMAKEFILES\6F1F29567C6C55241A50FB02BAACE95C\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay" "-BC:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-win" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-win/verdant_overlay.slnx"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

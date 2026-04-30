@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Client Area - Verdant External</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <canvas id="particles"></canvas>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="./index.html"><span class="dot"></span>Verdant External</a>
+        <div class="links">
+          <a href="./index.html">Home</a>
+          <a href="./products.html">Products</a>
+          <a href="./status.html">Status</a>
+          <a class="active" href="./client-area.html">Client Area</a>
+          <a href="./contact.html">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <h2>Client Area</h2>
+        <p>View purchases, track transaction status live, and download available products.</p>
+
+        <div class="client-layout">
+          <aside class="panel sidebar">
+            <h3>Navigation</h3>
+            <nav class="side-nav">
+              <a class="side-link active" href="#overview">Overview</a>
+              <a class="side-link" href="./products-client.html">Products</a>
+              <a class="side-link" href="./keys.html">Keys</a>
+              <a class="side-link" href="./downloads.html">Downloads</a>
+              <a class="side-link" href="./transactions.html">Transactions</a>
+            </nav>
+            <hr style="border-color: rgba(255,255,255,.12); margin: 14px 0" />
+            <p data-client-account>Checking session...</p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <button class="btn btn-ghost" data-refresh-orders>Refresh</button>
+              <button class="btn btn-ghost" data-logout>Log out</button>
+            </div>
+            <p data-client-message style="margin-top:10px;color:var(--muted)"></p>
+          </aside>
+
+          <main class="stack">
+            <section id="overview" class="panel form">
+              <h3>Overview</h3>
+              <div class="stat-row">
+                <div class="kpi"><div class="value" data-kpi-orders>0</div><div>Total Orders</div></div>
+                <div class="kpi"><div class="value" data-kpi-active>0</div><div>Active</div></div>
+                <div class="kpi"><div class="value" data-kpi-claimed>0</div><div>Claimed</div></div>
+                <div class="kpi"><div class="value" data-kpi-downloads>0</div><div>Downloads Ready</div></div>
+              </div>
+            </section>
+
+            <section id="products" class="panel form">
+              <h3>Products</h3>
+              <ul class="list" data-products-list>
+                <li>No products yet.</li>
+              </ul>
+            </section>
+
+            <section id="keys" class="panel form">
+              <h3>Keys</h3>
+              <ul class="list" data-keys-list>
+                <li>No keys available yet.</li>
+              </ul>
+            </section>
+
+            <section id="downloads" class="panel form">
+              <h3>Downloads</h3>
+              <ul class="list" data-downloads-list>
+                <li>No downloads available yet.</li>
+              </ul>
+            </section>
+
+            <section id="transactions" class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Product</th>
+                    <th>Status</th>
+                    <th>Claimed</th>
+                    <th>Download</th>
+                  </tr>
+                </thead>
+                <tbody data-client-orders></tbody>
+              </table>
+            </section>
+          </main>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-bar">
+        <span>© Verdant External - Client Area</span>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="./user-privacy.html">User privacy</a>
+          <a href="./policies.html">Policies &amp; MJ</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/notifications-bell.js"></script>
+    <script src="./assets/js/client-data.js"></script>
+    <script src="./assets/js/client-area.js"></script>
+  </body>
+</html>

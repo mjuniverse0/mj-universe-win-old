@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://mj-universe.net/</loc><changefreq>weekly</changefreq><priority>1</priority></url>
+  <url><loc>https://mj-universe.net/about/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mj-universe.net/snapchat/</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mj-universe.net/fitness/</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mj-universe.net/vlog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mj-universe.net/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mj-universe.net/mariellberntzen/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mj-universe.net/mariell-berntzen/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mj-universe.net/jhonatanwik/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mj-universe.net/jhonatan-wik/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mj-universe.net/live/live.html</loc><changefreq>daily</changefreq><priority>0.75</priority></url>
+</urlset>

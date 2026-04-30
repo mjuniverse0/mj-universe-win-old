@@ -1,0 +1,10 @@
+^C:\USERS\JHONATAN WIK\DESKTOP\VERDANT-LOL\CLIENT\OVERLAY\BUILD-AGENT\_DEPS\NLOHMANN_JSON-SUBBUILD\CMAKEFILES\F7DEC32BF2F0C35FA7CB5E764F4148C1\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-agent/_deps/nlohmann_json-subbuild" "-BC:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-agent/_deps/nlohmann_json-subbuild" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/Jhonatan Wik/Desktop/verdant-lol/client/overlay/build-agent/_deps/nlohmann_json-subbuild/nlohmann_json-populate.slnx"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

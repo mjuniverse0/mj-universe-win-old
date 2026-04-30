@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Client Transactions - Verdant External</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <canvas id="particles"></canvas>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="./client-area.html"><span class="dot"></span>Verdant Client Area</a>
+        <div class="links">
+          <a href="./client-area.html">Overview</a>
+          <a href="./products-client.html">Products</a>
+          <a href="./keys.html">Keys</a>
+          <a href="./downloads.html">Downloads</a>
+          <a class="active" href="./transactions.html">Transactions</a>
+        </div>
+      </div>
+    </nav>
+    <section class="section">
+      <div class="container">
+        <h2>Transaction Status</h2>
+        <div class="client-layout">
+          <aside class="panel sidebar">
+            <h3>Navigation</h3>
+            <nav class="side-nav">
+              <a class="side-link" href="./client-area.html">Overview</a>
+              <a class="side-link" href="./products-client.html">Products</a>
+              <a class="side-link" href="./keys.html">Keys</a>
+              <a class="side-link" href="./downloads.html">Downloads</a>
+              <a class="side-link active" href="./transactions.html">Transactions</a>
+            </nav>
+          </aside>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Order ID</th><th>Product</th><th>Status</th><th>Claimed</th><th>Created</th></tr></thead>
+              <tbody data-transactions-table></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container footer-bar">
+        <span>© Verdant External - Transactions</span>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="./user-privacy.html">User privacy</a>
+          <a href="./policies.html">Policies &amp; MJ</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/notifications-bell.js"></script>
+    <script src="./assets/js/client-data.js"></script>
+    <script src="./assets/js/client-pages.js"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+﻿<Application x:Class="MA_FH5Trainer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:MA_FH5Trainer.Converters"
+             Startup="App_OnStartup"
+             Exit="App_OnExit">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Dark.Blue.xaml" />
+                <ResourceDictionary Source="/Resources/Theme/ThemeConstants.xaml" />
+                <ResourceDictionary Source="/Resources/Theme/CommonBorderStyle.xaml" />
+                <ResourceDictionary Source="/Resources/Translations/English.xaml" />
+                <ResourceDictionary Source="/Controls/StatusComboboxItem/StatusComboboxItem.xaml" />
+                <ResourceDictionary Source="/Controls/TranslationComboboxItem/TranslationComboboxItem.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+            <converters:IconKindStringToMaterialKindConverter x:Key="IconKindStringToMaterialKindConverter"/>
+            <converters:InstanceEqualsConverter x:Key="InstanceEqualsConverter"/>
+            <converters:TypeToInstanceConverter x:Key="TypeToInstanceConverter"/>
+            <converters:MultiplyConverter x:Key="MultiplyConverter"/>
+            <converters:IntParamConverter x:Key="IntParamConverter"/>
+            <converters:BoolParamConverter x:Key="BoolParamConverter"/>
+            <converters:AndBooleanMultiConverter x:Key="AndBooleanMultiConverter"/>
+            <converters:TupleConverter x:Key="TupleConv"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <Platforms>x64</Platforms>
+        <Platform>x64</Platform>
+        <PlatformTarget>x64</PlatformTarget>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <RootNamespace>MA_FH5Trainer</RootNamespace>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+        <IsPackable>false</IsPackable>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <FileVersion>1.0.0.0</FileVersion>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>MA_FH5Trainer.snk</AssemblyOriginatorKeyFile>
+        <PublicSign>true</PublicSign>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <AssemblyName>MA_FH5Trainer</AssemblyName>
+        <PlatformTarget>x64</PlatformTarget>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <Company></Company>
+        <Product>Verdant Mod Menu (FH5)</Product>
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <PackageId></PackageId>
+        <Authors></Authors>
+        <UseWindowsForms>false</UseWindowsForms>
+        <DisableWinExeOutputInference>true</DisableWinExeOutputInference>
+        <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+        <GenerateUserSettings>true</GenerateUserSettings>
+        <UseHardenedRuntime>true</UseHardenedRuntime>
+        <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+        <EventSourceSupport>false</EventSourceSupport>
+        <HttpActivityPropagationSupport>false</HttpActivityPropagationSupport>
+        <EnableUnsafeBinaryFormatterSerialization>false</EnableUnsafeBinaryFormatterSerialization>
+        <EnableUnsafeUTF7Encoding>false</EnableUnsafeUTF7Encoding>
+        <MetadataUpdaterSupport>false</MetadataUpdaterSupport>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <TrimmerRootAssembly Include="PresentationFramework" />
+        <TrimmerRootAssembly Include="PresentationCore" />
+        <TrimmerRootAssembly Include="WindowsBase" />
+        <TrimmerRootAssembly Include="System.Xaml" />
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'x64'">
+        <Optimize>true</Optimize>
+        <DefineConstants>TRACE;X64</DefineConstants>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+        <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+        <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="5.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+        <PackageReference Include="System.Management" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <TrimmerRootAssembly Include="Reloaded.Memory.Sigscan" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Memory\Memory.csproj" PrivateAssets="none" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\Square150x150Logo.scale-200.png" />
+      <Resource Include="Resources\Square150x150Logo.scale-200.png" />
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <DebugType>none</DebugType>
+        <Optimize>true</Optimize>
+    </PropertyGroup>
+</Project>

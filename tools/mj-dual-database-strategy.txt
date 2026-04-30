@@ -1,0 +1,86 @@
+MJ Universe — Dual database strategy (safe + scalable)
+=======================================================
+
+Goal
+----
+Run two Supabase projects without breaking login/autologin or user data.
+
+Recommended role split
+----------------------
+Database A (Primary Auth + Profiles):
+- auth.users (login/register/session)
+- public.profiles (core user profile)
+- subscription status used for app/web access control
+
+Database B (Content + Commerce + Analytics):
+- video catalog metadata
+- watch events / engagement stats
+- shop catalog, drops, stock snapshots
+- campaign/marketing and feature telemetry
+
+Golden rule:
+- Only ONE auth authority (Database A).
+- Database B stores user references by `user_id` from Database A (UUID), never separate auth tables.
+
+Identity model
+--------------
+- Canonical key across all systems: `user_id` (UUID from Database A auth.users.id)
+- Optional `email` mirror in Database B for support/search only
+- Never use email as foreign key for authorization decisions
+
+Sync model (A -> B)
+-------------------
+1) User signs up/login in Database A.
+2) Backend job/function upserts user shadow row in Database B:
+   - user_id
+   - email
+   - display_name
+   - avatar_url
+   - vip_tier
+   - updated_at
+3) Web/app reads auth/session from A, content/commerce from B.
+
+Access model
+------------
+- Client (web/iOS/macOS) uses anon key for A (auth/session).
+- Server/Edge Functions use service role when writing cross-db sync and protected commerce actions.
+- Never ship service_role in client binaries or frontend JS.
+
+Environment variables (naming suggestion)
+-----------------------------------------
+- MJ_SUPABASE_AUTH_URL
+- MJ_SUPABASE_AUTH_ANON_KEY
+- MJ_SUPABASE_CONTENT_URL
+- MJ_SUPABASE_CONTENT_ANON_KEY
+- MJ_SUPABASE_AUTH_SERVICE_ROLE_KEY (server only)
+- MJ_SUPABASE_CONTENT_SERVICE_ROLE_KEY (server only)
+
+Web behavior
+------------
+- Login/register/logout/session refresh: Database A only
+- VIP gating check:
+  1) read subscription flag from A (or synced snapshot in B)
+  2) fetch premium content from B
+
+iOS/macOS behavior
+------------------
+- Store session tokens from Database A only
+- Use the authenticated `user_id` to query B content
+- Keep autologin token refresh against A, never B
+
+Failure handling
+----------------
+- If B is down: user can still login (A), show "content temporarily unavailable"
+- If sync A->B fails: queue retry; do not block login flow
+
+Migration checklist
+-------------------
+1) Lock auth to one project (A).
+2) Add `user_shadow` table in B keyed by `user_id`.
+3) Add sync function/job from A events to B.
+4) Update web + app env/config names.
+5) Test:
+   - signup on web -> visible in app
+   - signup in app -> visible on web
+   - autologin survives restart
+   - VIP content fetch works with same `user_id`

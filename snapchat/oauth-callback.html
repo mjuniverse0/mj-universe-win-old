@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Snapchat OAuth — tilbake</title>
+    <link rel="icon" type="image/png" href="../images/logo.png" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/seo.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <main class="seo-main" style="padding-top: 5rem">
+      <h1>Snapchat OAuth — callback</h1>
+      <p id="oauth-result" class="lead">Behandler …</p>
+      <div id="oauth-ok" hidden>
+        <p id="oauth-exchange-msg">
+          <strong>Authorization code</strong> mottatt. Bytter mot token via Supabase Edge Function …
+        </p>
+        <p id="oauth-exchange-detail" class="seo-kw-block" style="margin-top: 1rem" hidden></p>
+        <div id="oauth-fallback" class="seo-kw-block" style="margin-top: 1rem" hidden>
+          <p><strong>Manuell code</strong> (hvis nettverket til Supabase feiler):</p>
+          <label for="oauth-code-fallback">Code</label><br />
+          <input id="oauth-code-fallback" class="input" type="text" readonly style="max-width: 100%; width: 36rem" />
+        </div>
+      </div>
+      <div id="oauth-err" hidden>
+        <p class="lead" id="oauth-err-text"></p>
+      </div>
+      <p><a href="index.html">← Tilbake til Snapchat-siden</a></p>
+    </main>
+    <script src="../js/supabase-config.js"></script>
+    <script>
+      (function () {
+        var p = new URLSearchParams(window.location.search);
+        var code = p.get("code");
+        var state = p.get("state");
+        var err = p.get("error");
+        var errDesc = p.get("error_description");
+        var result = document.getElementById("oauth-result");
+        var ok = document.getElementById("oauth-ok");
+        var errEl = document.getElementById("oauth-err");
+        if (err) {
+          result.hidden = true;
+          errEl.hidden = false;
+          document.getElementById("oauth-err-text").textContent =
+            (errDesc || err || "OAuth-feil") + ". Sjekk at Redirect URI i Snapchat-appen matcher eksakt denne sidens URL.";
+          return;
+        }
+        if (!code) {
+          result.textContent = "Ingen ?code= i URL. Apne oauth-start.html for a starte innlogging.";
+          return;
+        }
+        var saved = null;
+        try {
+          saved = sessionStorage.getItem("snap_oauth_state");
+        } catch (e) {}
+        if (state && saved && state !== saved) {
+          result.hidden = true;
+          errEl.hidden = false;
+          document.getElementById("oauth-err-text").textContent =
+            "State mismatch — avbryt og prov igjen fra oauth-start.html.";
+          return;
+        }
+        try {
+          sessionStorage.removeItem("snap_oauth_state");
+        } catch (e) {}
+        result.hidden = true;
+        ok.hidden = false;
+
+        var base = window.MJ_SUPABASE_URL;
+        var anon = window.MJ_SUPABASE_ANON_KEY;
+        if (!base || !anon) {
+          document.getElementById("oauth-exchange-msg").textContent =
+            "Mangler Supabase-URL eller anon key (supabase-config.js).";
+          return;
+        }
+        var fnUrl = base.replace(/\/$/, "") + "/functions/v1/snap-oauth-exchange";
+        function showFallbackCode() {
+          var fb = document.getElementById("oauth-fallback");
+          var inp = document.getElementById("oauth-code-fallback");
+          if (fb && inp) {
+            fb.hidden = false;
+            inp.value = code;
+          }
+        }
+        fetch(fnUrl, {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + anon,
+            apikey: anon,
+          },
+          body: JSON.stringify({ code: code }),
+        })
+          .then(function (r) {
+            return r.text().then(function (text) {
+              var j = {};
+              try {
+                j = text ? JSON.parse(text) : {};
+              } catch (e) {
+                j = { error: "not_json", status: r.status, detail: text.slice(0, 400) };
+              }
+              return { ok: r.ok, status: r.status, j: j };
+            });
+          })
+          .then(function (x) {
+            var detail = document.getElementById("oauth-exchange-detail");
+            if (x.ok && x.j && x.j.ok) {
+              document.getElementById("oauth-exchange-msg").innerHTML =
+                "<strong>OK</strong> — token er hentet og lagret via Supabase (snap_integration_tokens). " +
+                "<code>expires_in</code>: " +
+                (x.j.expires_in != null ? x.j.expires_in : "—") +
+                " s.";
+              detail.hidden = false;
+              detail.textContent =
+                "Tokens sendes ikke til nettleseren. Sjekk Edge Function-secrets (SNAP_CLIENT_SECRET) og kjør setup-snap-oauth-token-storage.sql hvis db_upsert_failed.";
+            } else {
+              document.getElementById("oauth-exchange-msg").textContent =
+                "Kunne ikke bytte code mot token (HTTP " + (x.status || "?") + ").";
+              detail.hidden = false;
+              detail.textContent = JSON.stringify(x.j || {}, null, 2);
+              showFallbackCode();
+            }
+          })
+          .catch(function (e) {
+            document.getElementById("oauth-exchange-msg").innerHTML =
+              "<strong>Nettverksfeil</strong> — nettleseren når ikke Supabase Edge Function. Vanligste årsaker:";
+            var detail = document.getElementById("oauth-exchange-detail");
+            detail.hidden = false;
+            detail.innerHTML =
+              "<ul style='margin:0.5rem 0 0 1rem'>" +
+              "<li><code>snap-oauth-exchange</code> er ikke deployet: kjør <code>supabase functions deploy snap-oauth-exchange</code></li>" +
+              "<li>CORS / blokkering: oppdater og re-deploy funksjonen (siste versjon reflekterer mj-universe.net)</li>" +
+              "<li>Feil prosjekt-URL eller anon key i <code>js/supabase-config.js</code></li>" +
+              "<li>Prøv annen nettleser / skru av streng tracker-blokkering for dette domenet</li>" +
+              "</ul>" +
+              "<p style='margin-top:0.75rem'>URL som ble forsøkt: <code>" +
+              fnUrl.replace(/</g, "&lt;") +
+              "</code></p>" +
+              "<p>Feilmelding: " +
+              (e && e.message ? e.message : String(e)) +
+              "</p>";
+            showFallbackCode();
+          });
+      })();
+    </script>
+  </body>
+</html>

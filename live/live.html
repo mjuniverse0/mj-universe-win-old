@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Live — MJ Universe</title>
+    <meta name="description" content="MJ Universe live — Mariell &amp; Jhonatan på TikTok og mer." />
+    <meta name="theme-color" content="#0c0a12" />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/png" href="../images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      .live-page {
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        padding: max(1rem, env(safe-area-inset-top)) 1.25rem max(1.5rem, env(safe-area-inset-bottom));
+      }
+
+      .live-page__top {
+        max-width: 56rem;
+        margin: 0 auto 1.25rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      .live-page__logo {
+        display: block;
+        height: 2.5rem;
+        width: auto;
+        margin: 0 auto 1rem;
+      }
+
+      .live-page__title {
+        font-family: var(--font-display);
+        font-size: clamp(1.75rem, 5vw, 2.35rem);
+        margin: 0 0 0.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      .live-page__lead {
+        color: var(--text-muted);
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.55;
+      }
+
+      .live-stage {
+        width: 100%;
+        max-width: 56rem;
+        margin: 0 auto;
+        border-radius: calc(var(--radius) - 4px);
+        border: 1px solid var(--border);
+        background: var(--bg-elevated);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+        min-height: 12rem;
+        padding: 1.5rem 1.25rem;
+        box-sizing: border-box;
+      }
+
+      .live-stage__iframe-wrap {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+        margin-bottom: 0.75rem;
+      }
+
+      .live-stage__iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .live-stage--embed {
+        padding: 1rem;
+      }
+
+      .live-stage__sub,
+      .live-stage__hint {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin: 0.5rem 0 0;
+        text-align: center;
+      }
+
+      .live-stage__sub a {
+        color: var(--brand-cyan);
+      }
+
+      .live-stage--tiktok,
+      .live-stage--offline,
+      .live-stage--error {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.65rem;
+      }
+
+      .live-stage__badge {
+        margin: 0;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        color: #fb7185;
+        animation: live-pulse 1.6s ease-in-out infinite;
+      }
+
+      @keyframes live-pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.55;
+        }
+      }
+
+      .live-stage__title {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+      }
+
+      .live-stage__lead {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.55;
+        max-width: 28rem;
+      }
+
+      .live-stage__ctas {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.65rem;
+        width: 100%;
+        max-width: 22rem;
+        margin-top: 0.35rem;
+      }
+
+      .live-stage__cta {
+        margin-top: 0;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        min-height: 3rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        box-sizing: border-box;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(45, 212, 191, 0.2);
+      }
+
+      .live-stage__msg {
+        margin: 0;
+        color: var(--text-muted);
+      }
+
+      .live-stage__msg code {
+        color: var(--brand-cyan);
+        font-size: 0.85em;
+      }
+
+      .live-page__footer {
+        margin-top: auto;
+        padding-top: 2rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .live-page__footer a {
+        color: var(--brand-cyan);
+      }
+    </style>
+  </head>
+  <body class="live-page">
+    <div class="noise" aria-hidden="true"></div>
+    <header class="live-page__top">
+      <a href="../index.html" aria-label="MJ Universe hjem">
+        <img class="live-page__logo" src="../images/logo.png" alt="MJ Universe" width="160" height="64" decoding="async" />
+      </a>
+      <h1 class="live-page__title">Live</h1>
+      <p class="live-page__lead">Mariell &amp; Jhonatan — følg live på TikTok eller se innebygd strøm når den er satt opp.</p>
+    </header>
+
+    <div id="live-stage" class="live-stage live-stage--offline" aria-live="polite">
+      <p class="live-stage__lead">Laster…</p>
+    </div>
+
+    <footer class="live-page__footer">
+      <p>
+        <a href="../index.html">← Til forsiden</a>
+        ·
+        <a href="https://www.snapchat.com/add/mj_universe" target="_blank" rel="noopener noreferrer">Snapchat @mj_universe</a>
+      </p>
+    </footer>
+
+    <script src="../js/supabase-config.js"></script>
+    <script src="../js/live-page.js"></script>
+  </body>
+</html>

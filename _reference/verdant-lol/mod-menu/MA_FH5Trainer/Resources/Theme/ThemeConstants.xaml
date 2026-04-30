@@ -1,0 +1,10 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+    <SolidColorBrush x:Key="Verdant.MutedLineBrush" Color="#2AFFFFFF" />
+    <system:Int32 x:Key="SliderTooltipPrecision">2</system:Int32>
+    <AutoToolTipPlacement x:Key="SliderAutoToolTipPlacement">BottomRight</AutoToolTipPlacement>
+    <CornerRadius x:Key="ControlCornerRadius">12</CornerRadius>
+    <Thickness x:Key="ControlBorderThickness">1</Thickness>
+    <Thickness x:Key="AccentBorderThickness">1</Thickness>
+</ResourceDictionary>

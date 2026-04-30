@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VERDANT.LOL</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="particles"></canvas>
+    <div class="layout">
+      <aside class="sidebar">
+        <h1 class="brand"><span class="dot"></span>VERDANT.LOL</h1>
+      </aside>
+      <main class="content" style="max-height: calc(100vh - 32px); overflow-y: auto">
+        <section class="card">
+          <h2>Updater</h2>
+          <div class="status-row"><span>Current:</span><strong id="current-version">-</strong></div>
+          <div class="status-row"><span>Latest:</span><strong id="latest-version">-</strong></div>
+          <div class="status-row"><span>Update:</span><strong id="update-state">Checking...</strong></div>
+          <div class="status-row"><span>Phase:</span><strong id="update-phase">idle</strong></div>
+          <div class="status-row"><span>Progress:</span><strong id="update-progress">0%</strong></div>
+          <p id="update-notes" class="muted small" style="margin-top:10px"></p>
+          <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+            <button type="button" class="btn" id="btn-update-check">Check updates</button>
+            <button type="button" class="btn" id="btn-update-download">Download update</button>
+            <button type="button" class="btn primary" id="btn-update-install">Install + restart</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Launch</h2>
+          <p class="muted small">Start klienten direkte fra launcheren.</p>
+          <div class="status-row"><span>Client:</span><strong id="launch-running">Stopped</strong></div>
+          <div class="status-row"><span>PID:</span><strong id="launch-pid">-</strong></div>
+          <div class="status-row"><span>Uptime:</span><strong id="launch-uptime">0s</strong></div>
+          <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+            <button type="button" class="btn primary" id="btn-launch">Launch</button>
+            <button type="button" class="btn" id="btn-stop">Stop</button>
+          </div>
+          <div id="launch-status" class="message" style="margin-top:12px"></div>
+        </section>
+      </main>
+    </div>
+    <script src="./renderer.js"></script>
+  </body>
+</html>

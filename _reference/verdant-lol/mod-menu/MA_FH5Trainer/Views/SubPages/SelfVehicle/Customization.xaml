@@ -1,0 +1,194 @@
+﻿<Page x:Class="MA_FH5Trainer.Views.SubPages.SelfVehicle.Customization"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:local="clr-namespace:MA_FH5Trainer.Views.SubPages.SelfVehicle"
+      xmlns:controls="clr-namespace:MA_FH5Trainer.Controls.StatusComboboxItem"
+      mc:Ignorable="d"
+      d:DataContext="{d:DesignInstance local:Customization, IsDesignTimeCreatable=true}"
+      Title="Customization" 
+      d:DesignHeight="Auto"
+      d:DesignWidth="Auto">
+    <StackPanel>
+        
+        <!--Border Style="{StaticResource CommonBorderStyle}">
+            <Grid Margin="5 0">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                
+                <ComboBox x:Name="MainComboBox" 
+                          Grid.Column="0"
+                          VerticalAlignment="Center"
+                          SelectedIndex="0"
+                          mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                          Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                          BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}"
+                          IsEnabled="{Binding ViewModel.AreMainUiElementsEnabled}"
+                          SelectionChanged="MainComboBox_OnSelectionChanged">
+
+                    <controls:StatusComboboxItem Content="{DynamicResource Dirt}"
+                                                 IsOn="{Binding ViewModel.DirtEnabled}"/>
+                    
+                    <controls:StatusComboboxItem Content="{DynamicResource Mud}"
+                                                 IsOn="{Binding ViewModel.MudEnabled}"/>
+                    
+                </ComboBox>
+                
+                <Slider x:Name="MainSlider" 
+                        Grid.Column="1"
+                        VerticalAlignment="Center"
+                        Margin="5 0"
+                        Minimum="0"
+                        mah:SliderHelper.EnableMouseWheel="MouseHover"
+                        AutoToolTipPlacement="{StaticResource SliderAutoToolTipPlacement}"
+                        AutoToolTipPrecision="{StaticResource SliderTooltipPrecision}"
+                        IsEnabled="{Binding ViewModel.AreMainUiElementsEnabled}"
+                        ValueChanged="MainSlider_OnValueChanged"/>
+                
+                <mah:ToggleSwitch x:Name="MainSwitch" 
+                                  Grid.Column="2" 
+                                  VerticalAlignment="Center"
+                                  MinWidth="0"
+                                  FontSize="12"
+                                  IsEnabled="{Binding ViewModel.AreMainUiElementsEnabled}"
+                                  Toggled="MainSwitch_OnToggled"/>
+                
+            </Grid>
+        </Border-->
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <Grid Margin="5 0">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <mah:NumericUpDown Grid.Column="0"
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Left"
+                                   Width="100"
+                                   mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                                   Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                                   BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}"
+                                   IsEnabled="{Binding ViewModel.GlowingPaintEnabled}"
+                                   Minimum="{Binding Minimum, ElementName=PaintSlider}"
+                                   Maximum="{Binding Maximum, ElementName=PaintSlider}"
+                                   Value="{Binding Value, ElementName=PaintSlider}"/>
+
+                <Slider Grid.Column="1"
+                        x:Name="PaintSlider"
+                        VerticalAlignment="Center"
+                        Margin="5 0"
+                        Minimum="0"
+                        mah:SliderHelper.EnableMouseWheel="MouseHover"
+                        AutoToolTipPlacement="{StaticResource SliderAutoToolTipPlacement}"
+                        AutoToolTipPrecision="{StaticResource SliderTooltipPrecision}"
+                        IsEnabled="{Binding ViewModel.GlowingPaintEnabled}"
+                        ValueChanged="PaintSlider_OnValueChanged"/>
+
+                <mah:ToggleSwitch Grid.Column="2" 
+                                  VerticalAlignment="Center"
+                                  Margin="5 0 0 0"
+                                  MinWidth="0"
+                                  FontSize="12"
+                                  Content="Glowing Paint"
+                                  IsOn="{Binding ViewModel.GlowingPaintIsOn}"
+                                  Toggled="PaintSwitchOnToggled"/>
+                
+            </Grid>
+        </Border>
+        
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <Grid Margin="5 0">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <mah:NumericUpDown x:Name="MinBackfire" 
+                                   Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Left"
+                                   mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                                   Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                                   BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}"
+                                   IsEnabled="{Binding ViewModel.AreBackfireUiElementsEnabled}"
+                                   Minimum="0"
+                                   Value="2500"
+                                   ValueChanged="MinBackfire_OnValueChanged"/>
+                
+                <Label Grid.Column="0"
+                       VerticalAlignment="Center"
+                       Content="Min time:"/>
+                
+                <mah:NumericUpDown x:Name="MaxBackfire" 
+                                   Grid.Column="3"
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Left"
+                                   mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                                   Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                                   BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}"
+                                   IsEnabled="{Binding ViewModel.AreBackfireUiElementsEnabled}"
+                                   Minimum="0"
+                                   Value="5000"
+                                   ValueChanged="MaxBackfire_OnValueChanged"/>
+                
+                <Label Grid.Column="2"
+                       VerticalAlignment="Center"
+                       Content="Max time:"/>
+                
+                <mah:ToggleSwitch Grid.Column="4"
+                                  VerticalAlignment="Center"
+                                  MinWidth="0"
+                                  FontSize="12"
+                                  Margin="5 0 0 0"
+                                  Content="{DynamicResource BackfireTime}"
+                                  Toggled="BackfireSwitch_OnToggled"/>
+                
+            </Grid>
+        </Border>
+        
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <Grid Margin="5 0">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <mah:ColorPicker x:Name="ColorPicker" 
+                                 Grid.Column="0"
+                                 Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                                 BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}"
+                                 VerticalAlignment="Center"
+                                 SelectedColor="Red"
+                                 IsAvailableColorPaletteVisible="True"
+                                 SelectedColorChanged="ColorPickerBase_OnSelectedColorChanged"
+                                 IsEnabled="{Binding ViewModel.AreHeadlightUiElementsEnabled}"
+                                 mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"/>
+                
+                <mah:ToggleSwitch Grid.Column="1" 
+                                  VerticalAlignment="Center"
+                                  Margin="5 0 0 0"
+                                  MinWidth="0"
+                                  FontSize="12"
+                                  Content="Headlight Colour (Works in night time)"
+                                  Toggled="HeadlightSwitch_OnToggled"/>
+                
+            </Grid>
+        </Border>
+    </StackPanel>
+</Page>

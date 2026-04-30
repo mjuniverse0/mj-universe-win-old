@@ -1,0 +1,5 @@
+# Lokale hemmeligheter — aldri commit
+snapchat/oauth.env
+*.local.env
+.env
+.env.*

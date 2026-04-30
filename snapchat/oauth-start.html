@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Snapchat OAuth — MJ Universe</title>
+    <link rel="icon" type="image/png" href="../images/logo.png" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/seo.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <main class="seo-main" style="padding-top: 5rem">
+      <h1>Snapchat-innlogging (OAuth)</h1>
+      <p class="lead" id="oauth-msg">Sender deg til Snapchat …</p>
+      <p class="lead"><a href="index.html">← Tilbake til Snapchat-siden</a></p>
+    </main>
+    <script src="../js/supabase-config.js"></script>
+    <script src="../js/snap-oauth-config.js"></script>
+    <script>
+      (function () {
+        var cfg = window.MJ_SNAP_OAUTH;
+        if (!cfg || !cfg.clientId) {
+          document.getElementById("oauth-msg").textContent = "Mangler OAuth-konfig (snap-oauth-config.js).";
+          return;
+        }
+        var state =
+          Array.from(crypto.getRandomValues(new Uint8Array(16)), function (b) {
+            return ("0" + b.toString(16)).slice(-2);
+          }).join("");
+        try {
+          sessionStorage.setItem("snap_oauth_state", state);
+        } catch (e) {}
+        var params = new URLSearchParams({
+          response_type: "code",
+          client_id: cfg.clientId,
+          redirect_uri: cfg.redirectUri,
+          scope: cfg.scope,
+          state: state,
+        });
+        var url = cfg.authorizeUrl + "?" + params.toString();
+        document.getElementById("oauth-msg").innerHTML =
+          "Hvis du ikke blir videresendt, <a href=\"" +
+          url.replace(/"/g, "&quot;") +
+          '">klikk her for a logge inn hos Snapchat</a>.';
+        window.location.replace(url);
+      })();
+    </script>
+  </body>
+</html>

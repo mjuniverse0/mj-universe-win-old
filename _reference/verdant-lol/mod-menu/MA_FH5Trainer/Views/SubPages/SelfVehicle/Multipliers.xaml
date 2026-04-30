@@ -1,0 +1,205 @@
+﻿<Page x:Class="MA_FH5Trainer.Views.SubPages.SelfVehicle.Multipliers"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MA_FH5Trainer.Views.SubPages.SelfVehicle"
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="Auto" 
+      d:DesignWidth="900"
+      d:DataContext="{d:DesignInstance local:Multipliers, IsDesignTimeCreatable=True}"
+      Title="Multipliers">
+
+    <StackPanel>
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <Grid Margin="5 0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <mah:NumericUpDown Grid.Column="0"
+                                   x:Name="DriftBox"
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Left"
+                                   Minimum="1"
+                                   Maximum="15"
+                                   Margin="2 0 0 0"
+                                   Value="1"
+                                   ValueChanged="DriftBox_ValueChanged"
+                                   mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                                   Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                                   BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}">
+                    <mah:NumericUpDown.IsEnabled>
+                        <MultiBinding Converter="{StaticResource AndBooleanMultiConverter}">
+                            <Binding Path="IsEnabled" ElementName="DriftHackToggle"/>
+                            <Binding Path="IsOn" ElementName="DriftHackToggle"/>
+                        </MultiBinding>
+                    </mah:NumericUpDown.IsEnabled>
+                </mah:NumericUpDown>
+
+                <mah:ToggleSwitch Grid.Column="2"
+                                  x:Name="DriftHackToggle"
+                                  VerticalAlignment="Center"
+                                  Margin="5 0 0 0"
+                                  MinWidth="0"
+                                  FontSize="12"
+                                  Toggled="DriftHackToggle_Toggled"
+                                  Content="Drift Zone Points Multiplier"/>
+            </Grid>
+        </Border>
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <Grid Margin="5 0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <mah:NumericUpDown Grid.Column="0"
+                                   x:Name="SpeedBox"
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Left"
+                                   Minimum="1"
+                                   Value="1"
+                                   Maximum="15"
+                                   Margin="2 0 0 0"
+                                   ValueChanged="SpeedBox_ValueChanged"
+                                   mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                                   Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                                   BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}">
+                    <mah:NumericUpDown.IsEnabled>
+                        <MultiBinding Converter="{StaticResource AndBooleanMultiConverter}">
+                            <Binding Path="IsEnabled" ElementName="SpeedHackToggle"/>
+                            <Binding Path="IsOn" ElementName="SpeedHackToggle"/>
+                        </MultiBinding>
+                    </mah:NumericUpDown.IsEnabled>
+                </mah:NumericUpDown>
+                <mah:ToggleSwitch Grid.Column="2"
+                                  x:Name="SpeedHackToggle"
+                                  VerticalAlignment="Center"
+                                  Margin="5 0 0 0"
+                                  MinWidth="0"
+                                  FontSize="12"
+                                  Toggled="SpeedHackToggle_Toggled"
+                                  Content="Speed Zone Speed Multiplier"/>
+            </Grid>
+        </Border>
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <Grid Margin="5 0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <mah:NumericUpDown Grid.Column="0"
+                                   x:Name="SignBox"
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Left"
+                                   Minimum="1"
+                                   Maximum="15"
+                                   Margin="2 0 0 0"
+                                   Value="1"
+                                   ValueChanged="SignBox_ValueChanged"
+                                   mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                                   Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                                   BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}">
+                    <mah:NumericUpDown.IsEnabled>
+                        <MultiBinding Converter="{StaticResource AndBooleanMultiConverter}">
+                            <Binding Path="IsEnabled" ElementName="SignHackToggle"/>
+                            <Binding Path="IsOn" ElementName="SignHackToggle"/>
+                        </MultiBinding>
+                    </mah:NumericUpDown.IsEnabled>
+                </mah:NumericUpDown>
+
+                <mah:ToggleSwitch Grid.Column="2"
+                                  x:Name="SignHackToggle"
+                                  VerticalAlignment="Center"
+                                  Margin="5 0 0 0"
+                                  MinWidth="0"
+                                  FontSize="12"
+                                  Toggled="SignHackToggle_Toggled"
+                                  Content="Danger Sign Distance Multiplier"/>
+            </Grid>
+        </Border>
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <Grid Margin="5 0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <mah:NumericUpDown Grid.Column="0"
+                                   x:Name="TrapBox"
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Left"
+                                   Minimum="1"
+                                   Maximum="15"
+                                   Margin="2 0 0 0"
+                                   Value="1"
+                                   ValueChanged="TrapBox_ValueChanged"
+                                   mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                                   Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                                   BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}">
+                    <mah:NumericUpDown.IsEnabled>
+                        <MultiBinding Converter="{StaticResource AndBooleanMultiConverter}">
+                            <Binding Path="IsEnabled" ElementName="TrapHackToggle"/>
+                            <Binding Path="IsOn" ElementName="TrapHackToggle"/>
+                        </MultiBinding>
+                    </mah:NumericUpDown.IsEnabled>
+                </mah:NumericUpDown>
+
+                <mah:ToggleSwitch Grid.Column="2"
+                                  x:Name="TrapHackToggle"
+                                  VerticalAlignment="Center"
+                                  Margin="5 0 0 0"
+                                  MinWidth="0"
+                                  FontSize="12"
+                                  Toggled="TrapHackToggle_Toggled"
+                                  Content="Speed Trap Speed Multiplier"/>
+            </Grid>
+        </Border>
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <Grid Margin="5 0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <mah:NumericUpDown Grid.Column="0"
+                                   x:Name="SkillBox"
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Left"
+                                   Minimum="1"
+                                   Maximum="15"
+                                   Value="1"
+                                   Margin="2 0 0 0"
+                                   ValueChanged="SkillBox_ValueChanged"
+                                   mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                                   Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                                   BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}">
+                    <mah:NumericUpDown.IsEnabled>
+                        <MultiBinding Converter="{StaticResource AndBooleanMultiConverter}">
+                            <Binding Path="IsEnabled" ElementName="SkillHackToggle"/>
+                            <Binding Path="IsOn" ElementName="SkillHackToggle"/>
+                        </MultiBinding>
+                    </mah:NumericUpDown.IsEnabled>
+                </mah:NumericUpDown>
+
+                <mah:ToggleSwitch Grid.Column="2"
+                                  x:Name="SkillHackToggle"
+                                  VerticalAlignment="Center"
+                                  Margin="5 0 0 0"
+                                  MinWidth="0"
+                                  FontSize="12"
+                                  Toggled="SkillHackToggle_Toggled"
+                                  Content="Skill Score Multiplier"/>
+            </Grid>
+        </Border>
+    </StackPanel>
+</Page>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\overlay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\hud_painter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\overlay_input_adapter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\aim_assist.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\win32_mouse_input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\process.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\memory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\chat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\src\http.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\build-agent\_deps\nlohmann_json-src\nlohmann_json.natvis" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{FD5AC642-35A2-36C7-864E-54EC3067AC15}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

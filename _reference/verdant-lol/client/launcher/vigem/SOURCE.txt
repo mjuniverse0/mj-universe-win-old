@@ -1,0 +1,3 @@
+ViGEmClient.dll (x64) source:
+https://raw.githubusercontent.com/jangxx/node-ViGEmClient/master/native/x64/ViGEmClient.dll
+Repository: https://github.com/jangxx/node-ViGEmClient (used with Nefarius ViGEmBus)

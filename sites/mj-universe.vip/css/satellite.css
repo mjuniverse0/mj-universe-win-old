@@ -1,0 +1,476 @@
+/* MJ Universe — satellite TLD landing pages (with style.css + seo.css) */
+:root {
+  --sat-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.seo-wrap--sat {
+  min-height: 100vh;
+}
+
+.seo-wrap--sat .site-header {
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  align-items: center;
+}
+
+.seo-wrap--sat .nav.nav--sat {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 0.45rem;
+  max-width: min(100vw - 7rem, 100%);
+  padding: 0.15rem 0 0.35rem;
+  margin-left: auto;
+  scrollbar-width: thin;
+  justify-content: flex-end;
+}
+
+.seo-wrap--sat .nav.nav--sat::-webkit-scrollbar {
+  height: 3px;
+}
+
+.seo-wrap--sat .nav.nav--sat::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+
+.seo-wrap--sat .nav.nav--sat a {
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 0.5rem 0.75rem;
+  min-height: 2.75rem;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition:
+    color 0.2s var(--sat-ease),
+    border-color 0.2s,
+    background 0.2s,
+    transform 0.2s var(--sat-ease);
+}
+
+.seo-wrap--sat .nav.nav--sat a:hover {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+.seo-wrap--sat .nav.nav--sat a[aria-current="page"] {
+  border-color: rgba(45, 212, 191, 0.45);
+  color: var(--brand-cyan);
+  background: rgba(45, 212, 191, 0.1);
+}
+
+main.sat-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sat-hero {
+  position: relative;
+  padding: 3.5rem 1.35rem 2.25rem;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.sat-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 100% 90% at 50% -30%, var(--sat-hero-glow, rgba(124, 58, 237, 0.35)), transparent 58%),
+    linear-gradient(180deg, rgba(18, 14, 28, 0.97), var(--bg));
+  z-index: 0;
+}
+
+.sat-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.03) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: sat-shimmer 8s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes sat-shimmer {
+  0%,
+  100% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: -100% 0;
+  }
+}
+
+.sat-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.sat-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.35);
+  margin-bottom: 1rem;
+  animation: sat-rise 0.65s var(--sat-ease) both;
+}
+
+.sat-hero__icon {
+  width: 3.75rem;
+  height: 3.75rem;
+  margin: 0 auto 1rem;
+  border-radius: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  background: linear-gradient(
+    145deg,
+    var(--sat-icon-bg1, rgba(45, 212, 191, 0.22)),
+    var(--sat-icon-bg2, rgba(124, 58, 237, 0.15))
+  );
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--sat-icon-fg, var(--brand-cyan));
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  animation: sat-rise 0.7s var(--sat-ease) 0.06s both;
+}
+
+.sat-hero__title {
+  font-family: "Syne", var(--font-sans);
+  font-size: clamp(1.6rem, 5.2vw, 2.4rem);
+  font-weight: 800;
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  animation: sat-rise 0.72s var(--sat-ease) 0.1s both;
+}
+
+.sat-hero__domain {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--brand-cyan);
+  margin-bottom: 0.85rem;
+  animation: sat-rise 0.72s var(--sat-ease) 0.12s both;
+}
+
+.sat-hero__lead {
+  max-width: 36rem;
+  margin: 0 auto 1.35rem;
+  font-size: 1.02rem;
+  line-height: 1.62;
+  color: var(--text-muted);
+  animation: sat-rise 0.75s var(--sat-ease) 0.14s both;
+}
+
+.sat-hero__lead a {
+  color: var(--brand-cyan);
+  font-weight: 500;
+}
+
+.sat-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+  animation: sat-rise 0.78s var(--sat-ease) 0.18s both;
+}
+
+.sat-hero__actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.85rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text);
+  transition:
+    transform 0.2s var(--sat-ease),
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.sat-hero__actions a:hover {
+  transform: translateY(-2px);
+  border-color: rgba(45, 212, 191, 0.4);
+  box-shadow: 0 8px 28px rgba(45, 212, 191, 0.12);
+}
+
+.sat-hero__actions a.sat-btn--primary {
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0.28), rgba(124, 58, 237, 0.22));
+  border-color: rgba(45, 212, 191, 0.4);
+}
+
+@keyframes sat-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sat-body {
+  flex: 1;
+  width: 100%;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 2rem;
+}
+
+.sat-panel {
+  padding: 1.35rem 1.35rem 1.45rem;
+  border-radius: calc(var(--radius) + 2px);
+  border: 1px solid var(--border);
+  background: linear-gradient(165deg, rgba(22, 18, 34, 0.92), rgba(12, 10, 18, 0.88));
+  margin-bottom: 1.35rem;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+.sat-panel h2 {
+  font-family: "Syne", var(--font-sans);
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin: 0 0 0.65rem;
+  color: var(--text);
+}
+
+.sat-panel p,
+.sat-panel li {
+  font-size: 0.98rem;
+  line-height: 1.62;
+  color: var(--text-muted);
+}
+
+.sat-panel p {
+  margin: 0 0 0.85rem;
+}
+
+.sat-panel p:last-child {
+  margin-bottom: 0;
+}
+
+.sat-panel ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.sat-panel code {
+  font-size: 0.86em;
+  padding: 0.12rem 0.35rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #a5f3fc;
+}
+
+.sat-kw {
+  margin-top: 1.25rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.sat-kw strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.sat-quick {
+  margin-top: 0.25rem;
+}
+
+.sat-quick__title {
+  font-family: "Syne", var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 0.85rem;
+  text-align: center;
+}
+
+.sat-quick-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+}
+
+@media (min-width: 420px) {
+  .sat-quick-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 720px) {
+  .sat-quick-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.sat-quick-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  min-height: 4.5rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 0.2s var(--sat-ease),
+    border-color 0.2s,
+    background 0.2s;
+  -webkit-tap-highlight-color: rgba(45, 212, 191, 0.12);
+}
+
+.sat-quick-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(45, 212, 191, 0.35);
+  background: rgba(45, 212, 191, 0.06);
+}
+
+.sat-quick-card__icon {
+  font-size: 1.1rem;
+  color: var(--brand-cyan);
+  opacity: 0.95;
+}
+
+.sat-quick-card__label {
+  font-family: "Syne", var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.sat-quick-card__hint {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+.sat-quick-card.is-current {
+  border-color: rgba(45, 212, 191, 0.5);
+  background: rgba(45, 212, 191, 0.08);
+  pointer-events: none;
+}
+
+.site-footer .network-footer__links {
+  gap: 0.45rem;
+  justify-content: center;
+}
+
+.site-footer .network-footer__links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.65rem;
+  min-height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.site-footer .network-footer__links a:hover {
+  color: var(--brand-cyan);
+  border-color: rgba(45, 212, 191, 0.35);
+}
+
+/* Themes */
+.sat-hero--cyan {
+  --sat-hero-glow: rgba(45, 212, 191, 0.32);
+  --sat-icon-bg1: rgba(45, 212, 191, 0.28);
+  --sat-icon-bg2: rgba(56, 189, 248, 0.12);
+  --sat-icon-fg: #5eead4;
+}
+
+.sat-hero--rose {
+  --sat-hero-glow: rgba(244, 114, 182, 0.35);
+  --sat-icon-bg1: rgba(244, 114, 182, 0.3);
+  --sat-icon-bg2: rgba(251, 146, 60, 0.12);
+  --sat-icon-fg: #fbcfe8;
+}
+
+.sat-hero--violet {
+  --sat-hero-glow: rgba(167, 139, 250, 0.38);
+  --sat-icon-bg1: rgba(124, 58, 237, 0.35);
+  --sat-icon-bg2: rgba(45, 212, 191, 0.1);
+  --sat-icon-fg: #c4b5fd;
+}
+
+.sat-hero--amber {
+  --sat-hero-glow: rgba(251, 191, 36, 0.28);
+  --sat-icon-bg1: rgba(251, 191, 36, 0.22);
+  --sat-icon-bg2: rgba(249, 115, 22, 0.12);
+  --sat-icon-fg: #fde68a;
+}
+
+.sat-hero--lime {
+  --sat-hero-glow: rgba(163, 230, 53, 0.22);
+  --sat-icon-bg1: rgba(163, 230, 53, 0.2);
+  --sat-icon-bg2: rgba(45, 212, 191, 0.1);
+  --sat-icon-fg: #d9f99d;
+}
+
+.sat-hero--red {
+  --sat-hero-glow: rgba(248, 113, 113, 0.28);
+  --sat-icon-bg1: rgba(248, 113, 113, 0.22);
+  --sat-icon-bg2: rgba(244, 114, 182, 0.1);
+  --sat-icon-fg: #fecaca;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sat-hero::after {
+    animation: none;
+  }
+
+  .sat-hero__badge,
+  .sat-hero__icon,
+  .sat-hero__title,
+  .sat-hero__domain,
+  .sat-hero__lead,
+  .sat-hero__actions {
+    animation: none;
+  }
+}

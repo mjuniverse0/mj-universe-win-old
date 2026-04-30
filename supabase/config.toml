@@ -1,0 +1,29 @@
+# Supabase CLI — https://supabase.com/docs/guides/cli
+# Kjor: supabase link --project-ref <REF> (eller sett MJ_SUPABASE_PROJECT_REF i deploy)
+
+project_id = "mj-universe-local"
+
+[api]
+enabled = true
+
+[db]
+major_version = 17
+
+[db.pooler]
+enabled = false
+
+[realtime]
+enabled = true
+
+[studio]
+enabled = true
+
+[storage]
+enabled = true
+file_size_limit = "524288000"
+
+[auth]
+enabled = true
+
+[functions.snap-oauth-exchange]
+verify_jwt = false

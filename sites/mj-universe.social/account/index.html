@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Konto — mj-universe.social</title>
+    <meta name="description" content="Registrer eller logg inn for chat. Samme Supabase-bruker som pa mj-universe.net; hvert domene har egen sesjon." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://mj-universe.social/account/" />
+    <meta name="theme-color" content="#0c0a12" />
+    <link rel="icon" type="image/png" href="https://mj-universe.net/images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://mj-universe.net/css/style.css" />
+    <link rel="stylesheet" href="../css/seo.css" />
+    <link rel="stylesheet" href="https://mj-universe.net/css/account-chat.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="seo-wrap">
+      <header class="site-header">
+        <a href="https://mj-universe.net/" class="logo" aria-label="MJ Universe hub">
+          <span class="logo-badge">
+            <img class="logo-img" src="https://mj-universe.net/images/logo.png" alt="" width="160" height="64" decoding="async" />
+          </span>
+        </a>
+        <nav class="nav" aria-label="Meny">
+          <a href="https://mj-universe.net/"><i class="fa-solid fa-house" aria-hidden="true"></i> Hub</a>
+          <a href="https://mj-universe.vip/#vip-priser"><i class="fa-solid fa-crown" aria-hidden="true"></i> VIP</a>
+          <a href="../chat/"><i class="fa-solid fa-comments" aria-hidden="true"></i> Chat</a>
+          <a href="index.html" aria-current="page"><i class="fa-solid fa-user" aria-hidden="true"></i> Konto</a>
+        </nav>
+      </header>
+      <main class="seo-main">
+        <h1>Konto</h1>
+        <p class="lead">
+          Samme Supabase-bruker som pa <a href="https://mj-universe.net/account/">mj-universe.net</a> &mdash; du ma logge inn pa hvert domene.
+          <strong>Registrer</strong> med e-post, passord og Snapchat (minst 5 tegn), eller <strong>logg inn</strong> om du allerede har konto.
+        </p>
+
+        <div id="mj-db-setup" class="mj-auth-panel mj-db-setup" hidden>
+          <h2><i class="fa-solid fa-database" aria-hidden="true"></i> Teknisk oppsett</h2>
+          <p>
+            Konto krever at databasen er koblet til (bl.a. <code>profiles</code>). Dette ordnes fra MJ Universe-prosjektet /
+            Supabase.
+          </p>
+          <p class="muted">
+            Snapchat-innsikt: <a href="https://mj-universe.social/snapchat/">mj-universe.social/snapchat</a>
+          </p>
+        </div>
+
+        <div id="mj-auth-status" class="mj-auth-panel" hidden>
+          <p><span id="mj-auth-label"></span></p>
+          <button type="button" class="btn btn--ghost" id="mj-auth-logout">Logg ut</button>
+        </div>
+
+        <div id="mj-snap-missing" class="mj-auth-panel" hidden>
+          <h2>Fullfor profil</h2>
+          <p class="muted">Legg til Snapchat-brukernavn (kreves for chat som fan).</p>
+          <form id="form-mj-snap-complete">
+            <label for="mj-snap-complete">Snapchat (uten @), minst 5 tegn</label>
+            <input class="input" id="mj-snap-complete" required autocomplete="username" minlength="5" maxlength="32" />
+            <button type="submit" class="btn btn--primary">Lagre</button>
+            <p id="mj-snap-complete-error" class="mj-auth-msg" role="alert"></p>
+          </form>
+        </div>
+
+        <div id="mj-auth-guest">
+          <div class="mj-auth-tabs" role="tablist" aria-label="Registrer eller logg inn">
+            <button type="button" class="mj-auth-tab is-active" id="mj-tab-btn-register" role="tab" aria-selected="true">
+              Registrer
+            </button>
+            <button type="button" class="mj-auth-tab" id="mj-tab-btn-login" role="tab" aria-selected="false">
+              Logg inn
+            </button>
+          </div>
+
+          <div id="mj-panel-register" class="mj-auth-tab-panel" role="tabpanel">
+            <div class="mj-auth-panel">
+              <h2>Ny konto</h2>
+              <form id="form-mj-register">
+                <label for="mj-reg-email">E-post</label>
+                <input class="input" type="email" id="mj-reg-email" required autocomplete="email" />
+                <label for="mj-reg-password">Passord</label>
+                <input class="input" type="password" id="mj-reg-password" required autocomplete="new-password" minlength="6" />
+                <label for="mj-reg-snap">Snapchat-brukernavn (uten @), minst 5 tegn</label>
+                <input class="input" id="mj-reg-snap" required autocomplete="username" minlength="5" maxlength="32" />
+                <button type="submit" class="btn btn--primary">Opprett konto</button>
+                <p id="mj-reg-error" class="mj-auth-msg" role="alert"></p>
+              </form>
+            </div>
+          </div>
+
+          <div id="mj-panel-login" class="mj-auth-tab-panel is-hidden" role="tabpanel">
+            <div class="mj-auth-panel">
+              <h2>Logg inn</h2>
+              <form id="form-mj-login">
+                <label for="mj-login-email">E-post</label>
+                <input class="input" type="email" id="mj-login-email" required autocomplete="email" />
+                <label for="mj-login-password">Passord</label>
+                <input class="input" type="password" id="mj-login-password" required autocomplete="current-password" />
+                <button type="submit" class="btn btn--primary">Logg inn</button>
+                <p id="mj-login-error" class="mj-auth-msg" role="alert"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="https://mj-universe.net/js/supabase-config.js"></script>
+    <script type="module" src="https://mj-universe.net/js/mj-auth-page.js"></script>
+  </body>
+</html>

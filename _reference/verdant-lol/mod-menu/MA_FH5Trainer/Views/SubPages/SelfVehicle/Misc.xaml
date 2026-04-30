@@ -1,0 +1,123 @@
+﻿<Page x:Class="MA_FH5Trainer.Views.SubPages.SelfVehicle.Misc"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:local="clr-namespace:MA_FH5Trainer.Views.SubPages.SelfVehicle"
+      xmlns:controls="clr-namespace:MA_FH5Trainer.Controls.StatusComboboxItem"
+      mc:Ignorable="d"
+      d:DataContext="{d:DesignInstance local:Misc, IsDesignTimeCreatable=true}"
+      Title="Misc" 
+      d:DesignHeight="Auto" 
+      d:DesignWidth="800">
+    
+    <StackPanel>
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <Grid Margin="5 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/> 
+                    <ColumnDefinition Width="Auto"/> 
+                </Grid.ColumnDefinitions>
+                
+                <TextBox x:Name="NameBox" 
+                         Grid.Column="0" 
+                         MaxLength="16"
+                         VerticalAlignment="Center"
+                         TextAlignment="Left"
+                         mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                         Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                         BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}"
+                         IsEnabled="{Binding ViewModel.SpooferUiElementsEnabled}"
+                         TextChanged="NameBox_OnTextChanged"/>
+                
+                <mah:ToggleSwitch Grid.Column="1"
+                                  VerticalAlignment="Center"
+                                  Margin="5 0 0 0"
+                                  MinWidth="0"
+                                  FontSize="12"
+                                  IsEnabled="{Binding ViewModel.SpooferUiElementsEnabled}"
+                                  Content="{DynamicResource NameSpoofer}"
+                                  Toggled="NameSpooferSwitch_OnToggled"/>
+            </Grid>
+        </Border>
+        
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <Grid Margin="5 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox x:Name="MainComboBox" 
+                          Grid.Column="0"
+                          VerticalAlignment="Center"
+                          SelectedIndex="0"
+                          mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                          Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                          BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}"
+                          IsEnabled="{Binding ViewModel.MainUiElementsEnabled}"
+                          SelectionChanged="MainComboBox_OnSelectionChanged">
+                    <controls:StatusComboboxItem Content="{DynamicResource SkillTreeWideEdit}"
+                                                 IsOn="{Binding ViewModel.SkillTreeWideEditEnabled}"/>
+
+                    <controls:StatusComboboxItem Content="{DynamicResource SkillTreeCost}"
+                                                 IsOn="{Binding ViewModel.SkillTreeCostEnabled}"/>
+                    
+                    <controls:StatusComboboxItem Content="{DynamicResource DroneModeHeight}"
+                                                 IsOn="{Binding ViewModel.DroneModeHeightEnabled}"/>
+                    
+                </ComboBox>
+                
+                <mah:NumericUpDown x:Name="MainValueBox" 
+                                   Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Margin="5 0"
+                                   TextAlignment="Left"
+                                   Minimum="0"
+                                   Maximum="2147483647"
+                                   Value="100"
+                                   mah:ControlsHelper.CornerRadius="{StaticResource ControlCornerRadius}"
+                                   Background="{DynamicResource MahApps.Brushes.AccentBase}"
+                                   BorderBrush="{DynamicResource MahApps.Brushes.AccentBase}"
+                                   IsEnabled="{Binding ViewModel.MainUiElementsEnabled}"
+                                   ValueChanged="MainValueBox_OnValueChanged"/>
+                
+                <mah:ToggleSwitch x:Name="MainToggleSwitch" 
+                                  Grid.Column="2" 
+                                  VerticalAlignment="Center"
+                                  MinWidth="0"
+                                  FontSize="12"
+                                  IsEnabled="{Binding ViewModel.MainUiElementsEnabled}"
+                                  Toggled="MainToggleSwitch_OnToggled"/>
+            </Grid>
+        </Border>
+        
+        <Border Style="{StaticResource CommonBorderStyle}">
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                
+                <mah:ToggleSwitch VerticalAlignment="Center"
+                                  MinWidth="0"
+                                  FontSize="12"
+                                  Content="{DynamicResource RemoveBuildCap}"
+                                  Toggled="RemoveBuildCapSwitch_OnToggled"/>
+                
+                <mah:ToggleSwitch VerticalAlignment="Center"
+                                  Margin="10 0"
+                                  MinWidth="0"
+                                  FontSize="12"
+                                  Content="{DynamicResource UnbreakableSkillScore}"
+                                  Toggled="UnbreakableSkillScoreSwitch_OnToggled"/>
+                
+                <mah:ToggleSwitch VerticalAlignment="Center"
+                                  MinWidth="0"
+                                  FontSize="12"
+                                  Content="{DynamicResource AutoTpToWaypoint}"
+                                  Toggled="TpSwitch_OnToggled"/>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</Page>

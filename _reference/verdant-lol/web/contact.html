@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact - Verdant External</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <canvas id="particles"></canvas>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="./index.html"><span class="dot"></span>Verdant External</a>
+        <div class="links">
+          <a href="./index.html">Home</a>
+          <a href="./products.html">Products</a>
+          <a href="./status.html">Status</a>
+          <a href="./dashboard.html">Dashboard</a>
+          <a href="./autologin.html">Autologin</a>
+          <a class="active" href="./contact.html">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <h2>Contact Team Verdant</h2>
+        <p>Questions about support, partnerships, or upcoming release details.</p>
+        <div class="contact-grid">
+          <div class="panel form">
+            <form data-contact-form>
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required />
+              </div>
+              <div class="field">
+                <label for="topic">Topic</label>
+                <select id="topic" name="topic">
+                  <option>Support</option>
+                  <option>Sales</option>
+                  <option>Partnership</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">Send message</button>
+            </form>
+            <p data-contact-result style="margin-top: 12px; color: var(--brand)"></p>
+          </div>
+          <aside class="panel form">
+            <h3>Direct Channels</h3>
+            <p style="color: var(--muted)">
+              For faster support, use your Discord ticket system and claim order panel.
+            </p>
+            <div class="chips">
+              <span class="chip">Discord Tickets</span>
+              <span class="chip">Claim Order</span>
+              <span class="chip">Status Updates</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-bar">
+        <span>© Verdant External - Contact</span>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="./user-privacy.html">User privacy</a>
+          <a href="./policies.html">Policies &amp; MJ</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/notifications-bell.js"></script>
+  </body>
+</html>

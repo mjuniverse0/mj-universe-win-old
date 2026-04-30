@@ -1,0 +1,5 @@
+config/stripe-sync-output.json
+data/
+node_modules/
+.env
+web/assets/js-obfuscated/

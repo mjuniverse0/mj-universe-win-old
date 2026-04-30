@@ -1,0 +1,41 @@
+Video upload quickstart (Supabase -> mj-universe.watch)
+
+1) Set env vars in PowerShell:
+   $env:MJ_SUPABASE_URL = "https://yefatcprqfybbqxiarcz.supabase.co"
+   $env:MJ_SUPABASE_SERVICE_ROLE_KEY = "<service-role-key-from-supabase-dashboard>"
+   $env:MJ_SUPABASE_VIDEO_BUCKET = "mj-videos"   # optional (default: mj-videos)
+
+2) Upload one video and upsert watch_videos row:
+   powershell -ExecutionPolicy Bypass -File .\tools\upload-videos-to-supabase.ps1 `
+     -VideoPath "C:\path\video.mp4" `
+     -Title "My title" `
+     -Description "Optional description" `
+     -Kind "vlog" `
+     -SortOrder 10 `
+     -Publish
+
+3) Result:
+   - File is uploaded to Supabase Storage (bucket: mj-videos)
+   - Row is upserted in public.watch_videos by slug
+   - Watch URL format: https://mj-universe.watch/?v=<slug>
+
+4) Batch upload whole folder:
+   powershell -ExecutionPolicy Bypass -File .\tools\upload-videos-batch.ps1 `
+     -FolderPath "C:\path\video-folder" `
+     -Kind "vlog" `
+     -StartSortOrder 100 `
+     -Publish `
+     -Recurse
+
+5) Optional metadata CSV for batch:
+   Use -MetadataCsv "C:\path\videos.csv"
+   CSV columns:
+   file_name,title,description,slug,kind,sort_order,publish
+   Example:
+   my-video.mp4,Date Night Ep 1,First episode,date-night-ep-1,vlog,120,true
+   gym-clip.mov,Gym Clip,Short training clip,gym-clip,clip,121,false
+
+Notes:
+- Do NOT expose service role key in frontend code.
+- Supported extensions: .mp4, .webm, .mov
+- If -Slug is omitted, script generates one from filename.

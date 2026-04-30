@@ -1,0 +1,206 @@
+/* Minimal standalone giveaway page — system fonts, ingen eksterne fonter */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #f4f2ef;
+  background: #0c0a12;
+  padding: 1.25rem;
+  padding-bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
+}
+
+.gw {
+  max-width: 26rem;
+  margin: 0 auto;
+}
+
+.gw h1 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+  line-height: 1.25;
+}
+
+.gw p {
+  margin: 0 0 1rem;
+  color: #c4bcc8;
+}
+
+.gw .gw-muted {
+  font-size: 0.9rem;
+  color: #9a919e;
+}
+
+.gw-prize-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #a8a0b0;
+  margin: 0 0 0.25rem;
+}
+
+.gw-prize {
+  margin-bottom: 1rem !important;
+  color: #e8e4ef !important;
+}
+
+.gw-card {
+  background: #161222;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.25rem 1.35rem;
+}
+
+.gw-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fb923c;
+  margin-bottom: 0.5rem;
+}
+
+.gw label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #a8a0b0;
+  margin-bottom: 0.35rem;
+}
+
+.gw input[type="text"] {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f4f2ef;
+  margin-bottom: 0.75rem;
+  min-height: 2.75rem;
+}
+
+.gw-submit {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  color: #0c0a12;
+  background: linear-gradient(135deg, #2dd4bf, #7c3aed);
+  margin-bottom: 0.5rem;
+  min-height: 2.85rem;
+}
+
+.gw-submit:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+
+.gw-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.gw input:focus {
+  outline: 2px solid rgba(124, 58, 237, 0.45);
+  outline-offset: 1px;
+}
+
+.gw-msg {
+  min-height: 1.25em;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0;
+}
+
+.gw-msg--err {
+  color: #f87171;
+}
+
+.gw-msg--ok {
+  color: #7dd3a0;
+}
+
+.gw-banner {
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.gw-banner--ended {
+  background: rgba(251, 146, 60, 0.12);
+  border: 1px solid rgba(251, 146, 60, 0.35);
+  color: #fdba74;
+}
+
+.gw-banner--wait {
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  color: #ddd6fe;
+}
+
+.gw-back {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: #a8a0b0;
+}
+
+.gw-back a {
+  color: #2dd4bf;
+}
+
+.gw-roster-section {
+  margin-top: 1.25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gw-roster-h {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+  color: #e8e4ef;
+}
+
+.gw-roster-stat {
+  margin-bottom: 0.5rem !important;
+}
+
+.gw-roster-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 14rem;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.65rem;
+}
+
+.gw-roster-li {
+  font-size: 0.9rem;
+  color: #c4bcc8;
+}
