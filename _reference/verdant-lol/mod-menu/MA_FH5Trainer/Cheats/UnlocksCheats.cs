@@ -1,4 +1,4 @@
-﻿using System.Windows.Input.Manipulations;
+using System.Windows.Input.Manipulations;
 using MA_FH5Trainer.Resources;
 using Memory;
 using static MA_FH5Trainer.Resources.Cheats;

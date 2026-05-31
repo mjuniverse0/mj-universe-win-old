@@ -1,8 +1,8 @@
--- MJ Universe — Egen giveaway-side (giveaway.html?g=uuid)
+-- MJ Universe - Egen giveaway-side (giveaway.html?g=uuid)
 -- Leser info selv om giveaway er avsluttet (for melding + admin-vinnere)
 -- Kjør i Supabase SQL Editor etter setup-giveaway-entries.
 -- Påmelding: public.giveaway_enter (Snapchat; emoji valgfri/null → 🎁 internt).
--- Krever winner_slots + body (premie) for åpen påmelding — kjør setup-giveaway-winner-slots.sql.
+-- Krever winner_slots + body (premie) for åpen påmelding - kjør setup-giveaway-winner-slots.sql.
 
 create or replace function public.get_giveaway_page_info(p_event_id uuid)
 returns jsonb

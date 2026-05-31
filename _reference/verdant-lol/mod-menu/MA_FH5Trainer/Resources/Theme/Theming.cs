@@ -26,7 +26,7 @@ public sealed class Theming : INotifyPropertyChanged
         }
     }
     
-    // Verdant External–aligned: site uses #050505–#0e0e0e, white/soft text, subtle warm highlights
+    // Verdant External-aligned: site uses #050505-#0e0e0e, white/soft text, subtle warm highlights
     private Brush _lighterColour = new SolidColorBrush((Color)ConvertFromString("#1a1a1a"));
     public Brush LighterColour
     {
@@ -69,7 +69,7 @@ public sealed class Theming : INotifyPropertyChanged
         private set => SetField(ref _darkerColour, value);
     }
 
-    // Muted line on dark (not a white block); avoids “washed” borders next to #050505
+    // Muted line on dark (not a white block); avoids "washed" borders next to #050505
     private Brush _accentColour = new SolidColorBrush((Color)ConvertFromString("#8a8a8a"));
     public Brush AccentColour
     {
@@ -93,7 +93,7 @@ public sealed class Theming : INotifyPropertyChanged
 
     public Brush CtaButtonForeground { get; } = new SolidColorBrush((Color)ConvertFromString("#f5f5f5")!);
 
-    /// <summary>Sidebar section titles (GAME INFO, HOTKEYS, …) — was misusing CtaButtonBackground when that was off-white.</summary>
+    /// <summary>Sidebar section titles (GAME INFO, HOTKEYS, ...) - was misusing CtaButtonBackground when that was off-white.</summary>
     public Brush SectionHeaderForeground { get; } = new SolidColorBrush((Color)ConvertFromString("#e8e8e8")!);
 
     public Brush TextMuted { get; } = new SolidColorBrush((Color)ConvertFromString("#a9a9a9")!);

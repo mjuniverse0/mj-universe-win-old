@@ -1,4 +1,4 @@
-﻿namespace MA_FH5Trainer.Cheats;
+namespace MA_FH5Trainer.Cheats;
 
 public interface IRevertBase
 {

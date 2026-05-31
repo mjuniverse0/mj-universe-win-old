@@ -46,7 +46,7 @@ async function loadProducts() {
   if (!data?.length) {
     root.innerHTML = `
       <article class="mj-store-card">
-        <h3>Butikken er klar — produkter mangler</h3>
+        <h3>Butikken er klar - produkter mangler</h3>
         <p>Domene og side er oppe, men tabellen <code>store_products</code> har ingen aktive varer enda.</p>
         <p class="mj-store-price">Neste steg: legg inn produkter i admin (sort_order + is_active=true).</p>
       </article>`;

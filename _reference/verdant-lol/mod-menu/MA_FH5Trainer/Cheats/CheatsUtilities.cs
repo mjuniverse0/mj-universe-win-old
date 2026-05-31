@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using MA_FH5Trainer.Models;
 using MahApps.Metro.Controls;
 using Memory;

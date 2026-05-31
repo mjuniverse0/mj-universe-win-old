@@ -1,4 +1,4 @@
--- MJ Universe — Giveaway entries (Snap username; emoji valgfri i API, lagres internt)
+-- MJ Universe - Giveaway entries (Snap username; emoji valgfri i API, lagres internt)
 -- Kjør i Supabase SQL Editor etter setup-features-supabase.sql (events-tabellen må finnes)
 
 create extension if not exists "pgcrypto";

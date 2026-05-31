@@ -1,4 +1,4 @@
-﻿using MA_FH5Trainer.Resources;
+using MA_FH5Trainer.Resources;
 using Memory;
 using static MA_FH5Trainer.Resources.Memory;
 

@@ -7,9 +7,9 @@ alwaysApply: true
 
 When running or editing `scripts/deploy-web.ps1`, SSH upload, or server file copy for **verdant.lol**:
 
-- **Server:** `187.124.48.60` — default SSH form in the script is `root@187.124.48.60` unless `VERDANT_SSH` overrides it.
+- **Server:** `187.124.48.60` - default SSH form in the script is `root@187.124.48.60` unless `VERDANT_SSH` overrides it.
 - **Private key (scp/ssh):** `%USERPROFILE%\.ssh\id_ed25519` (full path e.g. `C:\Users\Jhonatan Wik\.ssh\id_ed25519`).
 - **Public key** (`id_ed25519.pub`) is only for installing in `authorized_keys` on the server, not for `scp -i`.
-- **Nginx `root` for verdant.lol (deploy target):** `/home/verdant/htdocs/verdant.lol` — this is the default in `scripts/deploy-web.ps1` (override with `VERDANT_REMOTE_DIR` if it changes).
+- **Nginx `root` for verdant.lol (deploy target):** `/home/verdant/htdocs/verdant.lol` - this is the default in `scripts/deploy-web.ps1` (override with `VERDANT_REMOTE_DIR` if it changes).
 
 Always prefer this host and the `id_ed25519` private key for deployment commands unless the user explicitly says otherwise.

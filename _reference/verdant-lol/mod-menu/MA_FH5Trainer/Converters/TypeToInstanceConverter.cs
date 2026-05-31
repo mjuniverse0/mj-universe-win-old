@@ -1,4 +1,4 @@
-﻿using System.Windows.Data;
+using System.Windows.Data;
 using System.Globalization;
 using MA_FH5Trainer.Resources;
 

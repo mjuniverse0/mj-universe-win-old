@@ -111,7 +111,7 @@ function giftCardRejectMessage(reason) {
     case "redeemed":
       return "This gift card has already been fully used.";
     case "wrong_product":
-      return "This gift card is locked to another product. Open the correct game’s page, or leave the gift field empty and pay full price.";
+      return "This gift card is locked to another product. Open the correct game's page, or leave the gift field empty and pay full price.";
     case "zero_balance":
       return "This gift card has no balance left.";
     default:
@@ -454,7 +454,7 @@ async function applyGiftcardAndRedirect(card) {
   }
 
   if (json.customPayment && json.customPaymentUrl) {
-    setPaymentMessage("Redirecting to $0 confirmation link…", true);
+    setPaymentMessage("Redirecting to $0 confirmation link...", true);
     window.location.href = json.customPaymentUrl;
     return;
   }
@@ -500,7 +500,7 @@ async function startCheckoutForCard(card) {
   }
   const spec = getCardProductSpec(card);
   const price = spec.price ?? "9.99";
-  setPaymentMessage("Starting secure checkout…", true);
+  setPaymentMessage("Starting secure checkout...", true);
   const response = await fetch(`${API_BASE}/api/stripe/create-checkout-session`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -522,7 +522,7 @@ async function startCheckoutForCard(card) {
     json = {};
   }
   if (json.customPayment && json.customPaymentUrl) {
-    setPaymentMessage("Order total is $0 with your codes. Redirecting…", true);
+    setPaymentMessage("Order total is $0 with your codes. Redirecting...", true);
     window.location.replace(json.customPaymentUrl);
     return;
   }

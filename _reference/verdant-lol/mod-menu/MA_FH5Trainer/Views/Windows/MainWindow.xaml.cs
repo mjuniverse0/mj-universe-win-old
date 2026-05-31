@@ -163,7 +163,7 @@ public partial class MainWindow
             $"Platform: {platform}\n" +
             $"Game Version: {version}\n" +
             $"Trainer Version: {vm?.TrainerVersion ?? "Unknown"}",
-            "Verdant Mod Menu — state",
+            "Verdant Mod Menu - state",
             MessageBoxButton.OK,
             MessageBoxImage.Information);
     }

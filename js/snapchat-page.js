@@ -1,5 +1,5 @@
 /**
- * /snapchat/ — henter Snapchat-innsiktstall fra site_snap_stats (Supabase).
+ * /snapchat/ - henter Snapchat-innsiktstall fra site_snap_stats (Supabase).
  */
 (function () {
   var SB_URL = (window.MJ_SUPABASE_URL || "").replace(/\/$/, "");
@@ -130,7 +130,7 @@
       metricsHtml = '<div class="snap-metrics snap-metrics--views">' + parts.join("") + "</div>";
     } else {
       metricsHtml =
-        '<p class="lead">Ingen visningstall i periodene ennå. I <strong>admin → Snapchat</strong> trenger du ikke fylle alle felt — tomme felt beholdes når du lagrer.</p>';
+        '<p class="lead">Ingen visningstall i periodene ennå. I <strong>admin → Snapchat</strong> trenger du ikke fylle alle felt - tomme felt beholdes når du lagrer.</p>';
     }
     var note = row.insights_note && String(row.insights_note).trim()
       ? '<p class="snap-insights-note">' + esc(row.insights_note) + "</p>"

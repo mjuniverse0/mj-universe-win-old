@@ -4,7 +4,7 @@ globs: "*.html,css/**,js/**,images/**,live/**,videoer/**,site.webmanifest,sites/
 alwaysApply: false
 ---
 
-Etter endringer i prosjektet: last opp **hele nettstedet** (rotfiler + mapper rekursivt) og **satellitt-sider** under `sites/*`. Kjør `.\deploy.ps1` — den gjør begge deler. Ikke `.cursor`, ikke `*.sql`, ikke `bot.py` / `requirements-bot.txt`, ikke `supabase/` (Edge Functions deployes med Supabase CLI).
+Etter endringer i prosjektet: last opp **hele nettstedet** (rotfiler + mapper rekursivt) og **satellitt-sider** under `sites/*`. Kjør `.\deploy.ps1` - den gjør begge deler. Ikke `.cursor`, ikke `*.sql`, ikke `bot.py` / `requirements-bot.txt`, ikke `supabase/` (Edge Functions deployes med Supabase CLI).
 
 **Assistent:** Når brukeren deployer eller spør om opplasting, **inkluder alltid hele `scp`-blokken under** (i tillegg til `.\deploy.ps1` hvis relevant).
 

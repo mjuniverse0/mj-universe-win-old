@@ -1,4 +1,4 @@
-﻿using static MA_FH5Trainer.Resources.Memory;
+using static MA_FH5Trainer.Resources.Memory;
 
 namespace MA_FH5Trainer.Cheats.ForzaHorizon5;
 

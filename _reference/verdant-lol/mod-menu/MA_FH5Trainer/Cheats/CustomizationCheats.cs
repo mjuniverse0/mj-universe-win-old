@@ -1,4 +1,4 @@
-﻿namespace MA_FH5Trainer.Cheats.ForzaHorizon5;
+namespace MA_FH5Trainer.Cheats.ForzaHorizon5;
 
 public class CustomizationCheats : CheatsUtilities, ICheatsBase, IRevertBase
 {

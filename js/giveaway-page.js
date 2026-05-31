@@ -138,7 +138,7 @@
     var gid = qs("g") || qs("id");
     if (!UUID_RE.test(gid)) {
       hideLoading();
-      showInvalid("Mangler gyldig giveaway-ID i lenken (?g=…).");
+      showInvalid("Mangler gyldig giveaway-ID i lenken (?g=...).");
       return;
     }
 
@@ -236,7 +236,7 @@
     html += '<section class="gw-roster-section" id="gw-roster-section" aria-labelledby="gw-roster-title">';
     html += '<h2 class="gw-roster-h" id="gw-roster-title">Deltakere</h2>';
     html +=
-      '<p id="gw-roster-stat" class="gw-muted gw-roster-stat" aria-live="polite">Laster deltakere…</p>';
+      '<p id="gw-roster-stat" class="gw-muted gw-roster-stat" aria-live="polite">Laster deltakere...</p>';
     html += '<ul id="gw-roster-ul" class="gw-roster-ul"></ul>';
     html += "</section>";
 
@@ -259,7 +259,7 @@
       var snap = normalizeSnap(snapInput.value);
       if (!snapValid(snap)) {
         msg.textContent =
-          "Skriv Snapchat-brukernavn (2–32 tegn: bokstaver, tall, _ . -).";
+          "Skriv Snapchat-brukernavn (2-32 tegn: bokstaver, tall, _ . -).";
         snapInput.focus();
         return;
       }

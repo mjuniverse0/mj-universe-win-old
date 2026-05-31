@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <CustomBuild Include="C:\Users\Jhonatan Wik\Desktop\verdant-lol\client\overlay\build-agent\_deps\nlohmann_json-subbuild\CMakeFiles\ab587f1d81704cbe6cacabbed2482944\nlohmann_json-populate-mkdir.rule">

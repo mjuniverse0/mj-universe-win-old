@@ -35,7 +35,7 @@ struct PollerConfig {
   unsigned int waitSeconds{25};
 };
 
-// Long-poll loop against /pull?hwid=… on a background thread. When a job
+// Long-poll loop against /pull?hwid=... on a background thread. When a job
 // arrives the configured handler is invoked synchronously; its AckResult is
 // POSTed to /ack so the server can record outcome.
 class Poller {

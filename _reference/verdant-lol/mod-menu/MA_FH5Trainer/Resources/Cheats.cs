@@ -1,4 +1,4 @@
-﻿namespace MA_FH5Trainer.Resources;
+namespace MA_FH5Trainer.Resources;
 
 public static class Cheats
 {

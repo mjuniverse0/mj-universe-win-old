@@ -1,4 +1,4 @@
-# Supabase CLI — https://supabase.com/docs/guides/cli
+# Supabase CLI - https://supabase.com/docs/guides/cli
 # Kjor: supabase link --project-ref <REF> (eller sett MJ_SUPABASE_PROJECT_REF i deploy)
 
 project_id = "mj-universe-local"

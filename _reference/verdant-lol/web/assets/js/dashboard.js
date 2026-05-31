@@ -272,7 +272,7 @@ function hookAdminSecretPanel() {
   });
 
   if (secretInput && adminSecretGet()) {
-    secretInput.placeholder = "••••••••";
+    secretInput.placeholder = "--------";
   }
 }
 
@@ -320,7 +320,7 @@ function hookShopGrantTools() {
       out.textContent = "Fill grant token, customer email/username, and at least one product id.";
       return;
     }
-    out.textContent = "Working…";
+    out.textContent = "Working...";
     try {
       const res = await fetch(`${SITE_API}/api/shop/grant-licenses`, {
         method: "POST",

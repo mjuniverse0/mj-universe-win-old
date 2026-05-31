@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Snapchat OAuth — tilbake</title>
+    <title>Snapchat OAuth - tilbake</title>
     <link rel="icon" type="image/png" href="../images/logo.png" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/seo.css" />
@@ -12,11 +12,11 @@
   <body>
     <div class="noise" aria-hidden="true"></div>
     <main class="seo-main" style="padding-top: 5rem">
-      <h1>Snapchat OAuth — callback</h1>
-      <p id="oauth-result" class="lead">Behandler …</p>
+      <h1>Snapchat OAuth - callback</h1>
+      <p id="oauth-result" class="lead">Behandler ...</p>
       <div id="oauth-ok" hidden>
         <p id="oauth-exchange-msg">
-          <strong>Authorization code</strong> mottatt. Bytter mot token via Supabase Edge Function …
+          <strong>Authorization code</strong> mottatt. Bytter mot token via Supabase Edge Function ...
         </p>
         <p id="oauth-exchange-detail" class="seo-kw-block" style="margin-top: 1rem" hidden></p>
         <div id="oauth-fallback" class="seo-kw-block" style="margin-top: 1rem" hidden>
@@ -60,7 +60,7 @@
           result.hidden = true;
           errEl.hidden = false;
           document.getElementById("oauth-err-text").textContent =
-            "State mismatch — avbryt og prov igjen fra oauth-start.html.";
+            "State mismatch - avbryt og prov igjen fra oauth-start.html.";
           return;
         }
         try {
@@ -110,9 +110,9 @@
             var detail = document.getElementById("oauth-exchange-detail");
             if (x.ok && x.j && x.j.ok) {
               document.getElementById("oauth-exchange-msg").innerHTML =
-                "<strong>OK</strong> — token er hentet og lagret via Supabase (snap_integration_tokens). " +
+                "<strong>OK</strong> - token er hentet og lagret via Supabase (snap_integration_tokens). " +
                 "<code>expires_in</code>: " +
-                (x.j.expires_in != null ? x.j.expires_in : "—") +
+                (x.j.expires_in != null ? x.j.expires_in : "-") +
                 " s.";
               detail.hidden = false;
               detail.textContent =
@@ -127,7 +127,7 @@
           })
           .catch(function (e) {
             document.getElementById("oauth-exchange-msg").innerHTML =
-              "<strong>Nettverksfeil</strong> — nettleseren når ikke Supabase Edge Function. Vanligste årsaker:";
+              "<strong>Nettverksfeil</strong> - nettleseren når ikke Supabase Edge Function. Vanligste årsaker:";
             var detail = document.getElementById("oauth-exchange-detail");
             detail.hidden = false;
             detail.innerHTML =

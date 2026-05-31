@@ -1,12 +1,12 @@
 /**
  * Bytter Snapchat OAuth authorization_code mot access/refresh token.
  * Hemmeligheter leses fra Supabase Secrets (SNAP_CLIENT_SECRET, ev. SNAP_CLIENT_ID).
- * Tokens lagres i public.snap_integration_tokens (kun service_role — ikke lesbar fra nettsiden).
+ * Tokens lagres i public.snap_integration_tokens (kun service_role - ikke lesbar fra nettsiden).
  */
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 /**
- * Token-endepunkter varierer litt i Snap-dokumentasjon — prøv alle til én gir access_token.
+ * Token-endepunkter varierer litt i Snap-dokumentasjon - prøv alle til én gir access_token.
  * Se: https://developers.snap.com/api/marketing-api/Public-Profile-API/GetStarted
  */
 const SNAP_TOKEN_URLS = [

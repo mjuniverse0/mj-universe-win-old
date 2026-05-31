@@ -23,5 +23,5 @@ c:["$","$Lf",null,{"children":["$L10",["$","$L11",null,{"promise":"$@12"}]]}]
 d:["$","$1","h",{"children":[null,[["$","$L13",null,{"children":"$L14"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$L15",null,{"children":["$","div",null,{"hidden":true,"children":["$","$16",null,{"fallback":null,"children":"$L17"}]}]}]]}]
 14:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#050508"}]]
 10:null
-12:{"metadata":[["$","title","0",{"children":"Takk for betalingen · MJ Universe VIP"}],["$","meta","1",{"name":"description","content":"Vi har mottatt betalingen. Velkommen tilbake til MJ Universe VIP."}],["$","meta","2",{"name":"application-name","content":"MJ Universe"}],["$","meta","3",{"name":"robots","content":"noindex, follow"}]],"error":null,"digest":"$undefined"}
+12:{"metadata":[["$","title","0",{"children":"Takk for betalingen - MJ Universe VIP"}],["$","meta","1",{"name":"description","content":"Vi har mottatt betalingen. Velkommen tilbake til MJ Universe VIP."}],["$","meta","2",{"name":"application-name","content":"MJ Universe"}],["$","meta","3",{"name":"robots","content":"noindex, follow"}]],"error":null,"digest":"$undefined"}
 17:"$12:metadata"

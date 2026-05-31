@@ -1,4 +1,4 @@
-﻿using MA_FH5Trainer.Cheats.ForzaHorizon5;
+using MA_FH5Trainer.Cheats.ForzaHorizon5;
 using MA_FH5Trainer.ViewModels.SubPages;
 using MA_FH5Trainer.Views.Windows;
 using MahApps.Metro.Controls;

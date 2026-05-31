@@ -1,5 +1,5 @@
 /**
- * Offentlig OAuth-konfig (kun client_id + redirect) — IKKE client secret her.
+ * Offentlig OAuth-konfig (kun client_id + redirect) - IKKE client secret her.
  * Redirect URI ma vare EKSAKT lik det som er registrert i Snapchat OAuth App.
  */
 (function () {

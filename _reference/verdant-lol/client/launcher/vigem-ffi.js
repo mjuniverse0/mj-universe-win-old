@@ -333,7 +333,7 @@ function startVigemEngine(opts) {
   if (!foundDll) {
     return {
       ok: false,
-      error: `ViGEmClient.dll not found. Put it in client/launcher/vigem/ or set VIGEM_CLIENT_DLL to the full path. Get the SDK: https://github.com/nefarius/ViGEmClient/releases (copy the whole bin/ folder, not only one file). Also install Microsoft Visual C++ 2015–2022 (x64).`,
+      error: `ViGEmClient.dll not found. Put it in client/launcher/vigem/ or set VIGEM_CLIENT_DLL to the full path. Get the SDK: https://github.com/nefarius/ViGEmClient/releases (copy the whole bin/ folder, not only one file). Also install Microsoft Visual C++ 2015-2022 (x64).`,
     };
   }
   prependPathWithDllDir(foundDll);
@@ -654,7 +654,7 @@ function startVigemEngine(opts) {
     report.bRightTrigger = 0;
     if (isRivals) {
       /*
-       * Roblox - «Aura Emerald» (reWASD masks 30–46, 48–49): Rivals-optimalisert tast→pad.
+       * Roblox - «Aura Emerald» (reWASD masks 30-46, 48-49): Rivals-optimalisert tast→pad.
        * 1/2→LB/RB, Q↓ X↑ C↓ V→ F←, E→Back, R→X, Ctrl→B, G→Y, Space→A, Shift→L3, LMB/RMB→RT/LT.
        * Tab veksler lag i reWASD - ikke mappet hit (unngå feil inndata).
        */

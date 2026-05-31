@@ -1,6 +1,6 @@
 namespace MA_FH5Trainer.Cheats.ForzaHorizon5;
 
-/// <summary>SQL for Autoshow unlock + “all cars in garage” (FH5 in-memory SQL API).</summary>
+/// <summary>SQL for Autoshow unlock + "all cars in garage" (FH5 in-memory SQL API).</summary>
 public static class Fh5AllCarsUnlockSql
 {
     public const string AllCarsOn =
@@ -13,6 +13,6 @@ public static class Fh5AllCarsUnlockSql
     public const string AddAllCarsToGarage =
         "INSERT INTO Profile0_Career_Garage (CarId) SELECT Id FROM Data_Car WHERE Id NOT IN (SELECT CarId FROM Profile0_Career_Garage);";
 
-    /// <summary>Autoshow (alle biler i handelen) + rad i garasjen for hver bil — «alle biler i spillet» for én profil.</summary>
+    /// <summary>Autoshow (alle biler i handelen) + rad i garasjen for hver bil - «alle biler i spillet» for én profil.</summary>
     public static string AddAllCarsToGame => $"{AllCarsOn}{AddAllCarsToGarage}";
 }

@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 
 namespace MA_FH5Trainer.Services;
 

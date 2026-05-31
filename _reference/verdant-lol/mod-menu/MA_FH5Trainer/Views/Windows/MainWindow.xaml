@@ -87,7 +87,7 @@
                                     Width="30"
                                     Height="28"
                                     mah:ControlsHelper.CornerRadius="6"
-                                    Content="—"
+                                    Content="-"
                                     FontSize="12"
                                     Padding="0"
                                     AutomationProperties.AutomationId="Minimize"
@@ -307,7 +307,7 @@
                                             Background="{Binding Theming.ExpanderHeaderBrush}" Foreground="White" BorderBrush="{Binding Theming.CardLineBrush}">
                                         <StackPanel Orientation="Horizontal">
                                             <ip:PackIconMaterial Width="18" Height="18" Foreground="White" Kind="SourceBranch" />
-                                            <TextBlock Text="Upstream · GitHub" VerticalAlignment="Center" Margin="10,0,0,0" />
+                                            <TextBlock Text="Upstream - GitHub" VerticalAlignment="Center" Margin="10,0,0,0" />
                                         </StackPanel>
                                     </Button>
                                     <Button Margin="0,8,0,0" Command="{Binding ViewModel.OpenURLCommand}" CommandParameter="https://discord.gg/rHzev9brJ3"
@@ -315,7 +315,7 @@
                                             Background="{Binding Theming.ExpanderHeaderBrush}" Foreground="White" BorderBrush="{Binding Theming.CardLineBrush}">
                                         <StackPanel Orientation="Horizontal">
                                             <ip:PackIconMaterial Width="18" Height="18" Foreground="White" Kind="MessageTextOutline" />
-                                            <TextBlock Text="Community · Discord" VerticalAlignment="Center" Margin="10,0,0,0" />
+                                            <TextBlock Text="Community - Discord" VerticalAlignment="Center" Margin="10,0,0,0" />
                                         </StackPanel>
                                     </Button>
                                 </StackPanel>

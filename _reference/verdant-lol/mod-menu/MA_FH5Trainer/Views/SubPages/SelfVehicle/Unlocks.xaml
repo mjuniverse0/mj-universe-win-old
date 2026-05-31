@@ -1,4 +1,4 @@
-﻿<Page x:Class="MA_FH5Trainer.Views.SubPages.SelfVehicle.Unlocks"
+<Page x:Class="MA_FH5Trainer.Views.SubPages.SelfVehicle.Unlocks"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -161,7 +161,7 @@
                            FontWeight="SemiBold"
                            Margin="0 0 0 6" />
                 <TextBlock
-                    Text="Autoshow: alle biler. Garasje: én kopi per bil i profilen. Inne i spillet. Vanskelig å angre – ta backup av lagring ved tvil. (Kun Autoshow: egen bryter under Autoshow-menyen.)"
+                    Text="Autoshow: alle biler. Garasje: én kopi per bil i profilen. Inne i spillet. Vanskelig å angre - ta backup av lagring ved tvil. (Kun Autoshow: egen bryter under Autoshow-menyen.)"
                     TextWrapping="Wrap"
                     Foreground="#a9a9a9"
                     FontSize="11"

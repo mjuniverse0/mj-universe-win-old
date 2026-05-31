@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 using MA_FH5Trainer.Cheats.ForzaHorizon5;
 using MA_FH5Trainer.Views.Windows;

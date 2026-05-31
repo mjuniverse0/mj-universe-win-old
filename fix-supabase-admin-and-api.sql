@@ -1,13 +1,13 @@
 -- =============================================================================
--- MJ Universe — FIX: admin (authenticated) + API
+-- MJ Universe - FIX: admin (authenticated) + API
 -- Kjør hele filen i Supabase → SQL Editor → Run én gang (trygt å kjøre flere ganger)
 --
 -- Dette løser ofte:
---   • Admin-dashboard får ikke lest/skrevet tabeller (manglende GRANT / RLS)
---   • page_views manglet policy for innlogget bruker
---   • views_last_24h() mangler rettighet for authenticated
+--   - Admin-dashboard får ikke lest/skrevet tabeller (manglende GRANT / RLS)
+--   - page_views manglet policy for innlogget bruker
+--   - views_last_24h() mangler rettighet for authenticated
 --
--- ADMIN-BRUKER opprettes IKKE her — gjør det i Dashboard:
+-- ADMIN-BRUKER opprettes IKKE her - gjør det i Dashboard:
 --   Authentication → Users → Add user
 --   E-post: mariellogjhonatan@mj-universe.site  (samme som MJ_ADMIN_EMAIL i supabase-config.js)
 --   Passord: ditt valg
@@ -18,7 +18,7 @@
 grant usage on schema public to anon, authenticated;
 
 -- -----------------------------------------------------------------------------
--- page_views (visningsteller) — idempotent policies
+-- page_views (visningsteller) - idempotent policies
 -- -----------------------------------------------------------------------------
 alter table if exists public.page_views enable row level security;
 
@@ -506,7 +506,7 @@ grant select on public.fitness_episodes to anon;
 grant insert, update, delete on public.fitness_seasons to authenticated;
 grant insert, update, delete on public.fitness_episodes to authenticated;
 
--- Sekvenser (identity / serial) — ofte årsak til «permission denied» ved insert fra admin
+-- Sekvenser (identity / serial) - ofte årsak til «permission denied» ved insert fra admin
 grant usage, select on all sequences in schema public to authenticated;
 
 -- =============================================================================

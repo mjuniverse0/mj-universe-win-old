@@ -1,4 +1,4 @@
--- MJ Universe — Antall vinnere (trekkes/blant alle påmeldte — samme sjanse for alle)
+-- MJ Universe - Antall vinnere (trekkes/blant alle påmeldte - samme sjanse for alle)
 -- Kjør i Supabase SQL Editor etter setup-features + setup-giveaway-entries
 
 alter table public.events add column if not exists winner_slots int;

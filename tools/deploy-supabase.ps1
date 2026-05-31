@@ -2,9 +2,9 @@
 # Kjor fra prosjektmappa (eller via deploy.ps1).
 #
 # Miljovariabler:
-#   SUPABASE_ACCESS_TOKEN — https://supabase.com/dashboard/account/tokens
-#   MJ_SUPABASE_PROJECT_REF — valgfri, default yefatcprqfybbqxiarcz
-#   MJ_SKIP_SUPABASE — sett 1 for aa hoppe over
+#   SUPABASE_ACCESS_TOKEN - https://supabase.com/dashboard/account/tokens
+#   MJ_SUPABASE_PROJECT_REF - valgfri, default yefatcprqfybbqxiarcz
+#   MJ_SKIP_SUPABASE - sett 1 for aa hoppe over
 
 $ErrorActionPreference = "Stop"
 Set-Location (Split-Path -Parent $PSScriptRoot)

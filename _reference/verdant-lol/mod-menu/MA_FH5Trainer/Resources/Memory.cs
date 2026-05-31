@@ -1,4 +1,4 @@
-﻿using Memory;
+using Memory;
 
 namespace MA_FH5Trainer.Resources;
 

@@ -1,4 +1,4 @@
-MJ Universe — Supabase single source of truth (web + iOS/macOS)
+MJ Universe - Supabase single source of truth (web + iOS/macOS)
 ===============================================================
 
 Goal

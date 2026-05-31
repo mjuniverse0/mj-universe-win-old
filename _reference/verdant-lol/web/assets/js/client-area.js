@@ -74,7 +74,7 @@ function renderSidebarSections(rows) {
       ? withKeys
           .map(
             (r) =>
-              `<li><span class="muted" style="display:block;font-size:0.82rem;margin-bottom:4px">${r.order_id ?? ""} · ${r.product ?? "-"}</span><code>${r.license_key}</code><span class="muted" style="display:block;font-size:0.82rem;margin-top:4px">Expires: ${formatExpiry(r.license_expires_at)}</span></li>`
+              `<li><span class="muted" style="display:block;font-size:0.82rem;margin-bottom:4px">${r.order_id ?? ""} - ${r.product ?? "-"}</span><code>${r.license_key}</code><span class="muted" style="display:block;font-size:0.82rem;margin-top:4px">Expires: ${formatExpiry(r.license_expires_at)}</span></li>`
           )
           .join("")
       : "<li>No keys available yet.</li>";

@@ -1,5 +1,5 @@
 /**
- * mj-universe.watch/?v=slug — video fra watch_videos (YouTube/Vimeo/TikTok embed, Storage-mp4, eller lenker).
+ * mj-universe.watch/?v=slug - video fra watch_videos (YouTube/Vimeo/TikTok embed, Storage-mp4, eller lenker).
  */
 (function () {
   var SB_URL = (window.MJ_SUPABASE_URL || "").replace(/\/$/, "");
@@ -136,7 +136,7 @@
         player.innerHTML = inner + linksHtml;
       } else if (linksHtml) {
         player.innerHTML =
-          '<p class="mj-watch-fallback">Ingen innebygd avspilling for denne oppføringen — bruk lenkene under.</p>' +
+          '<p class="mj-watch-fallback">Ingen innebygd avspilling for denne oppføringen - bruk lenkene under.</p>' +
           linksHtml;
       } else {
         player.innerHTML =

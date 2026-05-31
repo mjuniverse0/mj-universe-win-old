@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using MA_FH5Trainer.Models;
 
 namespace MA_FH5Trainer.ViewModels.SubPages.SelfVehicle;

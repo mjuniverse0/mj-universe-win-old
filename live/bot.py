@@ -51,7 +51,7 @@ def maybe_discord_webhook(line: str) -> None:
     if not url:
         return
     if url != raw and not getattr(maybe_discord_webhook, "_url_norm_logged", False):
-        log.info("Webhook-URL normalisert (https og/eller /api/v10/…) — unngår POST→GET ved redirect (405).")
+        log.info("Webhook-URL normalisert (https og/eller /api/v10/...) - unngår POST→GET ved redirect (405).")
         setattr(maybe_discord_webhook, "_url_norm_logged", True)
     payload = json.dumps({"content": line[:1900]}).encode("utf-8")
     headers = {
@@ -76,7 +76,7 @@ def maybe_discord_webhook(line: str) -> None:
             "Webhook HTTP %s %s%s",
             e.code,
             e.reason,
-            f" — {snippet!r}" if snippet else "",
+            f" - {snippet!r}" if snippet else "",
         )
     except urllib.error.URLError as e:
         log.warning("Webhook feilet: %s", e)
@@ -113,7 +113,7 @@ def main() -> None:
         log.info("%s: %s", nick, text)
         maybe_discord_webhook(line)
 
-    log.info("Starter — @%s må være LIVE. Ctrl+C for å stoppe.", uid)
+    log.info("Starter - @%s må være LIVE. Ctrl+C for å stoppe.", uid)
     client.run()
 
 

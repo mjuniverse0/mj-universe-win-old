@@ -34,7 +34,7 @@ $("#form-login").addEventListener("submit", async (e) => {
   });
   if (error) {
     $("#login-error").textContent =
-      error.message + " · Supabase user email must be: " + em;
+      error.message + " - Supabase user email must be: " + em;
     return;
   }
   $("#screen-login").classList.add("is-hidden");
@@ -78,7 +78,7 @@ async function loadPollsAdmin() {
     row.className = "admin-row";
     row.innerHTML = `<div><strong>${esc(p.question)}</strong><br><small>${
       p.is_active ? "ACTIVE" : "inactive"
-    } · ${p.id.slice(0, 8)}…</small></div>
+    } - ${p.id.slice(0, 8)}...</small></div>
       <div class="admin-row-actions">
         <button type="button" class="btn btn--sm" data-activate="${p.id}">Set active</button>
         <button type="button" class="btn btn--sm btn--ghost" data-votes="${p.id}">Votes</button>
@@ -142,7 +142,7 @@ $("#form-new-poll").addEventListener("submit", async (e) => {
     sort_order: i,
   }));
   await supabase.from("poll_options").insert(rows);
-  $("#poll-create-msg").textContent = "Poll created. Click “Set active” to show it on the site.";
+  $("#poll-create-msg").textContent = "Poll created. Click "Set active" to show it on the site.";
   $("#form-new-poll").reset();
   await loadPollsAdmin();
 });
@@ -157,10 +157,10 @@ async function loadQuestionsAdmin() {
   (data || []).forEach((q) => {
     const row = document.createElement("div");
     row.className = "admin-q";
-    row.innerHTML = `<p><strong>${esc(q.from_name)}</strong> · ${new Date(
+    row.innerHTML = `<p><strong>${esc(q.from_name)}</strong> - ${new Date(
       q.created_at
     ).toLocaleString("nb-NO")}</p><p>${esc(q.body)}</p>
-      <textarea class="input" rows="2" data-answer-id="${q.id}" placeholder="Answer…"></textarea>
+      <textarea class="input" rows="2" data-answer-id="${q.id}" placeholder="Answer..."></textarea>
       <button type="button" class="btn btn--sm btn--primary" data-save-q="${q.id}">Save answer</button>`;
     const ta = row.querySelector("textarea");
     if (ta) ta.value = q.answer || "";
@@ -259,7 +259,7 @@ async function loadEventsAdmin() {
     row.className = "admin-row";
     const slotsHint =
       ev.event_type === "giveaway" && ev.winner_slots != null
-        ? ` · ${esc(String(ev.winner_slots))} winner(s) to draw`
+        ? ` - ${esc(String(ev.winner_slots))} winner(s) to draw`
         : "";
     const copyLinkBtn =
       ev.event_type === "giveaway"
@@ -271,7 +271,7 @@ async function loadEventsAdmin() {
         : "";
     row.innerHTML = `<div><strong>${esc(ev.title)}</strong> (${ev.event_type})<br><small>active: ${
       ev.is_active
-    }${slotsHint} · ${ev.id.slice(0, 8)}…</small></div>
+    }${slotsHint} - ${ev.id.slice(0, 8)}...</small></div>
       <div class="admin-row-actions">${copyLinkBtn}${entriesBtn}<button type="button" class="btn btn--sm btn--ghost" data-del-event="${ev.id}">Delete</button></div>`;
     box.appendChild(row);
   });
@@ -310,29 +310,29 @@ async function loadEventsAdmin() {
       if (entriesError) {
         $("#giveaway-entries-dump").textContent =
           `Could not load entries: ${entriesError.message}\n\n` +
-          "If you see “relation … does not exist” or permission errors, run in Supabase SQL Editor:\n" +
-          "• setup-giveaway-entries.sql\n" +
-          "• then fix-supabase-admin-and-api.sql";
+          "If you see "relation ... does not exist" or permission errors, run in Supabase SQL Editor:\n" +
+          "- setup-giveaway-entries.sql\n" +
+          "- then fix-supabase-admin-and-api.sql";
         return;
       }
       const entries = data || [];
       const lines = entries.map(
         (r, i) =>
-          `${i + 1}. @${String(r.snap_username)}  ·  ${new Date(r.created_at).toLocaleString("nb-NO")}${
+          `${i + 1}. @${String(r.snap_username)}  -  ${new Date(r.created_at).toLocaleString("nb-NO")}${
             r.reaction_emoji && r.reaction_emoji !== "🎁" ? `  (${r.reaction_emoji})` : ""
           }`
       );
       let out =
         lines.join("\n") ||
-        "No entries yet — share the giveaway link (Copy link) on Snapchat. People sign up on giveaway.html.";
+        "No entries yet - share the giveaway link (Copy link) on Snapchat. People sign up on giveaway.html.";
       const now = new Date();
       const ended =
         !evMeta?.is_active ||
         (evMeta.ends_at && new Date(evMeta.ends_at) < now);
       if (ended && entries.length && evMeta) {
-        out += "\n\n--- GIVEAWAY ENDED — pick winners fairly ---\n";
+        out += "\n\n--- GIVEAWAY ENDED - pick winners fairly ---\n";
         const ws = evMeta.winner_slots;
-        out += `All ${entries.length} entrants (same odds — do not use signup order as “winners”):\n`;
+        out += `All ${entries.length} entrants (same odds - do not use signup order as "winners"):\n`;
         entries.forEach((r, i) => {
           out += `  ${i + 1}. @${String(r.snap_username)}\n`;
         });
@@ -340,11 +340,11 @@ async function loadEventsAdmin() {
           out += `\nYou planned ${ws} winner(s). Use any fair random draw among the full list above.\n`;
         } else {
           out +=
-            "\n(No “number of winners” was set — pick how many you want and draw fairly among everyone.)\n";
+            "\n(No "number of winners" was set - pick how many you want and draw fairly among everyone.)\n";
         }
       } else if (entries.length && evMeta?.winner_slots != null && evMeta.winner_slots >= 1) {
         out += `\n\n--- Note ---\n`;
-        out += `You will draw ${evMeta.winner_slots} winner(s) fairly from all ${entries.length} entrants (not “first to sign up wins”).\n`;
+        out += `You will draw ${evMeta.winner_slots} winner(s) fairly from all ${entries.length} entrants (not "first to sign up wins").\n`;
       }
       $("#giveaway-entries-dump").textContent = out;
     })
@@ -602,13 +602,13 @@ async function loadFitnessAdmin() {
   (seasons || []).forEach((s) => {
     const o = document.createElement("option");
     o.value = s.id;
-    o.textContent = `${s.title} (${s.slug})${s.is_published ? "" : " — draft"}`;
+    o.textContent = `${s.title} (${s.slug})${s.is_published ? "" : " - draft"}`;
     sel.appendChild(o);
   });
   if (!seasons?.length) {
     const o = document.createElement("option");
     o.value = "";
-    o.textContent = "(ingen sesong — opprett først)";
+    o.textContent = "(ingen sesong - opprett først)";
     sel.appendChild(o);
   }
 
@@ -625,7 +625,7 @@ async function loadFitnessAdmin() {
     wrap.style.marginBottom = "1.25rem";
     const head = document.createElement("div");
     head.className = "admin-row";
-    head.innerHTML = `<div><strong>${esc(s.title)}</strong><br><small>slug: ${esc(s.slug)} · ${
+    head.innerHTML = `<div><strong>${esc(s.title)}</strong><br><small>slug: ${esc(s.slug)} - ${
       s.is_published ? "published" : "draft"
     }</small></div>
       <button type="button" class="btn btn--sm btn--ghost" data-del-season="${s.id}">Delete season</button>`;
@@ -762,9 +762,9 @@ async function loadWatchAdmin() {
   (data || []).forEach((w) => {
     const row = document.createElement("div");
     row.className = "admin-row";
-    row.innerHTML = `<div><strong>${esc(w.title)}</strong><br><small><code>${esc(w.slug)}</code> · ${esc(
+    row.innerHTML = `<div><strong>${esc(w.title)}</strong><br><small><code>${esc(w.slug)}</code> - ${esc(
       w.content_kind
-    )} · ${w.is_published ? "publisert" : "utkast"}</small></div>
+    )} - ${w.is_published ? "publisert" : "utkast"}</small></div>
       <div class="admin-row-actions">
         <button type="button" class="btn btn--sm" data-toggle-watch="${w.id}">${
       w.is_published ? "Avpubliser" : "Publiser"
@@ -806,9 +806,9 @@ async function loadStoreAdmin() {
   (products || []).forEach((p) => {
     const row = document.createElement("div");
     row.className = "admin-row";
-    row.innerHTML = `<div><strong>${esc(p.title)}</strong><br><small>${esc(p.slug)} · ${(p.price_cents / 100).toFixed(
+    row.innerHTML = `<div><strong>${esc(p.title)}</strong><br><small>${esc(p.slug)} - ${(p.price_cents / 100).toFixed(
       0
-    )} NOK · ${p.is_active ? "aktiv" : "inaktiv"}</small></div>
+    )} NOK - ${p.is_active ? "aktiv" : "inaktiv"}</small></div>
       <div class="admin-row-actions">
         <button type="button" class="btn btn--sm" data-toggle-prod="${p.id}">${p.is_active ? "Deaktiver" : "Aktiver"}</button>
         <button type="button" class="btn btn--sm btn--ghost" data-del-prod="${p.id}">Slett</button>
@@ -843,7 +843,7 @@ async function loadStoreAdmin() {
     row.className = "admin-row";
     row.innerHTML = `<div><strong>${esc(pmap[o.product_id] || o.product_id)}</strong><br><small>${esc(
       o.status
-    )} · ${esc(o.created_at)} · bruker ${esc(String(o.user_id).slice(0, 8))}…</small></div>`;
+    )} - ${esc(o.created_at)} - bruker ${esc(String(o.user_id).slice(0, 8))}...</small></div>`;
     olist.appendChild(row);
   });
 }
@@ -990,7 +990,7 @@ async function loadMilestonesAdmin() {
   (data || []).forEach((m) => {
     const row = document.createElement("div");
     row.className = "admin-row";
-    row.innerHTML = `<div><strong>${esc(m.title)}</strong> · ${m.milestone_date}</div>
+    row.innerHTML = `<div><strong>${esc(m.title)}</strong> - ${m.milestone_date}</div>
       <button type="button" class="btn btn--sm btn--ghost" data-del-ms="${m.id}">Delete</button>`;
     box.appendChild(row);
   });

@@ -146,7 +146,7 @@ async function run() {
     const period = getSelectedPeriod();
     setLabelForPeriod(period);
     if (!cachedStats) {
-      textEl.textContent = "…";
+      textEl.textContent = "...";
       return;
     }
     const raw = cachedStats[period];
@@ -160,7 +160,7 @@ async function run() {
   }
 
   el.hidden = false;
-  textEl.textContent = "…";
+  textEl.textContent = "...";
   setLabelForPeriod(getSelectedPeriod());
 
   const channel = supabase.channel("mj_universe_views", {
@@ -169,7 +169,7 @@ async function run() {
 
   channel.on("broadcast", { event: "views_tick" }, () => {
     refreshCount().catch(() => {
-      textEl.textContent = "—";
+      textEl.textContent = "-";
     });
   });
 
@@ -184,7 +184,7 @@ async function run() {
       });
       await refreshCount();
     } catch {
-      textEl.textContent = "—";
+      textEl.textContent = "-";
     }
   });
 
@@ -194,5 +194,5 @@ async function run() {
 }
 
 run().catch(() => {
-  if (textEl) textEl.textContent = "—";
+  if (textEl) textEl.textContent = "-";
 });

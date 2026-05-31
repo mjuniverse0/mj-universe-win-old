@@ -44,7 +44,7 @@
     } together (each new year together starts on <strong>23 July</strong>). Next anniversary: <strong>${formatLong(
       next
     )}</strong>.`;
-    const short = `${years} year${years === 1 ? "" : "s"} together · next: ${formatLong(next)}`;
+    const short = `${years} year${years === 1 ? "" : "s"} together - next: ${formatLong(next)}`;
     if (elAbout) {
       elAbout.innerHTML = `We are two self-proclaimed idiots, born in <strong>2006</strong> and <strong>2007</strong>. ${ann}`;
     }
@@ -133,7 +133,7 @@
       const snap = normalizeSnap(snapInput.value);
       if (!snapValid(snap)) {
         msg.textContent =
-          "Enter your Snapchat username (letters, numbers, _ . - only, 2–32 characters).";
+          "Enter your Snapchat username (letters, numbers, _ . - only, 2-32 characters).";
         snapInput.focus();
         return;
       }
@@ -164,13 +164,13 @@
               ? Number(rpcBody.winner_slots)
               : null;
         let line =
-          "You're in! Good luck — we'll reach out on Snapchat if you win.";
+          "You're in! Good luck - we'll reach out on Snapchat if you win.";
         if (nWin === 1) {
-          line = `You're in (#${pos} in signup order — for reference only). One winner will be picked at random from everyone when the giveaway ends.`;
+          line = `You're in (#${pos} in signup order - for reference only). One winner will be picked at random from everyone when the giveaway ends.`;
         } else if (nWin != null && nWin >= 1) {
-          line = `You're in (#${pos} in signup order — for reference only). We'll draw ${nWin} winners fairly from all entries when the giveaway ends.`;
+          line = `You're in (#${pos} in signup order - for reference only). We'll draw ${nWin} winners fairly from all entries when the giveaway ends.`;
         } else if (pos != null) {
-          line = `You're in (#${pos}). Good luck — we'll reach out on Snapchat if you win.`;
+          line = `You're in (#${pos}). Good luck - we'll reach out on Snapchat if you win.`;
         }
         msg.textContent = line;
         snapInput.disabled = true;
@@ -285,7 +285,7 @@
       const stepHint = document.createElement("p");
       stepHint.className = "poll-flow-hint";
       stepHint.textContent =
-        "Choose an option above, then your name and Vote. If you don’t see Yes/No (or other choices), scroll up a little on the page.";
+        "Choose an option above, then your name and Vote. If you don't see Yes/No (or other choices), scroll up a little on the page.";
       form.appendChild(stepHint);
       const nameInput = document.createElement("input");
       nameInput.type = "text";
@@ -355,7 +355,7 @@
     return `${publicBaseUrl()}/giveaway.html?g=${encodeURIComponent(eventId)}`;
   }
 
-  /** Første giveaway rad fra API (RLS = aktivt tidsvindu). Ikke krev winner_slots her — ellers mangler knapp på mobil. */
+  /** Første giveaway rad fra API (RLS = aktivt tidsvindu). Ikke krev winner_slots her - ellers mangler knapp på mobil. */
   function firstVisibleGiveawayForCta(rows) {
     if (!Array.isArray(rows)) return null;
     for (const ev of rows) {
@@ -382,7 +382,7 @@
     wrap.innerHTML = `<a class="btn btn--primary btn--touch-submit events-bli-med-btn" href="${escapeHtml(
       url
     )}">Bli med</a>
-          <p class="events-giveaway-cta-hint">Giveawayen pågår til slutttid som er satt i admin — du kan oppdatere siden; den avsluttes ikke av det.</p>`;
+          <p class="events-giveaway-cta-hint">Giveawayen pågår til slutttid som er satt i admin - du kan oppdatere siden; den avsluttes ikke av det.</p>`;
   }
 
   async function showResults(pollId, container) {
@@ -434,7 +434,7 @@
     if (!rows.length) {
       list.innerHTML = emptyStateHtml(
         "fa-solid fa-heart",
-        "Story loading…",
+        "Story loading...",
         "We will add milestones here (dates, trips, big moments). Watch this space."
       );
       return;
@@ -510,9 +510,9 @@
         String(ev.body).trim().length >= 2;
       let fairHint = "";
       if (entryReady && winN === 1) {
-        fairHint = `<p class="giveaway-enter__fair">Everyone can enter with their Snapchat username. <strong>One winner</strong> will be picked at random from <em>all</em> entries — same odds for everyone.</p>`;
+        fairHint = `<p class="giveaway-enter__fair">Everyone can enter with their Snapchat username. <strong>One winner</strong> will be picked at random from <em>all</em> entries - same odds for everyone.</p>`;
       } else if (entryReady && winN != null) {
-        fairHint = `<p class="giveaway-enter__fair">We’ll draw <strong>${winN}</strong> winners fairly from <em>everyone</em> who enters — same chance for all.</p>`;
+        fairHint = `<p class="giveaway-enter__fair">We'll draw <strong>${winN}</strong> winners fairly from <em>everyone</em> who enters - same chance for all.</p>`;
       }
       const prizeBlock =
         isGiveaway && ev.body
@@ -523,21 +523,21 @@
       const entryBlock =
         isGiveaway && entryReady
           ? `<div class="giveaway-enter giveaway-enter--desktop" data-event-id="${escapeHtml(ev.id)}">
-          <p class="giveaway-enter__lead">Enter your <strong>Snapchat username</strong> and tap <strong>Bli med</strong> — one entry per device. The list below updates live.</p>${fairHint}
+          <p class="giveaway-enter__lead">Enter your <strong>Snapchat username</strong> and tap <strong>Bli med</strong> - one entry per device. The list below updates live.</p>${fairHint}
           <label class="giveaway-snap-label">Snapchat username</label>
           <input type="text" class="input giveaway-snap" inputmode="text" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" maxlength="32" placeholder="e.g. mj_universe (no @)" />
           <button type="button" class="btn btn--primary btn--touch-submit giveaway-enter-btn">Bli med</button>
           <p class="giveaway-msg form-error" role="alert"></p>
         </div>`
           : isGiveaway && !entryReady
-            ? `<p class="giveaway-enter__hold giveaway-enter__fair giveaway-enter__hold--desktop">This giveaway isn’t open for entries yet (add the prize and number of winners in admin).</p>`
+            ? `<p class="giveaway-enter__hold giveaway-enter__fair giveaway-enter__hold--desktop">This giveaway isn't open for entries yet (add the prize and number of winners in admin).</p>`
             : "";
       const standaloneCta = isGiveaway
         ? `<div class="giveaway-standalone-cta">
           <a href="${escapeHtml(
             giveawayStandaloneUrlForSite(ev.id)
           )}" class="btn btn--primary btn--touch-submit giveaway-standalone-btn">Bli med</a>
-          <p class="giveaway-standalone-cta-hint">Åpner påmelding — fungerer best på mobil.</p>
+          <p class="giveaway-standalone-cta-hint">Åpner påmelding - fungerer best på mobil.</p>
         </div>`
         : "";
       const rosterBlock = isGiveaway

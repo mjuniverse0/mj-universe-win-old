@@ -40,7 +40,7 @@ app.get("/api/executor/health", (_req, res) => {
   res.json({
     ok: true,
     upstreamConfigured: Boolean(up),
-    upstreamPreview: up.length > 48 ? `${up.slice(0, 48)}…` : up || null,
+    upstreamPreview: up.length > 48 ? `${up.slice(0, 48)}...` : up || null,
     server: "verdant-lol",
   });
 });

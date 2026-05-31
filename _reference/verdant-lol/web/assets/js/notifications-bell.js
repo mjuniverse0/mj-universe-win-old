@@ -90,7 +90,7 @@
           n.stripeSessionId ? `Session: ${n.stripeSessionId}` : "",
         ]
           .filter(Boolean)
-          .join(" · ");
+          .join(" - ");
         const sev =
           n.severity === "error"
             ? "rgba(255,120,120,.95)"

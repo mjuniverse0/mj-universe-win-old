@@ -1,4 +1,4 @@
-MJ Universe — Dual database strategy (safe + scalable)
+MJ Universe - Dual database strategy (safe + scalable)
 =======================================================
 
 Goal

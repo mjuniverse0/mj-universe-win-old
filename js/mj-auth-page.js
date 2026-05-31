@@ -162,7 +162,7 @@ $("form-mj-register")?.addEventListener("submit", async (e) => {
   const pw = $("mj-reg-password").value;
   const snap = normalizeSnap($("mj-reg-snap").value);
   if (!snap) {
-    showMsg(errEl, "Snapchat-brukernavn må ha minst 5 tegn (kun a–z, 0–9, . _ -).");
+    showMsg(errEl, "Snapchat-brukernavn må ha minst 5 tegn (kun a-z, 0-9, . _ -).");
     return;
   }
   const redirectTo =
@@ -190,7 +190,7 @@ $("form-mj-register")?.addEventListener("submit", async (e) => {
       if (isProfilesMissingError(ins.error)) {
         showMsg(
           errEl,
-          "Profil-tabellen er ikke tilkoblet ennå — sjekk Supabase-oppsett eller prøv igjen senere."
+          "Profil-tabellen er ikke tilkoblet ennå - sjekk Supabase-oppsett eller prøv igjen senere."
         );
       } else {
         showMsg(errEl, ins.error.message + " (Snap-navn kan være tatt.)");
@@ -272,7 +272,7 @@ $("form-mj-snap-complete")?.addEventListener("submit", async (e) => {
     if (isProfilesMissingError(ins.error)) {
       showMsg(
         errEl,
-        "Profil kan ikke lagres akkurat nå — teknisk oppsett mangler."
+        "Profil kan ikke lagres akkurat nå - teknisk oppsett mangler."
       );
     } else {
       showMsg(errEl, ins.error.message);

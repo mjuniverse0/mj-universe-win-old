@@ -46,7 +46,7 @@ async function run() {
     return;
   }
 
-  show(root, "Completing your payment - please wait…", false);
+  show(root, "Completing your payment - please wait...", false);
 
   try {
     const response = await fetch(`${API_BASE}/api/stripe/verify-session`, {

@@ -1,4 +1,4 @@
-/* Undersider (SEO) — i tillegg til style.css */
+/* Undersider (SEO) - i tillegg til style.css */
 .seo-wrap {
   min-height: 100vh;
   display: flex;
@@ -91,7 +91,7 @@
   font-weight: 500;
 }
 
-/* Profil (SEO-sider) — samme foto/stil som forsiden */
+/* Profil (SEO-sider) - samme foto/stil som forsiden */
 .seo-profile-block {
   display: flex;
   flex-wrap: wrap;
@@ -125,7 +125,7 @@
   border-color: rgba(126, 184, 218, 0.25);
 }
 
-/* Merkeblokk (vlog/blog) — logo + tekst, samme rytme som profil */
+/* Merkeblokk (vlog/blog) - logo + tekst, samme rytme som profil */
 .seo-profile-block--brand {
   border-color: rgba(255, 255, 255, 0.1);
 }
@@ -309,7 +309,7 @@
   padding: 1rem 0;
 }
 
-/* MJ Universe Network — felles footer på satellitt-sider */
+/* MJ Universe Network - felles footer på satellitt-sider */
 .site-footer .network-brand-line {
   margin-left: auto;
   margin-right: auto;

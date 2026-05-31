@@ -1,8 +1,8 @@
--- MJ Universe — Snapchat-innsikt (manuell) + Fitness-/treningserie (sesonger og episoder)
+-- MJ Universe - Snapchat-innsikt (manuell) + Fitness-/treningserie (sesonger og episoder)
 -- Kjør i Supabase SQL Editor. Trygt å kjøre flere ganger.
 
 -- -----------------------------------------------------------------------------
--- site_snap_stats — tall du kopierer fra Snapchat (Creators / Insights), vises på /snapchat/
+-- site_snap_stats - tall du kopierer fra Snapchat (Creators / Insights), vises på /snapchat/
 -- Snapchat tilbyr ikke offentlig API for live analytics på egen nettside.
 -- -----------------------------------------------------------------------------
 create table if not exists public.site_snap_stats (
@@ -41,7 +41,7 @@ grant select on public.site_snap_stats to anon;
 grant insert, update, delete on public.site_snap_stats to authenticated;
 
 -- -----------------------------------------------------------------------------
--- fitness_seasons / fitness_episodes — publiser episoder + lenker til video/Snap/YouTube
+-- fitness_seasons / fitness_episodes - publiser episoder + lenker til video/Snap/YouTube
 -- -----------------------------------------------------------------------------
 create table if not exists public.fitness_seasons (
   id uuid primary key default gen_random_uuid(),

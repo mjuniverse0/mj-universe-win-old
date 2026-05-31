@@ -1,4 +1,4 @@
-﻿using System.Windows.Controls;
+using System.Windows.Controls;
 using MA_FH5Trainer.ViewModels.Pages;
 using MA_FH5Trainer.Views.Windows;
 using MahApps.Metro.Controls;

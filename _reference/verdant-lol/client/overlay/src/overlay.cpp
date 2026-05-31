@@ -808,7 +808,7 @@ void OverlayWindow::onTick() {
       uintptr_t base = statusHasKernelPid ? getModuleBase(statusPid) : 0;
       lastTargetStatus_ = statusHasKernelPid
                               ? (L"Kernel PID " + std::to_wstring(statusPid) +
-                                 (base != 0 ? L" • base 0x" + std::to_wstring(base) : L""))
+                                 (base != 0 ? L" - base 0x" + std::to_wstring(base) : L""))
                               : L"Kernel/PID ikke tilgjengelig";
     }
   }
@@ -831,10 +831,10 @@ void OverlayWindow::onPaint() {
   };
 
   std::wstring statusText = lastTargetStatus_;
-  if (!lastAimStatus_.empty()) statusText = lastAimStatus_ + L" • " + statusText;
+  if (!lastAimStatus_.empty()) statusText = lastAimStatus_ + L" - " + statusText;
   if (chat_) {
     std::wstring s = chat_->statusLine();
-    if (!s.empty()) statusText = s + L" • " + lastTargetStatus_;
+    if (!s.empty()) statusText = s + L" - " + lastTargetStatus_;
   }
 
   hudState_.width = w;

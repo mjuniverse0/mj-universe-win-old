@@ -1,4 +1,4 @@
-﻿namespace MA_FH5Trainer.Models;
+namespace MA_FH5Trainer.Models;
 
 public class GameVerPlat(string name, string platform, string update,GameVerPlat.GameType type)
 {

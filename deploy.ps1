@@ -37,7 +37,7 @@ $dirs = @(
 )
 & scp.exe -i $k -o IdentitiesOnly=yes -o BatchMode=yes -o ConnectTimeout=120 -r @dirs "${h}:$d/"
 
-# --- mj-universe.net: /vip og /betaling (Next-eksport med Stripe — se mj-net-vip-patch + tools/patch-hub-vip-stripe.py) ---
+# --- mj-universe.net: /vip og /betaling (Next-eksport med Stripe - se mj-net-vip-patch + tools/patch-hub-vip-stripe.py) ---
 $hubStripe = Join-Path $PSScriptRoot "mj-net-vip-patch"
 if (Test-Path (Join-Path $hubStripe "vip\index.html")) {
   Write-Host "SCP mj-universe.net vip + betaling (Stripe)..." -ForegroundColor Cyan

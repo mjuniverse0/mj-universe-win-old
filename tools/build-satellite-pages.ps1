@@ -1,4 +1,4 @@
-﻿# Regenerer sites/*/index.html for MJ-satellitter (kjør manuelt ved behov)
+# Regenerer sites/*/index.html for MJ-satellitter (kjør manuelt ved behov)
 $ErrorActionPreference = "Stop"
 $base = Split-Path -Parent $PSScriptRoot
 $sitesDir = Join-Path $base "sites"
@@ -85,7 +85,7 @@ $pages = @(
     badge = "Date"; icon = "fa-solid fa-heart"; h1 = "Date-videoer"; domain = "mj-universe.date"
     quickId = "dat"
     lead = "mj-universe.date er hub for date-konsepter og vlogger med Mariell Berntzen og Jhonatan Wik - f.eks. 500 kr vs 1500 kr date, cheap vs luxury. Full video paa YouTube (@MJUniverse-1); her bygger dere artikler, BTS og egne URL-er for Google."
-    h2 = "Eksempel-URLer"; bullets = @("/50-vs-150-date - tekst + embed + lenke til hub", "/cheap-vs-luxury-date"); kw = "date vlog · Mariell Berntzen · Jhonatan Wik · mj-universe.date"
+    h2 = "Eksempel-URLer"; bullets = @("/50-vs-150-date - tekst + embed + lenke til hub", "/cheap-vs-luxury-date"); kw = "date vlog - Mariell Berntzen - Jhonatan Wik - mj-universe.date"
     nav = @(
       @{ href = "https://mj-universe.net/"; icon = "fa-solid fa-house"; label = "Hub" }
       @{ href = "index.html"; icon = "fa-solid fa-heart"; label = "Date"; cur = $true }
@@ -101,7 +101,7 @@ $pages = @(
     badge = "Live"; icon = "fa-solid fa-tower-broadcast"; h1 = "Live"; domain = "mj-universe.live"
     quickId = "liv"
     lead = "mj-universe.live er for livestreams fra Mariell Berntzen og Jhonatan Wik pa TikTok og YouTube. Sjekk ogsaa status paa hovedhubben."
-    h2 = "Plan for siden"; bullets = @("Neste planlagte live (dato/klokkeslett)", "Lenke til siste stream", "Valgfritt: chat-embed"); kw = "MJ Universe live · Mariell og Jhonatan · mj-universe.live"
+    h2 = "Plan for siden"; bullets = @("Neste planlagte live (dato/klokkeslett)", "Lenke til siste stream", "Valgfritt: chat-embed"); kw = "MJ Universe live - Mariell og Jhonatan - mj-universe.live"
     nav = @(
       @{ href = "https://mj-universe.net/"; icon = "fa-solid fa-house"; label = "Hub" }
       @{ href = "index.html"; icon = "fa-solid fa-tower-broadcast"; label = "Live"; cur = $true }
@@ -117,7 +117,7 @@ $pages = @(
     badge = "Social"; icon = "fa-solid fa-share-nodes"; h1 = "Social hub"; domain = "mj-universe.social"
     quickId = "soc"
     lead = "Samler offisielle profiler for Mariell Berntzen og Jhonatan Wik: Snapchat @mj_universe, YouTube @MJUniverse-1, TikTok @mariellberntz. Instagram legges til nar konto er klar."
-    h2 = "Lenker"; bullets = @("Snapchat: snapchat.com/add/mj_universe", "YouTube: @MJUniverse-1", "TikTok: @mariellberntz"); kw = "MJ Universe social · mj-universe.social"
+    h2 = "Lenker"; bullets = @("Snapchat: snapchat.com/add/mj_universe", "YouTube: @MJUniverse-1", "TikTok: @mariellberntz"); kw = "MJ Universe social - mj-universe.social"
     nav = @(
       @{ href = "https://mj-universe.net/"; icon = "fa-solid fa-house"; label = "Hub" }
       @{ href = "index.html"; icon = "fa-solid fa-share-nodes"; label = "Social"; cur = $true }
@@ -133,7 +133,7 @@ $pages = @(
     badge = "Media"; icon = "fa-brands fa-youtube"; h1 = "YouTube & video"; domain = "mj-universe.media"
     quickId = "med"
     lead = "mj-universe.media er YouTube-hubben: embeds, siste video og spillelister. Kanalen er @MJUniverse-1. Kobler til date-, watch- og hub-sider."
-    h2 = "Struktur"; bullets = @("/latest eller forside - siste upload", "/all-videos - oversikt", "Egne sider per stort konsept"); kw = "MJ Universe YouTube · mj-universe.media"
+    h2 = "Struktur"; bullets = @("/latest eller forside - siste upload", "/all-videos - oversikt", "Egne sider per stort konsept"); kw = "MJ Universe YouTube - mj-universe.media"
     nav = @(
       @{ href = "https://mj-universe.net/"; icon = "fa-solid fa-house"; label = "Hub" }
       @{ href = "index.html"; icon = "fa-brands fa-youtube"; label = "Media"; cur = $true }
@@ -149,7 +149,7 @@ $pages = @(
     badge = "Fun"; icon = "fa-solid fa-face-laugh-beam"; h1 = "Challenges"; domain = "mj-universe.lol"
     quickId = "lol"
     lead = "mj-universe.lol er for challenges, humor og rare ideer. Bygg egne undersider per video med unik tekst og lenke til YouTube."
-    h2 = "Ideer"; bullets = @("/spicy-food-challenge", "/24-hour-challenge", "/couple-challenge"); kw = "couple challenge · MJ Universe · mj-universe.lol"
+    h2 = "Ideer"; bullets = @("/spicy-food-challenge", "/24-hour-challenge", "/couple-challenge"); kw = "couple challenge - MJ Universe - mj-universe.lol"
     nav = @(
       @{ href = "https://mj-universe.net/"; icon = "fa-solid fa-house"; label = "Hub" }
       @{ href = "index.html"; icon = "fa-solid fa-face-laugh-beam"; label = "Fun"; cur = $true }
@@ -165,7 +165,7 @@ $pages = @(
     badge = "Watch"; icon = "fa-solid fa-eye"; h1 = "Exclusive"; domain = "mj-universe.watch"
     quickId = "wch"
     lead = "Klipp som ikke (eller ikke lenger) ligger pa YouTube: bloopers, extras, korte fan-versjoner. Full video via Media og @MJUniverse-1."
-    h2 = "Innhold"; bullets = @("Korte klipp med lenke til full video", "Why we cut this - tekst for SEO"); kw = "MJ Universe exclusive · mj-universe.watch"
+    h2 = "Innhold"; bullets = @("Korte klipp med lenke til full video", "Why we cut this - tekst for SEO"); kw = "MJ Universe exclusive - mj-universe.watch"
     nav = @(
       @{ href = "https://mj-universe.net/"; icon = "fa-solid fa-house"; label = "Hub" }
       @{ href = "index.html"; icon = "fa-solid fa-eye"; label = "Watch"; cur = $true }
@@ -181,7 +181,7 @@ $pages = @(
     badge = "Store"; icon = "fa-solid fa-bag-shopping"; h1 = "Merch"; domain = "mj-universe.store"
     quickId = "sto"
     lead = "Nettbutikk for MJ Universe kommer her: hoodies, stickers, limited drops. Unike produktsider - ikke kopier tekst fra andre domener."
-    h2 = "Lansering"; bullets = @("Velg kanonisk butikk-URL", "301 fra alternativ domene"); kw = "MJ Universe merch · mj-universe.store"
+    h2 = "Lansering"; bullets = @("Velg kanonisk butikk-URL", "301 fra alternativ domene"); kw = "MJ Universe merch - mj-universe.store"
     nav = @(
       @{ href = "https://mj-universe.net/"; icon = "fa-solid fa-house"; label = "Hub" }
       @{ href = "index.html"; icon = "fa-solid fa-bag-shopping"; label = "Store"; cur = $true }
@@ -197,7 +197,7 @@ $pages = @(
     badge = "Store"; icon = "fa-solid fa-store"; h1 = "MJUniverse store"; domain = "mjuniverse.store"
     quickId = "mjst"
     lead = "Samme merch som mj-universe.store - annen skrivemate for SEO. Mariell Berntzen og Jhonatan Wik bak MJ Universe."
-    h2 = "SEO"; bullets = @("Velg en hovedbutikk + 301"); kw = "MJUniverse store · merch"
+    h2 = "SEO"; bullets = @("Velg en hovedbutikk + 301"); kw = "MJUniverse store - merch"
     nav = @(
       @{ href = "https://mj-universe.net/"; icon = "fa-solid fa-house"; label = "Hub" }
       @{ href = "https://mj-universe.store/"; icon = "fa-solid fa-bag-shopping"; label = ".store" }

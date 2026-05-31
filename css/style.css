@@ -1793,7 +1793,7 @@ a.network-hub-card:hover {
   }
 }
 
-/* —— Explore (hub) + footer pills —— */
+/* -- Explore (hub) + footer pills -- */
 @media (max-width: 900px) {
   .site-header {
     flex-wrap: wrap;

@@ -1,9 +1,9 @@
-MJ Universe — Supabase Authentication (URL-er + bekreftelses-e-post)
+MJ Universe - Supabase Authentication (URL-er + bekreftelses-e-post)
 ====================================================================
 
 1) URL Configuration (Dashboard → Authentication → URL Configuration)
    - Site URL:  https://mj-universe.net
-     (IKKE http://localhost:3000 i produksjon — det er derfor bekreftelselenken går feil.)
+     (IKKE http://localhost:3000 i produksjon - det er derfor bekreftelselenken går feil.)
    - Additional Redirect URLs (legg inn hver på egen linje), f.eks.:
        https://mj-universe.net/**
        https://mj-universe.net/account/**
@@ -13,11 +13,11 @@ MJ Universe — Supabase Authentication (URL-er + bekreftelses-e-post)
    (se window.MJ_AUTH_EMAIL_REDIRECT i js/supabase-config.js).
 
 2) E-postmal «Confirm signup» (Authentication → Email Templates → Confirm signup)
-   Supabase bruker Go-templates. Lim inn HTML i editoren (du kan redigere fritekst — variabler
+   Supabase bruker Go-templates. Lim inn HTML i editoren (du kan redigere fritekst - variabler
    skrives manuelt som nedenfor).
 
    Emne (Subject), eksempel:
-   Bekreft kontoen din — MJ Universe
+   Bekreft kontoen din - MJ Universe
 
    Brødtekst (Body), eksempel HTML:
 
@@ -34,4 +34,4 @@ MJ Universe — Supabase Authentication (URL-er + bekreftelses-e-post)
 
 3) Engelsk standardmal
    Hvis du vil beholde engelsk brødtekst men riktig lenke, holder det å sette Site URL + Redirect URLs
-   som i punkt 1 — lenken i e-posten følger da mj-universe.net, ikke localhost.
+   som i punkt 1 - lenken i e-posten følger da mj-universe.net, ikke localhost.

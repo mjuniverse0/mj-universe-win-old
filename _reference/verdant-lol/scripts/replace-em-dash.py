@@ -15,9 +15,9 @@ def process(path: pathlib.Path, text: str) -> str:
     rel = path.as_posix()
 
     if path.name == "server.js":
-        text = text.replace('"—"', '"-"')
+        text = text.replace('"-"', '"-"')
         text = text.replace(
-            '.replace(/^verdant\\s+external\\s*[—\\-–]\\s*/i, "")',
+            '.replace(/^verdant\\s+external\\s*[-\\--]\\s*/i, "")',
             '.replace(/^verdant\\s+external\\s*[-\\u2013\\u2014]\\s*/i, "")',
         )
 

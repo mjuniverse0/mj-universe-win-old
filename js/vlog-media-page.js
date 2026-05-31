@@ -1,5 +1,5 @@
 /**
- * mj-universe.media/vlog/ — liste publiserte vlog-slug fra watch_videos.
+ * mj-universe.media/vlog/ - liste publiserte vlog-slug fra watch_videos.
  */
 (function () {
   var SB_URL = (window.MJ_SUPABASE_URL || "").replace(/\/$/, "");

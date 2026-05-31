@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MJ Universe — Admin</title>
+    <title>MJ Universe - Admin</title>
     <meta name="robots" content="noindex, nofollow" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/admin.css" />
@@ -24,11 +24,11 @@
               <strong>exact</strong> email and your password.
             </li>
             <li>
-              Still get “Invalid login credentials”? Wrong password, user missing, or email not confirmed.
+              Still get "Invalid login credentials"? Wrong password, user missing, or email not confirmed.
               Under <strong>Authentication → Providers → Email</strong>, turn off
               <strong>Confirm email</strong> for testing, or confirm the user in the dashboard.
             </li>
-            <li>Never put your password in website files—only in Supabase.</li>
+            <li>Never put your password in website files-only in Supabase.</li>
           </ul>
         </details>
         <form id="form-login">
@@ -58,7 +58,7 @@
 
     <div id="screen-dash" class="admin-screen is-hidden">
       <header class="admin-top">
-        <h1>MJ Universe — kontrollsenter</h1>
+        <h1>MJ Universe - kontrollsenter</h1>
         <button type="button" class="btn btn--ghost" id="btn-logout">Log out</button>
       </header>
 
@@ -86,7 +86,7 @@
         <div class="admin-main">
       <div id="panel-polls" class="admin-panel">
         <h2>Polls</h2>
-        <p class="muted">Create a poll, then “Set active” so it appears on the homepage. Only one should be active.</p>
+        <p class="muted">Create a poll, then "Set active" so it appears on the homepage. Only one should be active.</p>
         <form id="form-new-poll" class="admin-form">
           <input class="input" id="new-poll-q" placeholder="Question" required />
           <input class="input" id="new-poll-o1" placeholder="Option 1" required />
@@ -115,7 +115,7 @@
             class="input"
             id="ev-body"
             rows="3"
-            placeholder="Description — for giveaways this is the prize (shown to entrants)"
+            placeholder="Description - for giveaways this is the prize (shown to entrants)"
           ></textarea>
           <label class="admin-label">Type</label>
           <select class="input" id="ev-type">
@@ -126,7 +126,7 @@
           <input class="input" type="datetime-local" id="ev-start" />
           <label class="admin-label">Ends (optional)</label>
           <input class="input" type="datetime-local" id="ev-end" />
-          <label class="admin-label">Number of winners (giveaway — required)</label>
+          <label class="admin-label">Number of winners (giveaway - required)</label>
           <input
             class="input"
             id="ev-winner-slots"
@@ -148,7 +148,7 @@
             </button>
           </div>
           <p class="muted admin-hint-small">
-            Opens <code>giveaway.html</code> with only this giveaway — works better on phones than the full site.
+            Opens <code>giveaway.html</code> with only this giveaway - works better on phones than the full site.
             Set <code>MJ_PUBLIC_BASE_URL</code> in <code>supabase-config.js</code> if this URL is wrong while using admin from localhost.
           </p>
         </div>
@@ -201,18 +201,18 @@
         <form id="form-live-status" class="admin-form">
           <label class="admin-label" style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer">
             <input type="checkbox" id="live-is-live" />
-            On air — vi sender live nå
+            On air - vi sender live nå
           </label>
           <label class="admin-label" for="live-tiktok-user">TikTok-brukernavn 1 (uten @)</label>
           <input class="input" id="live-tiktok-user" type="text" placeholder="f.eks. berntzenmariell" autocomplete="off" />
           <label class="admin-label" for="live-tiktok-user-2">TikTok-brukernavn 2 (uten @)</label>
           <input class="input" id="live-tiktok-user-2" type="text" placeholder="f.eks. mj_universe1" autocomplete="off" />
-          <label class="admin-label" for="live-embed-url">Embed-URL (valgfritt — YouTube eller Twitch)</label>
+          <label class="admin-label" for="live-embed-url">Embed-URL (valgfritt - YouTube eller Twitch)</label>
           <input
             class="input"
             id="live-embed-url"
             type="url"
-            placeholder="https://www.youtube.com/embed/… eller player.twitch.tv"
+            placeholder="https://www.youtube.com/embed/... eller player.twitch.tv"
           />
           <button type="submit" class="btn btn--primary">Lagre live-innstillinger</button>
         </form>
@@ -223,11 +223,11 @@
       </div>
 
       <div id="panel-snap" class="admin-panel is-hidden">
-        <h2>Snapchat — tall på nettsiden</h2>
+        <h2>Snapchat - tall på nettsiden</h2>
         <p class="muted">
           Snapchat har <strong>ikke</strong> et offentlig API eller innebygd «analytics-widget» du kan lime inn på vanlige nettsider
           (tallene ligger i Snapchat / Snapchat for Creators). Her kan du <strong>manuelt</strong> kopiere høydepunkter du vil vise
-          besøkende — oppdater når du vil.
+          besøkende - oppdater når du vil.
         </p>
         <p class="muted">
           <strong>Tomme felt ved lagring beholdes.</strong> Endring i et visningstall (7 / 30 / 90 / all time) viser
@@ -236,13 +236,13 @@
         <form id="form-snap-stats" class="admin-form">
           <label class="admin-label" for="snap-username">snapchat brukernavn (uten @)</label>
           <input class="input" id="snap-username" type="text" placeholder="mj_universe" autocomplete="off" />
-          <label class="admin-label" for="snap-metric-views">Visninger — siste 7 dager (tekst)</label>
+          <label class="admin-label" for="snap-metric-views">Visninger - siste 7 dager (tekst)</label>
           <input class="input" id="snap-metric-views" type="text" placeholder="f.eks. 12 000" />
-          <label class="admin-label" for="snap-metric-views-30">Visninger — siste 30 dager</label>
+          <label class="admin-label" for="snap-metric-views-30">Visninger - siste 30 dager</label>
           <input class="input" id="snap-metric-views-30" type="text" placeholder="f.eks. 45 000" />
-          <label class="admin-label" for="snap-metric-views-90">Visninger — siste 90 dager</label>
+          <label class="admin-label" for="snap-metric-views-90">Visninger - siste 90 dager</label>
           <input class="input" id="snap-metric-views-90" type="text" placeholder="f.eks. 120 000" />
-          <label class="admin-label" for="snap-metric-views-all">Visninger — all time (totalt)</label>
+          <label class="admin-label" for="snap-metric-views-all">Visninger - all time (totalt)</label>
           <input class="input" id="snap-metric-views-all" type="text" placeholder="f.eks. 2,1M" />
           <label class="admin-label" for="snap-metric-engagement">Engasjement / annet</label>
           <input class="input" id="snap-metric-engagement" type="text" placeholder="valgfritt" />
@@ -254,7 +254,7 @@
         </form>
         <p id="snap-save-msg" class="admin-msg"></p>
         <p class="muted admin-hint-small">
-          Offentlig side: <code>https://mj-universe.social/snapchat/</code> · SQL-filer i prosjektrot ved behov.
+          Offentlig side: <code>https://mj-universe.social/snapchat/</code> - SQL-filer i prosjektrot ved behov.
         </p>
       </div>
 
@@ -289,17 +289,17 @@
           <input class="input" type="number" id="ep-sort" value="0" />
           <textarea class="input" id="ep-body" rows="3" placeholder="Beskrivelse"></textarea>
           <label class="admin-label" for="ep-video-url">Video-URL (mp4 eller full URL)</label>
-          <input class="input" id="ep-video-url" type="url" placeholder="https://… eller /videoer/episode.mp4" />
+          <input class="input" id="ep-video-url" type="url" placeholder="https://... eller /videoer/episode.mp4" />
           <label class="admin-label" for="ep-youtube">YouTube embed-URL</label>
-          <input class="input" id="ep-youtube" placeholder="https://www.youtube.com/embed/…" />
+          <input class="input" id="ep-youtube" placeholder="https://www.youtube.com/embed/..." />
           <label class="admin-label" for="ep-snap">Snapchat story (lenke)</label>
-          <input class="input" id="ep-snap" placeholder="https://…" />
-          <label class="admin-label" for="ep-tiktok">TikTok (Short / video — lenke)</label>
-          <input class="input" id="ep-tiktok" type="url" placeholder="https://www.tiktok.com/@…/video/…" />
+          <input class="input" id="ep-snap" placeholder="https://..." />
+          <label class="admin-label" for="ep-tiktok">TikTok (Short / video - lenke)</label>
+          <input class="input" id="ep-tiktok" type="url" placeholder="https://www.tiktok.com/@.../video/..." />
           <label class="admin-label" for="ep-instagram">Instagram Reel / video (lenke)</label>
-          <input class="input" id="ep-instagram" type="url" placeholder="https://www.instagram.com/reel/…" />
+          <input class="input" id="ep-instagram" type="url" placeholder="https://www.instagram.com/reel/..." />
           <label class="admin-label" for="ep-thumb">Thumbnail-URL (valgfritt)</label>
-          <input class="input" id="ep-thumb" placeholder="https://… eller /images/…" />
+          <input class="input" id="ep-thumb" placeholder="https://... eller /images/..." />
           <label class="admin-label" style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer">
             <input type="checkbox" id="ep-published" checked />
             Published
@@ -316,14 +316,14 @@
 
       <div id="panel-chat" class="admin-panel is-hidden">
         <h2>Live chat (mj-universe.social)</h2>
-        <p class="muted">Siste meldinger — slett ved behov. Chat bruker Supabase Realtime.</p>
+        <p class="muted">Siste meldinger - slett ved behov. Chat bruker Supabase Realtime.</p>
         <div id="chat-admin-list" class="admin-stack"></div>
       </div>
 
       <div id="panel-watch" class="admin-panel is-hidden">
         <h2>Watch / vlog</h2>
         <p class="muted">
-          Lister på <code>mj-universe.media/vlog/</code> · avspilling <code>mj-universe.watch/?v=slug</code>. Minst én kilde under
+          Lister på <code>mj-universe.media/vlog/</code> - avspilling <code>mj-universe.watch/?v=slug</code>. Minst én kilde under
           (embed, mp4 fra Storage, eller lenker).
         </p>
         <form id="form-watch-video" class="admin-form">
@@ -331,15 +331,15 @@
           <input class="input" id="watch-title" placeholder="Tittel" required />
           <textarea class="input" id="watch-desc" rows="2" placeholder="Beskrivelse"></textarea>
           <label class="admin-label" for="watch-youtube">Innebygging (YouTube / Vimeo / TikTok embed / Twitch)</label>
-          <input class="input" id="watch-youtube" placeholder="https://www.youtube.com/embed/… eller player.vimeo.com/…" />
+          <input class="input" id="watch-youtube" placeholder="https://www.youtube.com/embed/... eller player.vimeo.com/..." />
           <label class="admin-label" for="watch-video-file">Direkte video-URL (Storage mp4 eller annen https-mp4)</label>
-          <input class="input" id="watch-video-file" type="url" placeholder="https://….supabase.co/storage/v1/object/public/…/fil.mp4" />
+          <input class="input" id="watch-video-file" type="url" placeholder="https://....supabase.co/storage/v1/object/public/.../fil.mp4" />
           <label class="admin-label" for="watch-tiktok">TikTok (lenke til Short / video)</label>
-          <input class="input" id="watch-tiktok" type="url" placeholder="https://www.tiktok.com/@…/video/…" />
+          <input class="input" id="watch-tiktok" type="url" placeholder="https://www.tiktok.com/@.../video/..." />
           <label class="admin-label" for="watch-instagram">Instagram Reel / video</label>
-          <input class="input" id="watch-instagram" type="url" placeholder="https://www.instagram.com/reel/…" />
+          <input class="input" id="watch-instagram" type="url" placeholder="https://www.instagram.com/reel/..." />
           <label class="admin-label" for="watch-snap">Snapchat story</label>
-          <input class="input" id="watch-snap" type="url" placeholder="https://…" />
+          <input class="input" id="watch-snap" type="url" placeholder="https://..." />
           <label class="admin-label">Type</label>
           <select class="input" id="watch-kind">
             <option value="vlog">vlog</option>

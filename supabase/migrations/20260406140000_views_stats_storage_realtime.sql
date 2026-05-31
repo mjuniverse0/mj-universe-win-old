@@ -2,7 +2,7 @@
 -- Idempotent der mulig.
 
 -- ---------------------------------------------------------------------------
--- page_views: behold alle rader (ingen sletting) — 24t/7d/… er alltid «siste N»
+-- page_views: behold alle rader (ingen sletting) - 24t/7d/... er alltid «siste N»
 -- ---------------------------------------------------------------------------
 create table if not exists public.page_views (
   id bigint generated always as identity primary key,
@@ -51,7 +51,7 @@ $$;
 
 grant execute on function public.views_stats() to anon, authenticated;
 
--- Bakoverkompatibilitet for eldre klienter (egen telling — unnga dobbel full-scan)
+-- Bakoverkompatibilitet for eldre klienter (egen telling - unnga dobbel full-scan)
 create or replace function public.views_last_24h()
 returns bigint
 language sql

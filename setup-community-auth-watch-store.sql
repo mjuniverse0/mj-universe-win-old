@@ -1,5 +1,5 @@
 -- =============================================================================
--- MJ Universe — community auth, live chat, watch/vlog catalog, store MVP
+-- MJ Universe - community auth, live chat, watch/vlog catalog, store MVP
 -- Kjor i Supabase SQL Editor (idempotent der mulig).
 --
 -- Viktig: I Authentication -> URL Configuration, legg til redirect origins:

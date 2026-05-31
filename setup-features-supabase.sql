@@ -2,7 +2,7 @@
 -- Kjør i SQL Editor etter setup-views-supabase.sql
 -- ADMIN: Gå til Authentication → Users → Add user
 --   E-post: mariellogjhonatan@mj-universe.site  (må matche MJ_ADMIN_EMAIL i supabase-config.js)
---   Passord: sett selv (lagre trygt – ikke i Git / ikke i frontend-kode)
+--   Passord: sett selv (lagre trygt - ikke i Git / ikke i frontend-kode)
 
 create extension if not exists "pgcrypto";
 

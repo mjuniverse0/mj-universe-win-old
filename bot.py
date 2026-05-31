@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-MJ Universe — lytter til TikTok LIVE-chat (ikke Telegram).
+MJ Universe - lytter til TikTok LIVE-chat (ikke Telegram).
 
 Bruker TikTokLive (uoffisiell reverse-engineering). Du kan logge kommentarer,
-telle likes/gaver, eller sende dem til en Discord-webhook — men du kan *ikke*
+telle likes/gaver, eller sende dem til en Discord-webhook - men du kan *ikke*
 svare automatisk inne i TikTok-chatten med dette biblioteket.
 
 Krav:
-  • Python 3.10+
-  • Kontoen må være LIVE mens scriptet kjører
+  - Python 3.10+
+  - Kontoen må være LIVE mens scriptet kjører
 
 Oppsett:
   pip install -r requirements-bot.txt
@@ -54,7 +54,7 @@ def unique_id_from_env() -> str:
 def normalize_discord_webhook_url(url: str) -> str:
     """
     Discord execute-webhook must be POST. urllib follows some redirects with GET,
-    which yields 405. Fix: https (not http) and versioned path /api/v10/webhooks/…
+    which yields 405. Fix: https (not http) and versioned path /api/v10/webhooks/...
     """
     p = urlparse(url.strip())
     host = (p.hostname or "").lower()
@@ -78,10 +78,10 @@ def maybe_discord_webhook(line: str) -> None:
     if not url:
         return
     if url != raw and not getattr(maybe_discord_webhook, "_url_norm_logged", False):
-        log.info("Webhook-URL normalisert (https og/eller /api/v10/…) — unngår POST→GET ved redirect (405).")
+        log.info("Webhook-URL normalisert (https og/eller /api/v10/...) - unngår POST→GET ved redirect (405).")
         setattr(maybe_discord_webhook, "_url_norm_logged", True)
     payload = json.dumps({"content": line[:1900]}).encode("utf-8")
-    # Discord/Cloudflare often returns 403 for urllib's default User-Agent (Python-urllib/…).
+    # Discord/Cloudflare often returns 403 for urllib's default User-Agent (Python-urllib/...).
     headers = {
         "Content-Type": "application/json",
         "User-Agent": "MJUniverse-TikTokBot/1.0",
@@ -104,7 +104,7 @@ def maybe_discord_webhook(line: str) -> None:
             "Webhook HTTP %s %s%s",
             e.code,
             e.reason,
-            f" — {snippet!r}" if snippet else "",
+            f" - {snippet!r}" if snippet else "",
         )
     except urllib.error.URLError as e:
         log.warning("Webhook feilet: %s", e)
@@ -141,7 +141,7 @@ def main() -> None:
         log.info("%s: %s", nick, text)
         maybe_discord_webhook(line)
 
-    log.info("Starter — @%s må være LIVE. Ctrl+C for å stoppe.", uid)
+    log.info("Starter - @%s må være LIVE. Ctrl+C for å stoppe.", uid)
     client.run()
 
 

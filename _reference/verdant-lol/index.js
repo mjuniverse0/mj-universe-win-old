@@ -410,10 +410,10 @@ function buildApplicationEmbed() {
       {
         name: "Requirements",
         value: [
-          "• Be active in the community",
-          "• Respect server rules",
-          "• Provide valid details",
-          "• Be available for feedback",
+          "- Be active in the community",
+          "- Respect server rules",
+          "- Provide valid details",
+          "- Be available for feedback",
         ].join("\n"),
       },
       { name: "Note", value: "No duplicate panels are posted after restart." }
@@ -434,10 +434,10 @@ function buildTicketActionsGuideEmbed() {
     .setDescription(
       [
         "Use the same dropdown above for all request types:",
-        "• Claim Product",
-        "• HWID Reset",
-        "• License Freeze",
-        "• License Unfreeze",
+        "- Claim Product",
+        "- HWID Reset",
+        "- License Freeze",
+        "- License Unfreeze",
         "",
         "Founder/Admin direct commands:",
         "`/hwid check`, `/hwid reset`, `/hwid freeze`, `/hwid unfreeze`",
@@ -493,7 +493,7 @@ function buildSystemStatusEmbed() {
   ).join("\n\n");
 
   const externalLines = EXTERNAL_SERVICES.map(
-    (s) => `• ${s.name}: ${s.operational ? "operational" : "degraded"}`
+    (s) => `- ${s.name}: ${s.operational ? "operational" : "degraded"}`
   ).join("\n");
 
   return new EmbedBuilder()
@@ -523,23 +523,23 @@ function buildClientFeaturesEmbed() {
       {
         name: "Compatibility",
         value: [
-          "• Tournaments Optimized",
-          "• Full Compatibility with Windows 10 & 11",
-          "• Controller Supported",
-          "• PlayStation Supported",
-          "• Xbox Supported",
-          "• Laptop Supported",
-          "• GeForce NOW Supported",
-          "• No Extra Hardware Required",
+          "- Tournaments Optimized",
+          "- Full Compatibility with Windows 10 & 11",
+          "- Controller Supported",
+          "- PlayStation Supported",
+          "- Xbox Supported",
+          "- Laptop Supported",
+          "- GeForce NOW Supported",
+          "- No Extra Hardware Required",
         ].join("\n"),
       },
       {
         name: "Feature List",
         value: [
-          "• Discord RPC - Shows in-game status on Discord",
-          "• Performance Mode - Disables all overlays",
-          "• Streamer Mode - Hides visuals and menu at start",
-          "• Laptop Mode - Enable laptop support",
+          "- Discord RPC - Shows in-game status on Discord",
+          "- Performance Mode - Disables all overlays",
+          "- Streamer Mode - Hides visuals and menu at start",
+          "- Laptop Mode - Enable laptop support",
         ].join("\n"),
       }
     )
@@ -1396,7 +1396,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
           await interaction.reply({ content: `${product}: ${count} keys in stock.`, ephemeral: true });
           return;
         }
-        const lines = Object.entries(state.stock).map(([name, arr]) => `• ${name}: ${arr.length}`);
+        const lines = Object.entries(state.stock).map(([name, arr]) => `- ${name}: ${arr.length}`);
         await interaction.reply({
           content: lines.length ? lines.join("\n") : "No stock configured.",
           ephemeral: true,

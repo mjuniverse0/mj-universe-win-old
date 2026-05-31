@@ -1,4 +1,4 @@
--- MJ Universe — Live-status (forside + live-side). Kjør i Supabase SQL Editor.
+-- MJ Universe - Live-status (forside + live-side). Kjør i Supabase SQL Editor.
 
 create table if not exists public.site_live_status (
   id smallint primary key default 1,

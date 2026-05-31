@@ -48,11 +48,11 @@
     <system:String x:Key="DisableEncryption">Disable Value Encryption</system:String>
 
     <!-- MA_FH5TrainerInfo.xaml - Main controls -->
-    <system:String x:Key="FreeAndOpenSource">Verdant Mod Menu — see verdant.lol for product access, updates, and support. Use in line with your license.</system:String>
+    <system:String x:Key="FreeAndOpenSource">Verdant Mod Menu - see verdant.lol for product access, updates, and support. Use in line with your license.</system:String>
     <system:String x:Key="OnlyOfficialDownload">The only official download is the GitHub repository (which you can find in the about page or the right hand side)</system:String>
     <system:String x:Key="JoinTheDiscord">Join the discord here:</system:String>
     <system:String x:Key="DiscordHyperlink">https://discord.gg/rHzev9brJ3</system:String>
-    <system:String x:Key="MainDeveloper">Verdant Mod Menu · Forza Horizon 5 (same features as upstream; Verdant UI)</system:String>
+    <system:String x:Key="MainDeveloper">Verdant Mod Menu - Forza Horizon 5 (same features as upstream; Verdant UI)</system:String>
     <system:String x:Key="AnyoneElseWhoClaims">Anyone else who claims to have made it is lying</system:String>
     <system:String x:Key="Donations">Donations</system:String>
     <system:String x:Key="UsefulLinks">Useful Links</system:String>

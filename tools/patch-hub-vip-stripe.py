@@ -55,7 +55,7 @@ def patch_avbrutt() -> None:
     html2, n = re.subn(
         r"PayPal, eller betalingen ble ikke fullført\.[^<]*",
         "Du lukket Stripe Checkout eller fullførte ikke betalingen. "
-        "Ingenting er trukket — prøv gjerne igjen når du er klar.",
+        "Ingenting er trukket - prøv gjerne igjen når du er klar.",
         html,
         count=1,
     )

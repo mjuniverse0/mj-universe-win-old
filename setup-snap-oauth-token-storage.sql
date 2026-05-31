@@ -1,5 +1,5 @@
 -- Lagring av Snapchat OAuth-tokens etter code→token (Edge Function snap-oauth-exchange).
--- RLS: ingen tilgang for anon/authenticated — kun service_role (Edge Function).
+-- RLS: ingen tilgang for anon/authenticated - kun service_role (Edge Function).
 -- Kjør i Supabase SQL Editor etter du har deployet funksjonen.
 
 create table if not exists public.snap_integration_tokens (

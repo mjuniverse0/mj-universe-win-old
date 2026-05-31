@@ -1,5 +1,5 @@
 /**
- * live/live.html — henter site_live_status fra Supabase og viser embed eller TikTok-lenke(r).
+ * live/live.html - henter site_live_status fra Supabase og viser embed eller TikTok-lenke(r).
  */
 (function () {
   var SB_URL = (window.MJ_SUPABASE_URL || "").replace(/\/$/, "");
@@ -84,7 +84,7 @@
           "</a>"
         );
       })
-      .join(" · ");
+      .join(" - ");
   }
 
   async function fetchStatus() {
@@ -159,11 +159,11 @@
       stage.innerHTML =
         '<p class="live-stage__badge">ON AIR</p>' +
         '<p class="live-stage__title">Vi sender live på TikTok</p>' +
-        '<p class="live-stage__lead">Velg konto — åpne i app eller nettleser.</p>' +
+        '<p class="live-stage__lead">Velg konto - åpne i app eller nettleser.</p>' +
         '<div class="live-stage__ctas">' +
         btns +
         "</div>" +
-        '<p class="live-stage__hint">Tips: strøm samtidig til YouTube fra OBS og lim inn <strong>embed-URL</strong> i admin — da vises video her.</p>';
+        '<p class="live-stage__hint">Tips: strøm samtidig til YouTube fra OBS og lim inn <strong>embed-URL</strong> i admin - da vises video her.</p>';
       return;
     }
 
@@ -181,7 +181,7 @@
       .join("");
     stage.innerHTML =
       '<p class="live-stage__title">Ikke live akkurat nå</p>' +
-      '<p class="live-stage__lead">Følg med på TikTok — når vi sender, skrur vi på «On air» i admin.</p>' +
+      '<p class="live-stage__lead">Følg med på TikTok - når vi sender, skrur vi på «On air» i admin.</p>' +
       (profileLinks ? '<div class="live-stage__ctas">' + profileLinks + "</div>" : "");
   }
 

@@ -1,5 +1,5 @@
 /**
- * /fitness/ — publiserte sesonger og episoder fra Supabase.
+ * /fitness/ - publiserte sesonger og episoder fra Supabase.
  */
 (function () {
   var SB_URL = (window.MJ_SUPABASE_URL || "").replace(/\/$/, "");
@@ -163,7 +163,7 @@
     }
     if (!data.seasons || !data.seasons.length) {
       el.innerHTML =
-        '<p class="empty-fitness">Ingen publiserte sesonger ennå — de legges inn fra admin under <strong>Fitness</strong>.</p>';
+        '<p class="empty-fitness">Ingen publiserte sesonger ennå - de legges inn fra admin under <strong>Fitness</strong>.</p>';
       return;
     }
     var html = data.seasons

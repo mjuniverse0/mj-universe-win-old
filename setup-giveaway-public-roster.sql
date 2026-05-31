@@ -1,4 +1,4 @@
--- MJ Universe — Offentlig deltakerliste (Snapchat-brukernavn synlig for alle med lenke)
+-- MJ Universe - Offentlig deltakerliste (Snapchat-brukernavn synlig for alle med lenke)
 -- Kjør i Supabase SQL Editor etter giveaway_entries + giveaway_enter finnes.
 
 create or replace function public.get_giveaway_public_roster(p_event_id uuid)
